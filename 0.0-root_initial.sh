@@ -14,7 +14,7 @@ if [ ! -f ./$commun_functions_file ]; then
     echo "!! Fatal Error: './$commun_functions_file' not found.";
     exit 1;
 fi
-source ./$commun_functions
+source ./$commun_functions_file
 
 echo ""
 echo "... Validating the environment"
