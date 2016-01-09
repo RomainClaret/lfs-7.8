@@ -8,7 +8,7 @@ echo "### ------------------------------"
 echo ""
 echo "... Loading commun functions"
 
-commun_functions_file="script_commun-functions.sh"
+commun_functions_file="script-root_commun-functions.sh"
 
 if [ ! -f ./$commun_functions_file ]; then
     echo "!! Fatal Error: './$commun_functions_file' not found.";
