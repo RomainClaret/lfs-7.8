@@ -17,10 +17,11 @@ source ./script-root_commun-functions.sh
 echo ""
 echo "... Validating the environment"
 is_user root
-if [ $( readlink -f /bin/sh ) != "/bin/bash" ]; then
-    echo "!! Fatal Error: /bin/sh is not symlinked to /bin/bash";
-    exit 3;
-fi
+#Could be useful on some distribution, comeback later to see if needed
+#if [ $( readlink -f /bin/sh ) != "/bin/bash" ]; then
+#    echo "!! Fatal Error: /bin/sh is not symlinked to /bin/bash";
+#    exit 3;
+#fi
 
 echo ""
 echo "... Validating required software versions"
