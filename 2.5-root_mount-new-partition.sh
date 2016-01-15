@@ -62,7 +62,7 @@ echo ""
 echo "######### END OF CHAPTER 2.5 ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
-echo "### ./3.1-root_packages-patches-initial.sh"
+echo "### ./3.all-root_packages-patches.sh"
 echo ""
 
 exit 0
