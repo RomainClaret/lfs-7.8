@@ -32,14 +32,16 @@ then
   exit 3
 fi
 
+echo ""
 echo "... Creating and mounting $LFS_PARTITION_ROOT at $LFS_MOUNT_DIR"
 mkdir -pv "$LFS_MOUNT_DIR"
 mount -t ext4 $LFS_PARTITION_ROOT $LFS_MOUNT_DIR
 
+echo ""
 echo "... Enabling swap partition"
 /sbin/swapon -v $LFS_PARTITION_SWAP
 
-
+echo ""
 blkid "$LFS_PARTITION_ROOT" | grep ext4
 if [ ! $? -eq 0 ]
 then
@@ -48,6 +50,7 @@ then
 fi
 echo "!! Info: $LFS_PARTITION_ROOT has been mounted correctly"
 
+echo ""
 swapon -s | grep "$LFS_PARTITION_SWAP"
 if [ ! $? -eq 0 ]
 then
