@@ -48,15 +48,6 @@ if id -u $LFS_USERNAME >/dev/null 2>&1; then
   fi
 fi
 
-echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
-echo "### Please note that $LFS_PARTITION_ROOT and $LFS_PARTITION_SWAP will be formated."
-read -p "Are you sure [y]? " -n 1 -r
-echo ""
-if [[ ! $REPLY =~ ^[Yy]$ ]]
-then
-    exit 0
-fi
-
 echo ""
 echo "... Validating SDB directory"
 if [ -d "$LFS_PARTITION_SWAP" ]; then
@@ -85,6 +76,15 @@ t
 w
 EOF
 echo "!! Info: $LFS_HDD has been partitioned"
+
+echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
+echo "### Please note that $LFS_PARTITION_ROOT and $LFS_PARTITION_SWAP will be formated."
+read -p "Are you sure [y]? " -n 1 -r
+echo ""
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+    exit 0
+fi
 
 echo ""
 echo  "... Formatting Root Partition On $LFS_PARTITION_ROOT"
