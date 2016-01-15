@@ -23,6 +23,10 @@ if [ $( readlink -f /bin/sh ) != "/bin/bash" ]; then
 fi
 
 echo ""
+echo "... Self check"
+self_check
+
+echo ""
 echo "... Validating required software versions"
 sh script-root_version-check.sh
 echo ""

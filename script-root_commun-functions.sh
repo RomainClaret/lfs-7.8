@@ -5,3 +5,9 @@ function is_user
   	exit 2;
   fi
 }
+
+function self_check
+{
+  chmod +x 2.3-root_create-files-system-on-partition.sh
+  chmod +x 2.4-root_set-lfs-variable.sh
+}
