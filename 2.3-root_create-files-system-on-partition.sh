@@ -9,13 +9,15 @@ echo "### ----------------------------------------"
 echo ""
 echo "... Loading commun functions and variables"
 
-if [ ! -f ./script-root_commun-functions.sh ]; then
+if [ ! -f ./script-root_commun-functions.sh ];
+then
   echo "!! Fatal Error 1: './script-root_commun-functions.sh' not found.";
   exit 1;
 fi
 source ./script-root_commun-functions.sh
 
-if [ ! -f ./script-root_commun-variables.sh ]; then
+if [ ! -f ./script-root_commun-variables.sh ];
+then
   echo "!! Fatal Error 1: './script-root_commun-variables.sh' not found.";
   exit 1;
 fi
@@ -24,14 +26,16 @@ source ./script-root_commun-variables.sh
 echo ""
 echo "... Validating the environment"
 is_user root
-if [ $( readlink -f /bin/sh ) != "/bin/bash" ]; then
+if [ $( readlink -f /bin/sh ) != "/bin/bash" ];
+then
   echo "!! Fatal Error 3: /bin/sh is not symlinked to /bin/bash";
   exit 3;
 fi
 
 echo ""
 echo "... Verifying lfs health"
-if id -u $LFS_USERNAME >/dev/null 2>&1; then
+if id -u $LFS_USERNAME >/dev/null 2>&1;
+then
   echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
   echo "### We have dectected that the lfs default user account exists."
   echo "### This user is used to build LFS."
@@ -40,7 +44,8 @@ if id -u $LFS_USERNAME >/dev/null 2>&1; then
   echo ""
   read -p "Would you like to start from scratch [y]? " -n 1 -r
   echo ""
-  if [[ $REPLY =~ ^[Yy]$ ]]; then
+  if [[ $REPLY =~ ^[Yy]$ ]];
+  then
     userdel -r $LFS_USERNAME
     groupdel $LFS_GROUPNAME
     rm -rf $LFS_ROOT_BACKUP_FOLDER
@@ -50,15 +55,18 @@ fi
 
 echo ""
 echo "... Validating SDB directory"
-if [ -d "$LFS_PARTITION_SWAP" ]; then
+if [ -b "$LFS_PARTITION_SWAP" ];
+then
   cat <<EOF | fdisk $LFS_HDD
 d
 1
 d
 w
 EOF
+  echo ""
   echo "!! Info: $LFS_HDD has been erased"
 fi
+
 cat <<EOF | fdisk $LFS_HDD
 n
 p
@@ -75,6 +83,7 @@ t
 82
 w
 EOF
+echo ""
 echo "!! Info: $LFS_HDD has been partitioned"
 
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
