@@ -33,8 +33,8 @@ then
 fi
 
 echo "... Creating and mounting $LFS_PARTITION_ROOT at $LFS"
-mkdir -pv $LFS
-mount -v -t ext4 $LFS_PARTITION_ROOT $LFS
+mkdir -pv "$LFS"
+mount -t ext4 $LFS_PARTITION_ROOT $LFS
 
 echo "... Enabling swap partition"
 /sbin/swapon -v $LFS_PARTITION_SWAP
@@ -46,14 +46,13 @@ then
   echo "!! Fatal Error 4: $LFS_PARTITION_ROOT not mounted, run this script again or do manually"
   exit 4
 fi
+echo "!! Info: $LFS_PARTITION_ROOT has been mounted correctly"
 
 swapon -s | grep "$LFS_PARTITION_SWAP"
 if [ ! $? -eq 0 ]
 then
   echo "!! Fatal Error 5: $LFS_PARTITION_SWAP has not the swap activated, run this script again or do manually"
 fi
-
-echo "!! Info: $LFS_PARTITION_ROOT has been mounted correctly"
 echo "!! Info: $LFS_PARTITION_SWAP is correctly configured as swap"
 
 echo ""
