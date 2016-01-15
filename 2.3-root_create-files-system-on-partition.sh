@@ -1,40 +1,40 @@
 #!/bin/bash
 echo ""
-echo "### ----------------------------------------"
-echo "#### START OF NEW PARTITION PREPARATION ####"
-echo "####             CHAPTER 2.3            ####"
+echo "### ---------------------------------------"
+echo "###  START OF NEW PARTITION PREPARATION ###"
+echo "###              CHAPTER 2.3            ###"
 echo "### Creating a File System on the Partition"
 echo "### Must be run as \"root\""
-echo "### ----------------------------------------"
+echo "### ---------------------------------------"
+
 echo ""
 echo "... Loading commun functions and variables"
-
-if [ ! -f ./script-root_commun-functions.sh ];
+if [ ! -f ./script-root_commun-functions.sh ]
 then
-  echo "!! Fatal Error 1: './script-root_commun-functions.sh' not found.";
-  exit 1;
+  echo "!! Fatal Error 1: './script-root_commun-functions.sh' not found."
+  exit 1
 fi
 source ./script-root_commun-functions.sh
 
-if [ ! -f ./script-root_commun-variables.sh ];
+if [ ! -f ./script-root_commun-variables.sh ]
 then
-  echo "!! Fatal Error 1: './script-root_commun-variables.sh' not found.";
-  exit 1;
+  echo "!! Fatal Error 1: './script-root_commun-variables.sh' not found."
+  exit 1
 fi
 source ./script-root_commun-variables.sh
 
 echo ""
 echo "... Validating the environment"
 is_user root
-if [ $( readlink -f /bin/sh ) != "/bin/bash" ];
+if [ $( readlink -f /bin/sh ) != "/bin/bash" ]
 then
-  echo "!! Fatal Error 3: /bin/sh is not symlinked to /bin/bash";
-  exit 3;
+  echo "!! Fatal Error 3: /bin/sh is not symlinked to /bin/bash"
+  exit 3
 fi
 
 echo ""
 echo "... Verifying lfs health"
-if id -u $LFS_USERNAME >/dev/null 2>&1;
+if id -u $LFS_USERNAME >/dev/null 2>&1
 then
   echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
   echo "### We have dectected that the lfs default user account exists."
@@ -55,7 +55,7 @@ fi
 
 echo ""
 echo "... Validating SDB directory"
-if [ -b "$LFS_PARTITION_SWAP" ];
+if [ -b "$LFS_PARTITION_SWAP" ]
 then
   cat <<EOF | fdisk $LFS_HDD
 d
@@ -85,7 +85,9 @@ w
 EOF
 echo ""
 echo "!! Info: $LFS_HDD has been partitioned"
-
+echo ""
+lsblk
+echo ""
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please note that $LFS_PARTITION_ROOT and $LFS_PARTITION_SWAP will be formated."
 read -p "Are you sure [y]? " -n 1 -r
@@ -104,7 +106,7 @@ echo  "... Formatting Swap Drive On $LFS_PARTITION_SWAP"
 mkswap $LFS_PARTITION_SWAP
 
 echo ""
-echo "######### END OF CHAPTER 2.3 #########"
+echo "####### END OF CHAPTER 2.3 #######"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
 echo "### ./2.4-root_set-lfs-variable.sh"
