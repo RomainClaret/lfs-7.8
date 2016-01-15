@@ -10,14 +10,14 @@ echo ""
 echo "... Loading commun functions and variables"
 
 if [ ! -f ./script-root_commun-functions.sh ]; then
-    echo "!! Fatal Error 1: './script-root_commun-functions.sh' not found.";
-    exit 1;
+  echo "!! Fatal Error 1: './script-root_commun-functions.sh' not found.";
+  exit 1;
 fi
 source ./script-root_commun-functions.sh
 
 if [ ! -f ./script-root_commun-variables.sh ]; then
-    echo "!! Fatal Error 1: './script-root_commun-variables.sh' not found.";
-    exit 1;
+  echo "!! Fatal Error 1: './script-root_commun-variables.sh' not found.";
+  exit 1;
 fi
 source ./script-root_commun-variables.sh
 
@@ -25,8 +25,8 @@ echo ""
 echo "... Validating the environment"
 is_user root
 if [ $( readlink -f /bin/sh ) != "/bin/bash" ]; then
-    echo "!! Fatal Error 3: /bin/sh is not symlinked to /bin/bash";
-    exit 3;
+  echo "!! Fatal Error 3: /bin/sh is not symlinked to /bin/bash";
+  exit 3;
 fi
 
 echo ""
@@ -50,16 +50,47 @@ fi
 
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please note that $LFS_PARTITION_ROOT and $LFS_PARTITION_SWAP will be formated."
-read -p "Are you sure? " -n 1 -r
+read -p "Are you sure [y]? " -n 1 -r
 echo ""
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then
     exit 0
 fi
 
+echo ""
+echo "... Validating SDB directory"
+if [ -d "$LFS_PARTITION_SWAP" ]; then
+  cat <<EOF | fdisk $LFS_HDD
+d
+1
+d
+w
+EOF
+  echo "!! Info: $LFS_HDD has been erased"
+fi
+cat <<EOF | fdisk $LFS_HDD
+n
+p
+1
+
++2G
+n
+p
+2
+
+
+t
+1
+82
+w
+EOF
+echo "!! Info: $LFS_HDD has been partitioned"
+
+echo ""
 echo  "... Formatting Root Partition On $LFS_PARTITION_ROOT"
 mkfs -t ext4 $LFS_PARTITION_ROOT
 
+echo ""
 echo  "... Formatting Swap Drive On $LFS_PARTITION_SWAP"
 mkswap $LFS_PARTITION_SWAP
 
