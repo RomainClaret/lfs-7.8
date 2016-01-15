@@ -32,9 +32,9 @@ then
   exit 3
 fi
 
-echo "... Creating and mounting $LFS_PARTITION_ROOT at $LFS"
-mkdir -pv "$LFS"
-mount -t ext4 $LFS_PARTITION_ROOT $LFS
+echo "... Creating and mounting $LFS_PARTITION_ROOT at $LFS_MOUNT_DIR"
+mkdir -pv "$LFS_MOUNT_DIR"
+mount -t ext4 $LFS_PARTITION_ROOT $LFS_MOUNT_DIR
 
 echo "... Enabling swap partition"
 /sbin/swapon -v $LFS_PARTITION_SWAP

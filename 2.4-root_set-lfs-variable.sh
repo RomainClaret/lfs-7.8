@@ -3,7 +3,7 @@ echo ""
 echo "### -------------------------"
 echo "###  SET THE LFS VARIABLE ###"
 echo "###      CHAPTER 2.4      ###"
-echo "### Setting The $LFS Variable"
+echo "### Setting The LFS Variable"
 echo "### Must be run as \"root\""
 echo "### -------------------------"
 
@@ -33,8 +33,9 @@ then
 fi
 
 echo ""
-echo  "... Exporting the LFS Variable"
+echo "... Exporting the LFS Variable"
 export LFS=$LFS_MOUNT_DIR
+echo "Note that it is useless for our scripts"
 
 echo ""
 echo "######### END OF CHAPTER 2.4 ########"
