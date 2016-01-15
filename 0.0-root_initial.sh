@@ -59,3 +59,5 @@ echo "- >= Texinfo-4.7"
 echo "- >= Xz-5.0.0"
 echo ""
 echo "######### END OF INITIALIZATION #########"
+
+exit 0
