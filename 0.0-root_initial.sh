@@ -64,6 +64,14 @@ echo "- >= Tar-1.22"
 echo "- >= Texinfo-4.7"
 echo "- >= Xz-5.0.0"
 echo ""
-echo "######### END OF INITIALIZATION #########"
+
+read -p "Enter to confirm" -n 1 -r
+
+echo ""
+echo "####### END OF INITIALIZATION #######"
+echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
+echo "### Please run the next step:"
+echo "### ./2.3-root_create-files-system-on-partitions.sh"
+echo ""
 
 exit 0

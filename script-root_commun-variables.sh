@@ -10,4 +10,10 @@ LFS_PARTITION_SWAP=/dev/sdb1
 LFS_PARTITION_ROOT=/dev/sdb2
 
 # 2.4
-LFS_MOUNT_DIR=/mnt/lfs
+LFS_MOUNT=/mnt/lfs
+
+# 3.all
+LFS_BACKUPS=/root/lfs-backup/sources/
+LFS_OFFICIAL_78_PACKAGES_NUMBER=82 # including wget-list and md5sums files
+LFS_OFFICIAL_78_PACKAGES_LIST="http://www.linuxfromscratch.org/lfs/view/7.8/wget-list"
+LFS_OFFICIAL_78_PACKAGES_MD5="http://www.linuxfromscratch.org/lfs/view/7.8/md5sums"
