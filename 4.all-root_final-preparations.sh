@@ -1,11 +1,11 @@
 #!/bin/bash
 echo ""
 echo "### --------------------------------"
-echo "###  CREATE LFS TOOLS DIRECTORY  ###"
-echo "###          CHAPTER 4.2         ###"
-echo "### Creating the LFS/tools Directory"
+echo "###   DO ALL FINAL PREPARATIONS  ###"
+echo "###        CHAPTER 2-3-4.ALL       ###"
+echo "### Run all chapter 2, 3, and 4"
 echo "### Must be run as \"root\""
-echo "### --------------------------------"
+echo "### --------------------------"
 
 echo ""
 echo "... Loading commun functions and variables"
@@ -25,7 +25,6 @@ source ./script-all_commun-variables.sh
 
 echo ""
 echo "... Validating the environment"
-check_partitions
 is_user root
 if [ $( readlink -f /bin/sh ) != "/bin/bash" ]
 then
@@ -33,19 +32,11 @@ then
   exit 3
 fi
 
-echo ""
-echo "... Creating the required tools directory at $LFS_MOUNT/tools"
-mkdir -pv $LFS_MOUNT/tools
+./4.2-root_create-lfs-tools-directory.sh
+./4.3-root_adding-lfs-user.sh
 
 echo ""
-echo "... Creating the symlink on the root directory to $LFS_MOUNT/tools"
-ln -sv $LFS_MOUNT/tools /
-
-echo ""
-echo "######### END OF CHAPTER 4.2 ########"
-echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
-echo "### Please run the next step:"
-echo "### ./4.3-root_adding-lfs-user.sh"
+echo "### END OF CHAPTER 2-3-4.ALL ###"
 echo ""
 
-exit 0
+return 0

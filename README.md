@@ -4,6 +4,8 @@ This Shell scripts have for purpose to let you to speed up the process to build 
 
 The steps are based on the instruction of Linux From Scratch implementation 7.8.
 
+## Latest chapter implemented: 4.4
+
 ## License
 
 LFS 7.8 by [Romain Claret](http://www.romainclaret.com) is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.

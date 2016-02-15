@@ -14,6 +14,10 @@ function self_check
 	chmod +x 2.5-root_mount-new-partition.sh
 	chmod +x 2.all-root_make-new-partition.sh
 	chmod +x 2.to.4-root_do-all-preparations.sh
+	chmod +x 3.all-root_packages-patches.sh
+	chmod +x 4.2-root_create-lfs-tools-directory.sh
+	chmod +x 4.3-root_adding-lfs-user.sh
+	chmod +x 4.4-lfs_setting-up-environment.sh
 }
 
 function check_partitions
