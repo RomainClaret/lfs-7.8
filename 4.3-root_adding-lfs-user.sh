@@ -52,6 +52,11 @@ chown -v lfs $LFS_MOUNT/sources
 
 echo ""
 echo "... Copying all the lfs setup scripts that must be executed as lfs user to the lfs user's home directory"
+if [ -d /home/lfs/setup-scripts ]
+then
+  echo ".... Resetting setup scripts folder"
+  rm -rf /home/lfs/setup-scripts
+fi
 mkdir /home/lfs/setup-scripts
 cp 4.4* /home/lfs/setup-scripts
 cp 5*.* /home/lfs/setup-scripts
