@@ -50,7 +50,7 @@ else
 fi
 
 echo ".... 3/5 Looking for /usr/bin/gawk"
-if [ -f /usr/bin/gawk ]
+if [ ! -f /usr/bin/gawk ]
 then
   echo "!! Fatal Error 1: '/usr/bin/gawk' not found."
   exit 1
@@ -68,7 +68,7 @@ else
 fi
 
 echo ".... 5/5 Looking for /usr/bin/bison.yacc"
-if [ -f /usr/bin/bison.yacc ]
+if [ ! -f /usr/bin/bison.yacc ]
 then
   echo "!! Fatal Error 1: '/usr/bin/bison.yacc' not found."
   exit 1
