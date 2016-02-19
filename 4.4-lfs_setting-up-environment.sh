@@ -40,7 +40,7 @@ cat > ~/.bash_profile << "EOF"
 exec env -i HOME=$HOME TERM=$TERM PS1='\u:\w\$ ' /bin/bash
 EOF
 
-echo "... Making of .bashrc"
+echo ".... Making of .bashrc"
 cat > ~/.bashrc << "EOF"
 set +h
 umask 022
