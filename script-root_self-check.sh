@@ -12,6 +12,7 @@ then
     echo "!! Fatal Error 1: './script-all_commun-functions.sh' not found."
     exit 1
 fi
+source ./script-all_commun-functions.sh
 
 echo ""
 echo "... Giving execution right to all self scripts"
