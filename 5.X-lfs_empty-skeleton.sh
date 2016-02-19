@@ -1,9 +1,9 @@
 #!/bin/bash
 echo ""
 echo "### ---------------------------"
-echo "###    EMPTY   ###"
-echo "###        CHAPTER 5.?      ###"
-echo "### ???"
+echo "###        EMPTY SKELETON      ###"
+echo "###        CHAPTER 5.X      ###"
+echo "### empty skeleton"
 echo "### Must be run as \"lfs\" user"
 echo "### ---------------------------"
 
@@ -27,20 +27,17 @@ echo ""
 echo "... Validating the environment"
 check_partitions
 is_user lfs
-if [ $( readlink -f /bin/sh ) != "/bin/bash" ]
-then
-  echo "!! Fatal Error 3: /bin/sh is not symlinked to /bin/bash"
-  exit 3
-fi
+check_tools
 
 echo ""
-echo "... EMPTY"
+echo "... Doing stuff"
+
 
 echo ""
-echo "######### END OF CHAPTER 5.? ########"
+echo "######### END OF CHAPTER 5.X ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
-echo "### NOT IMPLEMENTED YET ./5.....sh"
+echo "### ./5.X-lfs_empty-skeleton.sh"
 echo ""
 
 exit 0

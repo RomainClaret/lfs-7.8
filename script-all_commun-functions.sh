@@ -40,3 +40,50 @@ function check_partitions
 	fi
 	echo "!! Info: $LFS_PARTITION_SWAP is correctly configured as swap"
 }
+
+function check_tools
+{
+	echo "... Checking symlinked tools for compilation"
+	if [ $( readlink -f /bin/sh ) != "/bin/bash"   ]
+	then
+	  echo "!! Fatal Error 3: /bin/sh is not symlinked to /bin/bash"
+	  exit 3
+	fi
+
+	if [ $( readlink -f /usr/bin/awk ) != "/etc/alternatives/awk"   ]
+	then
+	  echo "!! Fatal Error 3: /usr/bin/awk is not symlinked to /etc/alternatives/awk"
+	  exit 3
+	fi
+
+	if [ $( readlink -f /etc/alternatives/awk ) != "/usr/bin/gawk"   ]
+	then
+	  echo "!! Fatal Error 3: /etc/alternatives/awk is not symlinked to /usr/bin/gawk"
+	  exit 3
+	fi
+
+	if [ -f /usr/bin/gawk ]
+	then
+	  echo "!! Fatal Error 1: '/usr/bin/gawk' not found."
+	  exit 1
+	fi
+
+	if [ $( readlink -f /usr/bin/yacc ) != "/etc/alternatives/yacc"   ]
+	then
+	  echo "!! Fatal Error 3: /usr/bin/yacc is not symlinked to /etc/alternatives/yacc"
+	  exit 3
+	fi
+
+	if [ $( readlink -f /etc/alternatives/yacc ) != "/usr/bin/bison.yacc"   ]
+	then
+	  echo "!! Fatal Error 3: /etc/alternatives/yacc is not symlinked to /usr/bin/bison.yacc"
+	  exit 3
+	fi
+
+	if [ -f /usr/bin/bison.yacc ]
+	then
+	  echo "!! Fatal Error 1: '/usr/bin/bison.yacc' not found."
+	  exit 1
+	fi
+	echo "-> All symlinks are correct"
+}
