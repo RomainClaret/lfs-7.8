@@ -63,8 +63,9 @@ echo ""
 echo "######### END OF CHAPTER 4.3 ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next steps:"
-echo "### su - lfs"
-echo "### cd lfs; ./4.4-lfs_setting-up-environment.sh"
+echo "### su lfs"
+echo "### cd setup-scripts"
+echo "### ./4.4-lfs_setting-up-environment.sh"
 echo ""
 
 exit 0
