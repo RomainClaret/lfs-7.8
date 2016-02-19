@@ -34,9 +34,3 @@ fi
 
 ./4.2-root_create-lfs-tools-directory.sh
 ./4.3-root_adding-lfs-user.sh
-
-echo ""
-echo "### END OF CHAPTER 2-3-4.ALL ###"
-echo ""
-
-return 0
