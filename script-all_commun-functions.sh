@@ -59,7 +59,7 @@ function check_tools
 	  exit 3
 	fi
 
-	if [ -f /usr/bin/gawk ]
+	if [ ! -f /usr/bin/gawk ]
 	then
 	  echo "!! Fatal Error 1: '/usr/bin/gawk' not found."
 	  exit 1
@@ -71,7 +71,7 @@ function check_tools
 	  exit 3
 	fi
 
-	if [ -f /usr/bin/bison.yacc ]
+	if [ ! -f /usr/bin/bison.yacc ]
 	then
 	  echo "!! Fatal Error 1: '/usr/bin/bison.yacc' not found."
 	  exit 1
