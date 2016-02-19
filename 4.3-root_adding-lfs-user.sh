@@ -43,7 +43,7 @@ useradd -s /bin/bash -g $LFS_GROUPNAME -m -k /dev/null $LFS_USERNAME
 
 echo ""
 echo "... Adding a password to the lfs user"
-passwd $LFS_PASSWORD
+echo "$LFS_USERNAME" | passwd "$LFS_PASSWORD" --stdin
 
 echo ""
 echo "... Granting to lfs user full access to $LFS_MOUNT/tools and LFS_MOUNT/sources"
