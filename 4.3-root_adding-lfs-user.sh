@@ -57,7 +57,7 @@ cp 4.4* /home/lfs/setup-scripts
 cp 5*.* /home/lfs/setup-scripts
 cp script-*.sh /home/lfs/setup-scripts
 chown -R lfs:lfs /home/lfs/setup-scripts
-chmod 760 /home/lfs/setup-scripts/*
+chmod -R 760 /home/lfs/setup-scripts/
 
 echo ""
 echo "######### END OF CHAPTER 4.3 ########"
