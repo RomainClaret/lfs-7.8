@@ -53,15 +53,9 @@ function check_tools
 	  exit 3
 	fi
 
-	if [ $( readlink -f /usr/bin/awk ) != "/etc/alternatives/awk"   ]
+	if [ $( readlink -f /usr/bin/awk ) != "/usr/bin/gawk"   ]
 	then
-	  echo "!! Fatal Error 3: /usr/bin/awk is not symlinked to /etc/alternatives/awk"
-	  exit 3
-	fi
-
-	if [ $( readlink -f /etc/alternatives/awk ) != "/usr/bin/gawk"   ]
-	then
-	  echo "!! Fatal Error 3: /etc/alternatives/awk is not symlinked to /usr/bin/gawk"
+	  echo "!! Fatal Error 3: /usr/bin/awk is not symlinked to /usr/bin/gawk"
 	  exit 3
 	fi
 
@@ -71,15 +65,9 @@ function check_tools
 	  exit 1
 	fi
 
-	if [ $( readlink -f /usr/bin/yacc ) != "/etc/alternatives/yacc"   ]
+	if [ $( readlink -f /usr/bin/yacc ) != "/usr/bin/bison.yacc"   ]
 	then
-	  echo "!! Fatal Error 3: /usr/bin/yacc is not symlinked to /etc/alternatives/yacc"
-	  exit 3
-	fi
-
-	if [ $( readlink -f /etc/alternatives/yacc ) != "/usr/bin/bison.yacc"   ]
-	then
-	  echo "!! Fatal Error 3: /etc/alternatives/yacc is not symlinked to /usr/bin/bison.yacc"
+	  echo "!! Fatal Error 3: /usr/bin/yacc is not symlinked to /usr/bin/bison.yacc"
 	  exit 3
 	fi
 
