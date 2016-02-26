@@ -78,3 +78,44 @@ function check_tools
 	fi
 	echo "-> All symlinks are correct"
 }
+
+function check_tarball_uniqueness
+{
+	echo "... Checking uniqueness of tarball"
+	SOURCE_FILE_NAME=$(ls | egrep "^$INSTALL_NAME.+tar")
+	SOURCE_FILE_COUNTER=$(ls | egrep "^$INSTALL_NAME.+tar" | wc -l)
+	if [ $SOURCE_FILE_COUNTER -eq 0 ]; then
+		echo "!! Fatal Error 5: '$INSTALL_NAME' tarballs is not found."
+		exit 5
+	elif [ $SOURCE_FILE_COUNTER -gt 1 ]; then
+		echo "!! Fatal Error 5: '$INSTALL_NAME' tarballs is found but multiple times: ($SOURCE_FILE_COUNTER). It should be unique."
+		exit 5
+	fi
+}
+
+function init_tarball {
+	echo "....Initializing $INSTALL_NAME tarball"
+	if [ ! -d $LFS_MOUNT_SOURCES/$INSTALL_NAME*/  ]; then
+	    tar xf $SOURCE_FILE_NAME
+			echo "-> Initialized '$INSTALL_NAME' tarball"
+	else
+	    SHOULD_NOT_CLEAN=1
+			echo "-> Tarball '$INSTALL_NAME' is already initialized."
+	fi
+}
+
+function get_build_errors {
+	WARNINGS_COUNTER=0
+  ERRORS_COUNTER=0
+
+	WARNINGS_COUNTER=$(grep -n " [Ww]arnings*:* " $LFS_BUILD_LOGS_5* | wc -l)
+	ERRORS_COUNTER=$(grep -n " [Ee]rrors*:* \|^FAIL:" $LFS_BUILD_LOGS_5* | wc -l)
+
+	if [ $ERRORS_COUNTER -ne 0 ]; then
+	    echo "!! Fatal Error 7: $SOURCE_FILE_NAME build has $ERRORS_COUNTER errors"
+	    grep -n " [Ee]rrors*:* \|^FAIL:" $LFS_BUILD_LOGS_5*
+	    echo "--> Please check on http://www.linuxfromscratch.org/lfs/build-logs for comparaison"
+	else
+		  echo "-> Congrats you have no errors."
+	fi
+}

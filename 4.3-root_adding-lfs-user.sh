@@ -64,6 +64,25 @@ cp script-* /home/lfs/setup-scripts
 chown -R lfs:lfs /home/lfs/setup-scripts
 chmod -R 760 /home/lfs/setup-scripts/
 
+echo "... Creating a build-logs folder"
+if [ -d $LFS_BUILD_LOGS ]
+then
+  echo ".... Resetting the build-logs folder"
+  rm -rf $LFS_BUILD_LOGS
+fi
+
+mkdir LFS_BUILD_LOGS
+
+echo "... Creating a build-logs for Chapter 5"
+echo "########################################################" > $LFS_BUILD_LOGS_5
+echo "LOG for the chapter 5: Constructing the Temporary System" >> $LFS_BUILD_LOGS_5
+echo "Runned on on $(date -u)" >> $LFS_BUILD_LOGS_5
+echo "########################################################" >> $LFS_BUILD_LOGS_5
+echo "" >> $LFS_BUILD_LOGS_5
+
+chown -v lfs $LFS_BUILD_LOGS
+chown -v lfs $LFS_BUILD_LOGS_5
+
 echo ""
 echo "######### END OF CHAPTER 4.3 ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"

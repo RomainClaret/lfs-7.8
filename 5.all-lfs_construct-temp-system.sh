@@ -29,10 +29,4 @@ check_partitions
 is_user lfs
 
 ./5.3-lfs_check-tools.sh
-
-echo ""
-echo "######### END OF CHAPTER 5.all ########"
-echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
-echo "### Please run the next step:"
-echo "### ./6.X-lfs_empty-skeleton.sh"
-echo ""
+./5.4-lfs_binutils-2.25.1.sh
