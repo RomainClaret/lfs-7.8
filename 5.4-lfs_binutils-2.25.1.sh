@@ -86,12 +86,14 @@ get_build_errors $LFS_MOUNT
 
 echo ""
 echo "######### END OF CHAPTER 5.$CHAPTER_SECTION ########"
+echo "### Warning Counter: $WARNINGS_COUNTER"
+echo "### Error Counter: $ERRORS_COUNTER"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
 echo "### ./5.5-lfs_gcc-5.2.0.sh"
 echo ""
 
-if [ $LFS_ERROR_COUNT -ne 0 ]; then
+if [ $ERRORS_COUNTER -ne 0 ]; then
 	exit 6
 else
 	exit 0
