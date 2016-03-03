@@ -109,7 +109,7 @@ function check_tools
 	  echo "!! Fatal Error 1: '/usr/bin/bison.yacc' not found."
 	  exit 1
 	fi
-	echo "-> All symlinks are correct"
+	echo "---> All symlinks are correct"
 }
 
 function check_tarball_uniqueness
@@ -127,13 +127,13 @@ function check_tarball_uniqueness
 }
 
 function init_tarball {
-	echo "....Initializing $INSTALL_NAME tarball"
+	echo "....Initializing '$INSTALL_NAME' tarball"
 	if [ ! -d $LFS_MOUNT_SOURCES/$INSTALL_NAME*/  ]; then
 	    tar xf $SOURCE_FILE_NAME
-			echo "-> Initialized '$INSTALL_NAME' tarball"
+			echo "---> Initialized '$INSTALL_NAME' tarball"
 	else
 	    SHOULD_NOT_CLEAN=1
-			echo "-> Tarball '$INSTALL_NAME' is already initialized."
+			echo "---> Tarball '$INSTALL_NAME' is already initialized."
 	fi
 }
 
@@ -149,6 +149,6 @@ function get_build_errors {
 	    grep -n " [Ee]rrors*:* \|^FAIL:" $LFS_BUILD_LOGS_5*
 	    echo "--> Please check on http://www.linuxfromscratch.org/lfs/build-logs for comparaison"
 	else
-		  echo "-> Congrats you have no errors."
+		  echo "---> Congrats you have no errors."
 	fi
 }

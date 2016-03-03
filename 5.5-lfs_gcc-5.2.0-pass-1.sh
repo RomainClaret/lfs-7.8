@@ -5,8 +5,8 @@ INSTALL_NAME=gcc
 
 echo ""
 echo "### ---------------------------"
-echo "###         GCC 5.2.0       ###"
-echo "###        CHAPTER 5.4      ###"
+echo "###            GCC          ###"
+echo "###        CHAPTER 5.5      ###"
 echo "### GCC-5.2.0 - Pass 1"
 echo "### Must be run as \"lfs\" user"
 echo "### ---------------------------"
@@ -103,7 +103,7 @@ time {
 	  &> $LOG_FILE-make.log
 
 	echo ".... Installing $SOURCE_FILE_NAME"
-	make install $LFS_MAKE_FLAGS \
+	make install $PROCESSOR_CORES \
 	  &> $LOG_FILE-make-install.log
 
 }
