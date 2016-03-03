@@ -105,6 +105,8 @@ echo ""
 read -p "Enter to confirm" -n 1 -r
 echo ""
 
+rm  ../dummy.c ../a.out
+
 echo ""
 echo "######### END OF CHAPTER 5.$CHAPTER_SECTION ########"
 echo "### Warning Counter: $WARNINGS_COUNTER"

@@ -99,12 +99,10 @@ time {
 		&> $LOG_FILE-configure.log
 
 	echo ".... Making $SOURCE_FILE_NAME"
-	make $PROCESSOR_CORES \
-	  &> $LOG_FILE-make.log
+	make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
 	echo ".... Installing $SOURCE_FILE_NAME"
-	make install $PROCESSOR_CORES \
-	  &> $LOG_FILE-make-install.log
+	make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }
 
@@ -123,7 +121,7 @@ echo "### Please run the next step:"
 echo "### ./5.6-lfs_linux-4.2-api-headers.sh"
 echo ""
 
-if [ $LFS_ERROR_COUNT -ne 0 ]
+if [ $ERRORS_COUNTER -ne 0 ]
 then
 	exit 6
 else

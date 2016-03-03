@@ -32,8 +32,8 @@ is_user lfs
 # ./5.4-lfs_binutils-2.25.1-pass-1.sh
 # ./5.5-lfs_gcc-5.2.0-pass-1.sh
 # ./5.6-lfs_linux-4.2-api-headers.sh
-./5.7-lfs_glibc-2.22.sh
-# ./5.8-lfs_libstdcpp-5.2.0.sh
+# ./5.7-lfs_glibc-2.22.sh
+./5.8-lfs_libstdcpp-5.2.0.sh
 # ./5.9-lfs_binutils-2.25.1-pass-2.sh
 # ./5.10-lfs_gcc-5.2.0-pass-2.sh
 # ./5.11-lfs_tcl-core-8.6.4.sh
