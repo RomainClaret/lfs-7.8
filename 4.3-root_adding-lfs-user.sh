@@ -70,8 +70,7 @@ then
   echo ".... Resetting the build-logs folder"
   rm -rf $LFS_BUILD_LOGS
 fi
-
-mkdir LFS_BUILD_LOGS
+mkdir $LFS_BUILD_LOGS
 
 echo "... Creating a build-logs for Chapter 5"
 echo "########################################################" > $LFS_BUILD_LOGS_MAIN_5
