@@ -47,7 +47,7 @@ echo ""
 echo "... Installation starts now"
 time {
 
-	echo ".... Pre-Configuration of $SOURCE_FILE_NAME"
+	echo ".... Pre-Configuring"
 	mkdir ../$BUILD_DIRECTORY
 	cd ../$BUILD_DIRECTORY
 
