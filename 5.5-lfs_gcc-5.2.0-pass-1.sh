@@ -49,11 +49,11 @@ time {
 
 	echo ".... Pre-Configuring"
   tar -xf ../mpfr-3.1.3.tar.xz
-	mv -v mpfr-3.1.3 mpfr					&> $LOG_FILE-mv-mpfr.log
+	mv -v mpfr-3.1.3 mpfr	&> $LOG_FILE-mv-mpfr.log
 	tar -xf ../gmp-6.0.0a.tar.xz
-	mv -v gmp-6.0.0 gmp						&> $LOG_FILE-mv-gmp.log
+	mv -v gmp-6.0.0 gmp	&> $LOG_FILE-mv-gmp.log
 	tar -xf ../mpc-1.0.3.tar.gz
-	mv -v mpc-1.0.3 mpc						&> $LOG_FILE-mv-mpc.log
+	mv -v mpc-1.0.3 mpc	&> $LOG_FILE-mv-mpc.log
 
   for file in \
 	 $(find gcc/config -name linux64.h -o -name linux.h -o -name sysv4.h)

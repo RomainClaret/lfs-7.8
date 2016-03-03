@@ -20,7 +20,7 @@ function self_check
 	chmod +x 4.2-root_create-lfs-tools-directory.sh
 	chmod +x 4.3-root_adding-lfs-user.sh
 	chmod +x 4.4-lfs_setting-up-environment.sh
-	chmod +x 5.all-lfs_construct-temp-system.sh
+	chmod +x 5.all-lfs_construct-tools.sh
 	chmod +x 5.3-lfs_check-tools.sh
 	chmod +x 5.4-lfs_binutils-2.25.1-pass-1.sh
 	chmod +x 5.5-lfs_gcc-5.2.0-pass-1.sh
