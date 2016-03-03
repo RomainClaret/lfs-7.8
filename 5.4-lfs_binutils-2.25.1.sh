@@ -11,7 +11,7 @@ echo "### Binutils-2.25.1 - Pass 1"
 echo "### Must be run as \"lfs\" user"
 echo "### ---------------------------"
 
-BUILD_DIRECTORY=$FILE_PREFIX-build
+BUILD_DIRECTORY=$INSTALL_NAME-build
 LOG_FILE=$LFS_BUILD_LOGS_5.$CHAPTER_SECTION_$INSTALL_NAME
 
 echo ""
