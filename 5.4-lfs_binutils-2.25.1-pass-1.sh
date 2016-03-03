@@ -66,7 +66,7 @@ time {
 	  &> $LOG_FILE-make.log
 
 	case $(uname -m) in x86_64)
-    echo "-> 64bit architecture detected"
+    echo "---> 64bit architecture detected"
     mkdir /tools/lib && ln -sv lib /tools/lib64 ;;
 	esac
 
