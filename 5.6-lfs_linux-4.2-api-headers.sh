@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CHAPTER_SECTION=6
-INSTALL_NAME=linux-api-headers
+INSTALL_NAME=linux
 
 echo ""
 echo "### ---------------------------"
