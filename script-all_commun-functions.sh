@@ -22,6 +22,39 @@ function self_check
 	chmod +x 4.4-lfs_setting-up-environment.sh
 	chmod +x 5.all-lfs_construct-temp-system.sh
 	chmod +x 5.3-lfs_check-tools.sh
+	chmod +x 5.4-lfs_binutils-2.25.1-pass-1.sh
+	chmod +x 5.5-lfs_gcc-5.2.0-pass-1.sh
+	chmod +x 5.6-lfs_linux-4.2-api-headers.sh
+	chmod +x 5.7-lfs_glibc-2.22.sh
+	chmod +x 5.8-lfs_libstdcpp-5.2.0.sh
+	chmod +x 5.9-lfs_binutils-2.25.1-pass-2.sh
+	chmod +x 5.10-lfs_gcc-5.2.0-pass-2.sh
+	chmod +x 5.11-lfs_tcl-core-8.6.4.sh
+	chmod +x 5.12-lfs_expect-5.45.sh
+	chmod +x 5.13-lfs_dejagnu-1.5.3.sh
+	chmod +x 5.14-lfs_check-0.10.0.sh
+	chmod +x 5.15-lfs_ncurses-6.0.sh
+	chmod +x 5.16-lfs_bash-4.3.30.sh
+	chmod +x 5.17-lfs_bzip2-1.0.6.sh
+	chmod +x 5.18-lfs_coreutils-8.24.sh
+	chmod +x 5.19-lfs_diffutils-3.3.sh
+	chmod +x 5.20-lfs_file-5.24.sh
+	chmod +x 5.21-lfs_findutils-4.4.2.sh
+	chmod +x 5.22-lfs_gawk-4.1.3.sh
+	chmod +x 5.23-lfs_gettext-0.19.5.1.sh
+	chmod +x 5.24-lfs_grep-2.21.sh
+	chmod +x 5.25-lfs_gzip-1.6.sh
+	chmod +x 5.26-lfs_m4-1.4.17.sh
+	chmod +x 5.27-lfs_make-4.1.sh
+	chmod +x 5.28-lfs_patch-2.7.5.sh
+	chmod +x 5.29-lfs_perl-5.22.0.sh
+	chmod +x 5.30-lfs_sed-4.2.2.sh
+	chmod +x 5.31-lfs_tar-1.28.sh
+	chmod +x 5.32-lfs_texinfo-6.0.sh
+	chmod +x 5.33-lfs_util-linux-2.27.sh
+	chmod +x 5.34-lfs_xz-5.2.1.sh
+	chmod +x 5.35-lfs_stripping.sh
+	chmod +x 5.36-lfs_changing-ownership.sh
 }
 
 function check_partitions
