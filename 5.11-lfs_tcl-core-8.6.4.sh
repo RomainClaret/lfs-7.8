@@ -1,13 +1,13 @@
 #!/bin/bash
 
-CHAPTER_SECTION=8
-INSTALL_NAME=gcc
+CHAPTER_SECTION=11
+INSTALL_NAME=tcl
 
 echo ""
 echo "### ---------------------------"
-echo "###          Libstdc       ###"
-echo "###        CHAPTER 5.8      ###"
-echo "### Libstdc++-5.2.0"
+echo "###             TCL         ###"
+echo "###        CHAPTER 5.11     ###"
+echo "### Tcl-core-8.6.4"
 echo "### Must be run as \"lfs\" user"
 echo "### ---------------------------"
 
@@ -47,26 +47,25 @@ echo ""
 echo "... Installation starts now"
 time {
 
-	echo ".... Pre-Configuring"
-	mkdir ../$BUILD_DIRECTORY
-	cd ../$BUILD_DIRECTORY
-
 	echo ".... Configuring $SOURCE_FILE_NAME"
-  ../gcc-5.2.0/libstdc++-v3/configure                        \
-    --host=$LFS_TGT                                          \
-    --prefix=/tools                                          \
-    --disable-multilib                                       \
-    --disable-nls                                            \
-    --disable-libstdcxx-threads                              \
-    --disable-libstdcxx-pch                                  \
-    --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/5.2.0 \
+  cd unix
+	./configure       \
+    --prefix=/tools \
 		&> $LOG_FILE-configure.log
 
 	echo ".... Making $SOURCE_FILE_NAME"
 	make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
+  echo ".... Testing make $SOURCE_FILE_NAME"
+  TZ=UTC make test $LFS_MAKE_FLAGS &> $LOG_FILE-make-test.log
+
 	echo ".... Installing $SOURCE_FILE_NAME"
 	make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
+
+  echo ".... Post-Installing $SOURCE_FILE_NAME"
+  chmod -v u+w /tools/lib/libtcl8.6.so &> $LOG_FILE-postinstall-chmod.log
+	make install-private-headers &> $LOG_FILE-postinstall-make-install-private-headers.log
+	ln -sv tclsh8.6 /tools/bin/tclsh &> $LOG_FILE-postinstall-symlink.log
 
 }
 
@@ -84,7 +83,7 @@ echo "### Warning Counter: $WARNINGS_COUNTER"
 echo "### Error Counter: $ERRORS_COUNTER"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
-echo "### ./5.9-lfs_binutils-2.25.1-pass-2.sh"
+echo "### ./5.12-lfs_expect-5.45.sh"
 echo ""
 
 if [ $ERRORS_COUNTER -ne 0 ]

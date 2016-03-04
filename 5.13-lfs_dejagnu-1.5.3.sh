@@ -1,13 +1,13 @@
 #!/bin/bash
 
-CHAPTER_SECTION=8
-INSTALL_NAME=gcc
+CHAPTER_SECTION=13
+INSTALL_NAME=dejagnu
 
 echo ""
 echo "### ---------------------------"
-echo "###          Libstdc       ###"
-echo "###        CHAPTER 5.8      ###"
-echo "### Libstdc++-5.2.0"
+echo "###          DEJAGNU        ###"
+echo "###        CHAPTER 5.13     ###"
+echo "### DejaGNU-1.5.3"
 echo "### Must be run as \"lfs\" user"
 echo "### ---------------------------"
 
@@ -47,26 +47,16 @@ echo ""
 echo "... Installation starts now"
 time {
 
-	echo ".... Pre-Configuring"
-	mkdir ../$BUILD_DIRECTORY
-	cd ../$BUILD_DIRECTORY
-
 	echo ".... Configuring $SOURCE_FILE_NAME"
-  ../gcc-5.2.0/libstdc++-v3/configure                        \
-    --host=$LFS_TGT                                          \
-    --prefix=/tools                                          \
-    --disable-multilib                                       \
-    --disable-nls                                            \
-    --disable-libstdcxx-threads                              \
-    --disable-libstdcxx-pch                                  \
-    --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/5.2.0 \
+  ./configure
+    --prefix=/tools \
 		&> $LOG_FILE-configure.log
 
 	echo ".... Making $SOURCE_FILE_NAME"
-	make $PROCESSOR_CORES &> $LOG_FILE-make.log
+  make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
-	make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
+	echo ".... Checking make $SOURCE_FILE_NAME"
+  make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
 }
 
@@ -84,7 +74,7 @@ echo "### Warning Counter: $WARNINGS_COUNTER"
 echo "### Error Counter: $ERRORS_COUNTER"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
-echo "### ./5.9-lfs_binutils-2.25.1-pass-2.sh"
+echo "### ./5.14-lfs_check-0.10.0.sh"
 echo ""
 
 if [ $ERRORS_COUNTER -ne 0 ]

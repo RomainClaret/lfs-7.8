@@ -1,13 +1,13 @@
 #!/bin/bash
 
-CHAPTER_SECTION=8
-INSTALL_NAME=gcc
+CHAPTER_SECTION=12
+INSTALL_NAME=expect
 
 echo ""
 echo "### ---------------------------"
-echo "###          Libstdc       ###"
-echo "###        CHAPTER 5.8      ###"
-echo "### Libstdc++-5.2.0"
+echo "###           EXPECT        ###"
+echo "###        CHAPTER 5.12     ###"
+echo "### Expect-5.45"
 echo "### Must be run as \"lfs\" user"
 echo "### ---------------------------"
 
@@ -48,25 +48,24 @@ echo "... Installation starts now"
 time {
 
 	echo ".... Pre-Configuring"
-	mkdir ../$BUILD_DIRECTORY
-	cd ../$BUILD_DIRECTORY
+  cp -v configure{,.orig}
+	sed 's:/usr/local/bin:/bin:' configure.orig > configure
 
 	echo ".... Configuring $SOURCE_FILE_NAME"
-  ../gcc-5.2.0/libstdc++-v3/configure                        \
-    --host=$LFS_TGT                                          \
-    --prefix=/tools                                          \
-    --disable-multilib                                       \
-    --disable-nls                                            \
-    --disable-libstdcxx-threads                              \
-    --disable-libstdcxx-pch                                  \
-    --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/5.2.0 \
+  ./configure
+    --prefix=/tools                  \
+	  --with-tcl=/tools/lib            \
+	  --with-tclinclude=/tools/include \
 		&> $LOG_FILE-configure.log
 
 	echo ".... Making $SOURCE_FILE_NAME"
 	make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
+  echo ".... Testing make $SOURCE_FILE_NAME"
+  make test $PROCESSOR_CORES &> $LOG_FILE-make-test.log
+
 	echo ".... Installing $SOURCE_FILE_NAME"
-	make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
+  make SCRIPTS="" install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }
 
@@ -84,7 +83,7 @@ echo "### Warning Counter: $WARNINGS_COUNTER"
 echo "### Error Counter: $ERRORS_COUNTER"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
-echo "### ./5.9-lfs_binutils-2.25.1-pass-2.sh"
+echo "### ./5.13-lfs_dejagnu-1.5.3.sh"
 echo ""
 
 if [ $ERRORS_COUNTER -ne 0 ]

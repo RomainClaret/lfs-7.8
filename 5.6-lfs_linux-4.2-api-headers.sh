@@ -54,7 +54,7 @@ time {
   make INSTALL_HDR_PATH=dest headers_install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"
-  cp -rv dest/include/* /tools/include &> $LOG_FILE-cp-devinclude.log
+  cp -rv dest/include/* /tools/include &> $LOG_FILE-postinstall-cp-devinclude.log
 
 }
 

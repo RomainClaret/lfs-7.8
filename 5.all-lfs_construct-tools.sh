@@ -35,10 +35,10 @@ is_user lfs
 # ./5.7-lfs_glibc-2.22.sh
 # ./5.8-lfs_libstdcpp-5.2.0.sh
 # ./5.9-lfs_binutils-2.25.1-pass-2.sh
-./5.10-lfs_gcc-5.2.0-pass-2.sh
-# ./5.11-lfs_tcl-core-8.6.4.sh
-# ./5.12-lfs_expect-5.45.sh
-# ./5.13-lfs_dejagnu-1.5.3.sh
+# ./5.10-lfs_gcc-5.2.0-pass-2.sh
+./5.11-lfs_tcl-core-8.6.4.sh
+./5.12-lfs_expect-5.45.sh
+./5.13-lfs_dejagnu-1.5.3.sh
 # ./5.14-lfs_check-0.10.0.sh
 # ./5.15-lfs_ncurses-6.0.sh
 # ./5.16-lfs_bash-4.3.30.sh

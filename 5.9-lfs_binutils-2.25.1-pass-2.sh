@@ -55,12 +55,12 @@ time {
   CC=$LFS_TGT-gcc                \
 	AR=$LFS_TGT-ar                 \
 	RANLIB=$LFS_TGT-ranlib         \
-	../binutils-2.25.1/configure     \
-		--prefix=/tools            \
-		--disable-nls              \
-		--disable-werror           \
-		--with-lib-path=/tools/lib \
-		--with-sysroot 				\
+	../binutils-2.25.1/configure   \
+		--prefix=/tools              \
+		--disable-nls                \
+		--disable-werror             \
+		--with-lib-path=/tools/lib   \
+		--with-sysroot 			         \
 		&> $LOG_FILE-configure.log
 
 	echo ".... Making $SOURCE_FILE_NAME"
@@ -75,9 +75,9 @@ time {
 	make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"
-  make -C ld clean &> $LOG_FILE-make-ld-clean.log
-	make -C ld LIB_PATH=/usr/lib:/lib &> $LOG_FILE-make-ld-lib.log
-	cp -v ld/ld-new /tools/bin &> $LOG_FILE-post-make-copy.log
+  make -C ld clean &> $LOG_FILE-install-make-ld-clean.log
+	make -C ld LIB_PATH=/usr/lib:/lib &> $LOG_FILE-postinstall-make-ld-lib.log
+	cp -v ld/ld-new /tools/bin &> $LOG_FILE-postinstall-make-copy.log
 
 }
 
