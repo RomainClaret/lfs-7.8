@@ -61,4 +61,3 @@ is_user lfs
 ./5.33-lfs_util-linux-2.27.sh
 ./5.34-lfs_xz-5.2.1.sh
 ./5.35-lfs_stripping.sh
-./5.36-lfs_changing-ownership.sh
