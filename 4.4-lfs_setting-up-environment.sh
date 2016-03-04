@@ -52,6 +52,13 @@ export LFS LC_ALL LFS_TGT PATH
 EOF
 
 echo ""
+echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
+echo "Read carefully the following instructions"
+echo ""
+read -p "Enter to confirm" -n 1 -r
+echo ""
+
+echo ""
 echo "######### END OF CHAPTER 4.4 ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next steps:"

@@ -46,9 +46,9 @@ echo "... Adding a password to the lfs user"
 echo "$LFS_USERNAME:$LFS_PASSWORD" | chpasswd
 
 echo ""
-echo "... Granting to lfs user full access to $LFS_MOUNT/tools and LFS_MOUNT/sources"
-chown -v lfs $LFS_MOUNT/tools
-chown -v lfs $LFS_MOUNT/sources
+echo "... Granting to lfs user full access to $LFS_MOUNT_TOOLS and $LFS_MOUNT_SOURCES"
+chown -v lfs $LFS_MOUNT_TOOLS
+chown -v lfs $LFS_MOUNT_SOURCES
 
 echo ""
 echo "... Copying all the lfs setup scripts that must be executed as lfs user to the lfs user's home directory"
@@ -81,6 +81,13 @@ echo "" >> $LFS_BUILD_LOGS_MAIN_5
 
 chown -v lfs $LFS_BUILD_LOGS
 chown -v lfs $LFS_BUILD_LOGS_MAIN_5
+
+echo ""
+echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
+echo "Read carefully the following instructions"
+echo ""
+read -p "Enter to confirm" -n 1 -r
+echo ""
 
 echo ""
 echo "######### END OF CHAPTER 4.3 ########"
