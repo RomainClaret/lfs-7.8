@@ -6,7 +6,7 @@ INSTALL_NAME=gcc
 echo ""
 echo "### ---------------------------"
 echo "###             GCC         ###"
-echo "###        CHAPTER 5.10     ###"
+echo "###        CHAPTER 5.$CHAPTER_SECTION     ###"
 echo "### GCC-5.2.0 - Pass 2"
 echo "### Must be run as \"lfs\" user"
 echo "### ---------------------------"

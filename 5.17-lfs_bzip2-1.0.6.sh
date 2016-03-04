@@ -1,13 +1,13 @@
 #!/bin/bash
 
-CHAPTER_SECTION=6
-INSTALL_NAME=linux
+CHAPTER_SECTION=17
+INSTALL_NAME=bzip2
 
 echo ""
 echo "### ---------------------------"
-echo "###     Linux API HEADERS   ###"
-echo "###        CHAPTER 5.$CHAPTER_SECTION      ###"
-echo "### Linux-4.2 API Headers"
+echo "###            BZIP2        ###"
+echo "###        CHAPTER 5.$CHAPTER_SECTION     ###"
+echo "### Bzip2-1.0.6"
 echo "### Must be run as \"lfs\" user"
 echo "### ---------------------------"
 
@@ -40,7 +40,7 @@ echo ""
 echo "... Setup building environment"
 cd $LFS_MOUNT_SOURCES
 check_tarball_uniqueness
-init_tarball $LFS_MOUNT_SOURCES
+init_tarball
 cd $(ls -d $LFS_MOUNT_SOURCES/$INSTALL_NAME*/)
 
 echo ""
@@ -48,13 +48,10 @@ echo "... Installation starts now"
 time {
 
 	echo ".... Making $SOURCE_FILE_NAME"
-  make mrproper $PROCESSOR_CORES &> $LOG_FILE-make-mrproper.log
+  make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
-  make INSTALL_HDR_PATH=dest headers_install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
-
-  echo ".... Post-Installing $SOURCE_FILE_NAME"
-  cp -rv dest/include/* /tools/include &> $LOG_FILE-postinstall-cp-devinclude.log
+  echo ".... Installing $SOURCE_FILE_NAME"
+  make PREFIX=/tools install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }
 
@@ -64,13 +61,15 @@ cd $LFS_MOUNT_SOURCES
 [ ! $SHOULD_NOT_CLEAN ] && rm -rf $(ls -d  $LFS_MOUNT_SOURCES/$INSTALL_NAME*/)
 rm -rf $BUILD_DIRECTORY
 
-get_build_errors
+get_build_errors $LFS_MOUNT
 
 echo ""
 echo "######### END OF CHAPTER 5.$CHAPTER_SECTION ########"
+echo "### Warning Counter: $WARNINGS_COUNTER"
+echo "### Error Counter: $ERRORS_COUNTER"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
-echo "### ./5.7-lfs_glibc-2.22.sh"
+echo "### ./5.18-lfs_coreutils-8.24.sh"
 echo ""
 
 if [ $ERRORS_COUNTER -ne 0 ]

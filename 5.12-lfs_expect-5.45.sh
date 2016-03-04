@@ -6,7 +6,7 @@ INSTALL_NAME=expect
 echo ""
 echo "### ---------------------------"
 echo "###           EXPECT        ###"
-echo "###        CHAPTER 5.12     ###"
+echo "###        CHAPTER 5.$CHAPTER_SECTION     ###"
 echo "### Expect-5.45"
 echo "### Must be run as \"lfs\" user"
 echo "### ---------------------------"
@@ -52,7 +52,7 @@ time {
 	sed 's:/usr/local/bin:/bin:' configure.orig > configure
 
 	echo ".... Configuring $SOURCE_FILE_NAME"
-  ./configure
+  ./configure                        \
     --prefix=/tools                  \
 	  --with-tcl=/tools/lib            \
 	  --with-tclinclude=/tools/include \

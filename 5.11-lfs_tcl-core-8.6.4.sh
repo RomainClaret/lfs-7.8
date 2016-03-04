@@ -6,7 +6,7 @@ INSTALL_NAME=tcl
 echo ""
 echo "### ---------------------------"
 echo "###             TCL         ###"
-echo "###        CHAPTER 5.11     ###"
+echo "###        CHAPTER 5.$CHAPTER_SECTION     ###"
 echo "### Tcl-core-8.6.4"
 echo "### Must be run as \"lfs\" user"
 echo "### ---------------------------"

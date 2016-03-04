@@ -1,8 +1,11 @@
 #!/bin/bash
+
+CHAPTER_SECTION=3
+
 echo ""
 echo "### ---------------------------"
 echo "###        CHECK TOOLS      ###"
-echo "###        CHAPTER 5.3      ###"
+echo "###        CHAPTER 5.$CHAPTER_SECTION      ###"
 echo "### Check tools for compilation"
 echo "### Must be run as \"lfs\" user"
 echo "### ---------------------------"
@@ -77,7 +80,7 @@ else
 fi
 
 echo ""
-echo "######### END OF CHAPTER 5.3 ########"
+echo "######### END OF CHAPTER 5.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
 echo "### ./5.X-lfs_empty-skeleton.sh"

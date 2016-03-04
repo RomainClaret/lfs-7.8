@@ -6,7 +6,7 @@ INSTALL_NAME=binutils
 echo ""
 echo "### ---------------------------"
 echo "###          BINUTILS       ###"
-echo "###        CHAPTER 5.9      ###"
+echo "###        CHAPTER 5.$CHAPTER_SECTION      ###"
 echo "### Binutils-2.25.1 - Pass 2"
 echo "### Must be run as \"lfs\" user"
 echo "### ---------------------------"

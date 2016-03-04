@@ -6,7 +6,7 @@ INSTALL_NAME=dejagnu
 echo ""
 echo "### ---------------------------"
 echo "###          DEJAGNU        ###"
-echo "###        CHAPTER 5.13     ###"
+echo "###        CHAPTER 5.$CHAPTER_SECTION     ###"
 echo "### DejaGNU-1.5.3"
 echo "### Must be run as \"lfs\" user"
 echo "### ---------------------------"
@@ -48,11 +48,11 @@ echo "... Installation starts now"
 time {
 
 	echo ".... Configuring $SOURCE_FILE_NAME"
-  ./configure
+  ./configure       \
     --prefix=/tools \
 		&> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+	echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 	echo ".... Checking make $SOURCE_FILE_NAME"

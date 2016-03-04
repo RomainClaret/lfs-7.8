@@ -6,7 +6,7 @@ INSTALL_NAME=gcc
 echo ""
 echo "### ---------------------------"
 echo "###          Libstdc       ###"
-echo "###        CHAPTER 5.8      ###"
+echo "###        CHAPTER 5.$CHAPTER_SECTION      ###"
 echo "### Libstdc++-5.2.0"
 echo "### Must be run as \"lfs\" user"
 echo "### ---------------------------"

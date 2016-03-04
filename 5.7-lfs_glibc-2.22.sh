@@ -6,7 +6,7 @@ INSTALL_NAME=glibc
 echo ""
 echo "### ---------------------------"
 echo "###           Glibc         ###"
-echo "###        CHAPTER 5.7      ###"
+echo "###        CHAPTER 5.$CHAPTER_SECTION      ###"
 echo "### Glibc-2.22"
 echo "### Must be run as \"lfs\" user"
 echo "### ---------------------------"
