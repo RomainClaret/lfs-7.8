@@ -54,7 +54,7 @@ function self_check
 	chmod +x 5.33-lfs_util-linux-2.27.sh
 	chmod +x 5.34-lfs_xz-5.2.1.sh
 	chmod +x 5.35-lfs_stripping.sh
-	chmod +x 5.36-lfs_changing-ownership.sh
+	chmod +x 5.36-root_changing-ownership.sh
 }
 
 function check_partitions

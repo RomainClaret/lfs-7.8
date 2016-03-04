@@ -28,24 +28,24 @@ echo "... Validating the environment"
 check_partitions
 is_user lfs
 
-# ./5.3-lfs_check-tools.sh
-# ./5.4-lfs_binutils-2.25.1-pass-1.sh
-# ./5.5-lfs_gcc-5.2.0-pass-1.sh
-# ./5.6-lfs_linux-4.2-api-headers.sh
-# ./5.7-lfs_glibc-2.22.sh
-# ./5.8-lfs_libstdcpp-5.2.0.sh
-# ./5.9-lfs_binutils-2.25.1-pass-2.sh
-# ./5.10-lfs_gcc-5.2.0-pass-2.sh
-# ./5.11-lfs_tcl-core-8.6.4.sh
-# ./5.12-lfs_expect-5.45.sh
-# ./5.13-lfs_dejagnu-1.5.3.sh
-# ./5.14-lfs_check-0.10.0.sh
-# ./5.15-lfs_ncurses-6.0.sh
-# ./5.16-lfs_bash-4.3.30.sh
-# ./5.17-lfs_bzip2-1.0.6.sh
-# ./5.18-lfs_coreutils-8.24.sh
-# ./5.19-lfs_diffutils-3.3.sh
-# ./5.20-lfs_file-5.24.sh
+./5.3-lfs_check-tools.sh
+./5.4-lfs_binutils-2.25.1-pass-1.sh
+./5.5-lfs_gcc-5.2.0-pass-1.sh
+./5.6-lfs_linux-4.2-api-headers.sh
+./5.7-lfs_glibc-2.22.sh
+./5.8-lfs_libstdcpp-5.2.0.sh
+./5.9-lfs_binutils-2.25.1-pass-2.sh
+./5.10-lfs_gcc-5.2.0-pass-2.sh
+./5.11-lfs_tcl-core-8.6.4.sh
+./5.12-lfs_expect-5.45.sh
+./5.13-lfs_dejagnu-1.5.3.sh
+./5.14-lfs_check-0.10.0.sh
+./5.15-lfs_ncurses-6.0.sh
+./5.16-lfs_bash-4.3.30.sh
+./5.17-lfs_bzip2-1.0.6.sh
+./5.18-lfs_coreutils-8.24.sh
+./5.19-lfs_diffutils-3.3.sh
+./5.20-lfs_file-5.24.sh
 ./5.21-lfs_findutils-4.4.2.sh
 ./5.22-lfs_gawk-4.1.3.sh
 ./5.23-lfs_gettext-0.19.5.1.sh
