@@ -59,10 +59,10 @@ time {
     --target=$LFS_TGT          \
     --disable-nls              \
     --disable-werror           \
-		&> $LOG_FILE-configure.log
+		| tee $LOG_FILE-configure.log
 
 	echo ".... Making $SOURCE_FILE_NAME"
-	make $PROCESSOR_CORES &> $LOG_FILE-make.log
+	make $PROCESSOR_CORES | tee $LOG_FILE-make.log
 
 	case $(uname -m) in x86_64)
     echo "---> 64bit architecture detected"
@@ -70,7 +70,7 @@ time {
 	esac
 
 	echo ".... Installing $SOURCE_FILE_NAME"
-	make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
+	make install $PROCESSOR_CORES | tee $LOG_FILE-make-install.log
 
 }
 
