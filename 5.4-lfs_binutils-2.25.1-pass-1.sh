@@ -52,17 +52,17 @@ time {
 	cd ../$BUILD_DIRECTORY
 
 	echo ".... Configuring $SOURCE_FILE_NAME"
-	../binutils-2.25.1/configure     \
+	../binutils-2.25.1/configure \
     --prefix=/tools            \
     --with-sysroot=$LFS        \
     --with-lib-path=/tools/lib \
     --target=$LFS_TGT          \
     --disable-nls              \
     --disable-werror           \
-		| tee $LOG_FILE-configure.log
+		> $LOG_FILE-configure.log 2>&1
 
 	echo ".... Making $SOURCE_FILE_NAME"
-	make $PROCESSOR_CORES | tee $LOG_FILE-make.log
+	make $PROCESSOR_CORES > $LOG_FILE-make.log 2>&1
 
 	case $(uname -m) in x86_64)
     echo "---> 64bit architecture detected"
@@ -70,7 +70,7 @@ time {
 	esac
 
 	echo ".... Installing $SOURCE_FILE_NAME"
-	make install $PROCESSOR_CORES | tee $LOG_FILE-make-install.log
+	make install $PROCESSOR_CORES > $LOG_FILE-make-install.log 2>&1
 
 }
 
