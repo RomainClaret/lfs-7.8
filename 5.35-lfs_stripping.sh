@@ -11,9 +11,6 @@ echo "### Stripping"
 echo "### Must be run as \"lfs\" user"
 echo "### ---------------------------"
 
-BUILD_DIRECTORY=$INSTALL_NAME-build
-LOG_FILE=$LFS_BUILD_LOGS_5$CHAPTER_SECTION-$INSTALL_NAME
-
 echo ""
 echo "... Loading commun functions and variables"
 if [ ! -f ./script-all_commun-functions.sh ]
@@ -38,6 +35,8 @@ check_tools
 
 echo ""
 echo "... Setup building environment"
+BUILD_DIRECTORY=$INSTALL_NAME-build
+LOG_FILE=$LFS_BUILD_LOGS_5$CHAPTER_SECTION-$INSTALL_NAME
 cd $LFS_MOUNT_SOURCES
 check_tarball_uniqueness
 init_tarball
