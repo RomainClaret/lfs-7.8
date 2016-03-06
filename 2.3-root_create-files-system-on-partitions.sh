@@ -42,7 +42,8 @@ then
   echo "### Do you wish to start from scratch a new LFS build?"
   echo "### We would delete the user, its group, backuped tools and logs"
   echo ""
-  read -p "Would you like to start from scratch [y]? " -n 1 -r
+  echo -e "\a"
+  read -p "Enter to start from scratch" -n 1 -r
   echo ""
   if [[ $REPLY =~ ^[Yy]$ ]];
   then
@@ -90,7 +91,8 @@ lsblk
 echo ""
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please note that $LFS_PARTITION_ROOT and $LFS_PARTITION_SWAP will be formated."
-read -p "Are you sure [y]? " -n 1 -r
+echo -e "\a"
+read -p "Enter to confirm" -n 1 -r
 echo ""
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then

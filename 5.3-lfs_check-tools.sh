@@ -83,7 +83,7 @@ echo ""
 echo "######### END OF CHAPTER 5.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
-echo "### ./5.X-lfs_empty-skeleton.sh"
+echo "### ./5.4-lfs_binutils-2.25.1-pass-1.sh"
 echo ""
 
 exit 0

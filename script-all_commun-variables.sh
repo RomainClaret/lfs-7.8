@@ -18,6 +18,7 @@ LFS_OFFICIAL_78_PACKAGES_MD5="http://www.linuxfromscratch.org/lfs/view/7.8/md5su
 LFS_USERNAME=lfs
 LFS_GROUPNAME=lfs
 LFS_PASSWORD=lfs
+LFS_SCRIPT_HOME=/home/lfs/setup-scripts
 LFS_BUILD_LOGS=$LFS_MOUNT/build-logs
 LFS_BUILD_LOGS_MAIN_5=$LFS_BUILD_LOGS/chapter_5_0.log
 LFS_BUILD_LOGS_5=$LFS_BUILD_LOGS/chapter_5_

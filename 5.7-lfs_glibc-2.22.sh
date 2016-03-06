@@ -84,24 +84,16 @@ rm -rf $BUILD_DIRECTORY
 get_build_errors $LFS_MOUNT
 
 echo ""
-echo "configure: WARNING:"
-echo "### These auxiliary programs are missing or"
-echo "### incompatible versions: msgfmt"
-echo "### some features will be disabled."
-echo "### Check the INSTALL file for required versions."
-echo ""
-read -p "Enter to start test" -n 1 -r
-echo ""
-
 echo 'int main(){}' > dummy.c
 $LFS_TGT-gcc dummy.c
 readelf -l a.out | grep ': /tools'
 
 echo ""
-echo "ABOVE should be without errors and with the same output than bellow"
+echo "ABOVE should be without errors and with the same output than below"
 echo "32bit: [Requesting program interpreter: /tools/lib/ld-linux.so.2]"
 echo "64bit: [Requesting program interpreter: /tools/lib64/ld-linux-x86-64.so.2]"
 echo ""
+echo -e "\a"
 read -p "Enter to confirm" -n 1 -r
 echo ""
 

@@ -77,10 +77,12 @@ popd
 
 echo ""
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
-echo "### Please follow the instructions bellow:"
+echo "### Please follow the instructions below:"
 echo "### Verify that the MD5 checksums above match"
-echo "### Also cross check with the book 7.8"
+echo "### OK should be next to the file name"
+echo "### You can also cross check with the book 7.8"
 echo ""
+echo -e "\a"
 read -p "Enter to confirm" -n 1 -r
 echo ""
 echo "######### END OF CHAPTER 3.ALL ########"

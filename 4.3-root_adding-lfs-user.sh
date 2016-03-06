@@ -52,17 +52,17 @@ chown -v lfs $LFS_MOUNT_SOURCES
 
 echo ""
 echo "... Copying all the lfs setup scripts that must be executed as lfs user to the lfs user's home directory"
-if [ -d /home/lfs/setup-scripts ]
+if [ -d $LFS_SCRIPT_HOME ]
 then
   echo ".... Resetting setup scripts folder"
-  rm -rf /home/lfs/setup-scripts
+  rm -rf $LFS_SCRIPT_HOME
 fi
-mkdir /home/lfs/setup-scripts
-cp 4.4* /home/lfs/setup-scripts
-cp 5* /home/lfs/setup-scripts
-cp script-* /home/lfs/setup-scripts
-chown -R lfs:lfs /home/lfs/setup-scripts
-chmod -R 760 /home/lfs/setup-scripts/
+mkdir $LFS_SCRIPT_HOME
+cp 4.4* $LFS_SCRIPT_HOME
+cp 5* $LFS_SCRIPT_HOME
+cp script-* $LFS_SCRIPT_HOME
+chown -R lfs:lfs $LFS_SCRIPT_HOME
+chmod -R 760 $LFS_SCRIPT_HOME/
 
 echo "... Creating a build-logs folder"
 if [ -d $LFS_BUILD_LOGS ]
@@ -86,6 +86,7 @@ echo ""
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "Read carefully the following instructions"
 echo ""
+echo -e "\a"
 read -p "Enter to confirm" -n 1 -r
 echo ""
 

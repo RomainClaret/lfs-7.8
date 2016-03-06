@@ -88,7 +88,7 @@ echo "### Warning Counter: $WARNINGS_COUNTER"
 echo "### Error Counter: $ERRORS_COUNTER"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
-echo "### ./5.5-lfs_gcc-5.2.0.sh"
+echo "### ./5.5-lfs_gcc-5.2.0-pass-1.sh"
 echo ""
 
 if [ $ERRORS_COUNTER -ne 0 ]

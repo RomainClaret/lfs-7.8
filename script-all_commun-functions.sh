@@ -73,6 +73,7 @@ function check_partitions
 	if [ ! $? -eq 0 ]
 	then
 	  echo "!! Fatal Error 5: $LFS_PARTITION_SWAP has not the swap activated, run ./2.all-root_make-new-partitions.sh"
+		exit 5
 	fi
 	echo "!! Info: $LFS_PARTITION_SWAP is correctly configured as swap"
 }
@@ -118,10 +119,10 @@ function check_tarball_uniqueness
 	SOURCE_FILE_NAME=$(ls | egrep "^$INSTALL_NAME.+tar")
 	SOURCE_FILE_COUNTER=$(ls | egrep "^$INSTALL_NAME.+tar" | wc -l)
 	if [ $SOURCE_FILE_COUNTER -eq 0 ]; then
-		echo "!! Fatal Error 5: '$INSTALL_NAME' tarballs is not found."
+		echo "!! Fatal Error 6: '$INSTALL_NAME' tarballs is not found."
 		exit 5
 	elif [ $SOURCE_FILE_COUNTER -gt 1 ]; then
-		echo "!! Fatal Error 5: '$INSTALL_NAME' tarballs is found but multiple times: ($SOURCE_FILE_COUNTER). It should be unique."
+		echo "!! Fatal Error 6: '$INSTALL_NAME' tarballs is found but multiple times: ($SOURCE_FILE_COUNTER). It should be unique."
 		exit 5
 	fi
 }
@@ -148,6 +149,7 @@ function get_build_errors {
 	    echo "!! Fatal Error 7: $SOURCE_FILE_NAME build has $ERRORS_COUNTER errors"
 	    grep -n " [Ee]rrors*:* \|^FAIL:" $LFS_BUILD_LOGS_5*
 	    echo "--> Please check on http://www.linuxfromscratch.org/lfs/build-logs for comparaison"
+			exit 7
 	else
 		  echo "---> Congrats you have no errors."
 	fi

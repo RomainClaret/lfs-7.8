@@ -66,6 +66,7 @@ echo ""
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "Read carefully the following instructions"
 echo ""
+echo -e "\a"
 read -p "Enter to confirm" -n 1 -r
 echo ""
 

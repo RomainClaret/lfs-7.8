@@ -47,6 +47,7 @@ echo ""
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "We are highly recommanding you to do a snapshot or a full backup of some sort"
 echo ""
+echo -e "\a"
 read -p "Enter to confirm" -n 1 -r
 echo ""
 

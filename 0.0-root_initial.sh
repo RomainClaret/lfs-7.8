@@ -38,7 +38,7 @@ echo ""
 
 echo ""
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
-echo "### Please follow the instructions bellow:"
+echo "### Please follow the instructions below:"
 echo "### Verify that the versions match"
 echo "### Also cross check with the book 7.8"
 echo ""
@@ -65,6 +65,7 @@ echo "- >= Texinfo-4.7"
 echo "- >= Xz-5.0.0"
 echo ""
 
+echo -e "\a"
 read -p "Enter to confirm" -n 1 -r
 
 echo ""
