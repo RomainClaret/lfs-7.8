@@ -63,7 +63,7 @@ function check_partitions
 	/sbin/blkid "$LFS_PARTITION_ROOT" | grep ext4
 	if [ ! $? -eq 0 ]
 	then
-	  echo "!! Fatal Error 4: $LFS_PARTITION_ROOT not mounted, run 2.all-root_make-new-partition.sh"
+	  echo "!! Fatal Error 4: $LFS_PARTITION_ROOT not mounted, run ./2.all-root_make-new-partitions.sh"
 	  exit 4
 	fi
 	echo "!! Info: $LFS_PARTITION_ROOT has been mounted correctly"
@@ -72,7 +72,7 @@ function check_partitions
 	/sbin/swapon -s | grep "$LFS_PARTITION_SWAP"
 	if [ ! $? -eq 0 ]
 	then
-	  echo "!! Fatal Error 5: $LFS_PARTITION_SWAP has not the swap activated, run 2.all-root_make-new-partition.sh"
+	  echo "!! Fatal Error 5: $LFS_PARTITION_SWAP has not the swap activated, run ./2.all-root_make-new-partitions.sh"
 	fi
 	echo "!! Info: $LFS_PARTITION_SWAP is correctly configured as swap"
 }
