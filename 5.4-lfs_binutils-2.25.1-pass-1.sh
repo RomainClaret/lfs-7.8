@@ -13,6 +13,7 @@ echo "### ---------------------------"
 
 BUILD_DIRECTORY=$INSTALL_NAME-build
 LOG_FILE=$LFS_BUILD_LOGS_5$CHAPTER_SECTION-$INSTALL_NAME
+echo $LOG_FILE
 
 echo ""
 echo "... Loading commun functions and variables"
@@ -52,6 +53,7 @@ time {
 	cd ../$BUILD_DIRECTORY
 
 	echo ".... Configuring $SOURCE_FILE_NAME"
+  echo "" > $LOG_FILE-configure.log
 	../binutils-2.25.1/configure \
     --prefix=/tools            \
     --with-sysroot=$LFS        \
@@ -59,10 +61,11 @@ time {
     --target=$LFS_TGT          \
     --disable-nls              \
     --disable-werror           \
-		> $LOG_FILE-configure.log 2>&1
+		>> $LOG_FILE-configure.log 2>&1
 
 	echo ".... Making $SOURCE_FILE_NAME"
-	make $PROCESSOR_CORES > $LOG_FILE-make.log 2>&1
+  echo "" > $LOG_FILE-make.log
+	make $PROCESSOR_CORES >> $LOG_FILE-make.log 2>&1
 
 	case $(uname -m) in x86_64)
     echo "---> 64bit architecture detected"
@@ -70,7 +73,8 @@ time {
 	esac
 
 	echo ".... Installing $SOURCE_FILE_NAME"
-	make install $PROCESSOR_CORES > $LOG_FILE-make-install.log 2>&1
+  echo "" > $LOG_FILE-make-install.log
+	make install $PROCESSOR_CORES >> $LOG_FILE-make-install.log 2>&1
 
 }
 
