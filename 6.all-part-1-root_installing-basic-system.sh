@@ -29,5 +29,4 @@ check_partitions
 is_user lfs
 
 ./6.2-root_preparing-virtual-kernel.sh
-./6.3-root_mounting-virtual-kernel.sh
 ./6.4-root_chroot-environment.sh

@@ -1,10 +1,14 @@
 #!/bin/bash
+
+CHAPTER_SECTION=x
+INSTALL_NAME=xxx
+
 echo ""
 echo "### ---------------------------"
 echo "###        EMPTY SKELETON      ###"
-echo "###        CHAPTER 5.X      ###"
+echo "###        CHAPTER 6.$CHAPTER_SECTION      ###"
 echo "### empty skeleton"
-echo "### Must be run as \"lfs\" user"
+echo "### Must be run as \"chroot\" user"
 echo "### ---------------------------"
 
 echo ""
@@ -27,17 +31,21 @@ echo ""
 echo "... Validating the environment"
 check_partitions
 is_user lfs
-check_tools
+
+echo ""
+echo "... Setup building environment"
+BUILD_DIRECTORY=$INSTALL_NAME-build
+LOG_FILE=$LFS_BUILD_LOGS_6$CHAPTER_SECTION-$INSTALL_NAME
 
 echo ""
 echo "... Doing stuff"
 
 
 echo ""
-echo "######### END OF CHAPTER 5.X ########"
+echo "######### END OF CHAPTER 5.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
-echo "### ./5.X-lfs_empty-skeleton.sh"
+echo "### ./6.X-lfs_empty-skeleton.sh"
 echo ""
 
 exit 0
