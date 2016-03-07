@@ -64,7 +64,7 @@ echo "######### END OF CHAPTER 4.4 ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next steps:"
 echo "### source ~/.bash_profile"
-echo "### ./5.3-lfs_check-tools.sh"
+echo "### ./5.all-lfs_construct-tools.sh"
 echo ""
 
 exit 0

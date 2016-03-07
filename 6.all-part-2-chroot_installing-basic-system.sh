@@ -53,7 +53,7 @@ is_user lfs
 ./6.27-chroot_procps-ng.sh
 ./6.28-chroot_e2fsprogs.sh
 ./6.29-chroot_coreutils.sh
-./6.30-chroot_iana-Etc.sh
+./6.30-chroot_iana-etc.sh
 ./6.31-chroot_m4.sh
 ./6.32-chroot_flex.sh
 ./6.33-chroot_bison.sh

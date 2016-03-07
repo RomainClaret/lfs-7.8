@@ -35,12 +35,7 @@ check_tools
 
 echo ""
 echo "... Setup building environment"
-BUILD_DIRECTORY=$INSTALL_NAME-build
 LOG_FILE=$LFS_BUILD_LOGS_5$CHAPTER_SECTION-$INSTALL_NAME
-cd $LFS_MOUNT_SOURCES
-check_tarball_uniqueness
-init_tarball
-cd $(ls -d $LFS_MOUNT_SOURCES/$INSTALL_NAME*/)
 
 echo ""
 echo "... Installation starts now"
@@ -75,8 +70,8 @@ echo "### Warning Counter: $WARNINGS_COUNTER"
 echo "### Error Counter: $ERRORS_COUNTER"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
-echo "### exit"
-echo "### ./5.36-lfs_changing-ownership.sh"
+echo "### exit until you are back to root on ~/lfs-7.8"
+echo "### ./5.36-root_changing-ownership.sh"
 echo ""
 
 if [ $ERRORS_COUNTER -ne 0 ]

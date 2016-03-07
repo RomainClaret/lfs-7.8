@@ -225,6 +225,7 @@ function get_build_errors {
 			echo "Chapter 5.14"
 			echo "Chapter 5.15"
 			echo "Chapter 5.16"
+			echo "Chapter 5.30"
 	else
 		  echo "---> Congrats you have no errors."
 	fi

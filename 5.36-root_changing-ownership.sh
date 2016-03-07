@@ -55,7 +55,7 @@ echo ""
 echo "######### END OF CHAPTER 5 ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
-echo "### ./6.xx.sh"
+echo "### ./6.all-part-1-root_installing-basic-system.sh"
 echo ""
 
 exit 0
