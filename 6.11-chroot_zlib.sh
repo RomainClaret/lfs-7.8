@@ -1,13 +1,13 @@
 #!/bin/bash
 
-CHAPTER_SECTION=8
-INSTALL_NAME=man-pages
+CHAPTER_SECTION=11
+INSTALL_NAME=zlib
 
 echo ""
 echo "### ---------------------------"
-echo "###         MAN-PAGES       ###"
+echo "###            ZLIB         ###"
 echo "###        CHAPTER 6.$CHAPTER_SECTION      ###"
-echo "### Man-pages-4.02"
+echo "### Zlib-1.2.8"
 echo "### Must be run as \"chroot\" user"
 echo "### ---------------------------"
 
@@ -45,8 +45,22 @@ echo ""
 echo "... Installation starts now"
 time {
 
+  echo ".... Configuring $SOURCE_FILE_NAME"
+  ./configure --prefix=/usr &> $LOG_FILE-configure.log
+
+	echo ".... Making $SOURCE_FILE_NAME"
+  make $PROCESSOR_CORES &> $LOG_FILE-make.log
+
+  echo ".... Make Checking $SOURCE_FILE_NAME"
+  make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
+
 	echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
+
+  echo ".... Post-Installing $SOURCE_FILE_NAME"
+  mv -v /usr/lib/libz.so.* /lib
+	ln -sfv ../../lib/$(readlink /usr/lib/libz.so) /usr/lib/libz.so
+
 }
 
 echo ""
@@ -58,7 +72,7 @@ echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
-echo "### ./6.9-chroot_glibc.sh"
+echo "### ./6.12-chroot_file.sh"
 echo ""
 
 exit 0

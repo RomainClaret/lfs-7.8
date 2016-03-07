@@ -5,9 +5,9 @@ INSTALL_NAME=create-files
 
 echo ""
 echo "### ---------------------------"
-echo "###        EMPTY SKELETON      ###"
+echo "###         ESSENTIALS      ###"
 echo "###        CHAPTER 6.$CHAPTER_SECTION      ###"
-echo "### empty skeleton"
+echo "### Creating Essential Files and Symlinks"
 echo "### Must be run as \"chroot\" user"
 echo "### ---------------------------"
 

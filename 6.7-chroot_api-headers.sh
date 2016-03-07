@@ -5,9 +5,9 @@ INSTALL_NAME=linux
 
 echo ""
 echo "### ---------------------------"
-echo "###        EMPTY SKELETON      ###"
+echo "###        API HEADERS      ###"
 echo "###        CHAPTER 6.$CHAPTER_SECTION      ###"
-echo "### empty skeleton"
+echo "### Linux-4.2 API Headers"
 echo "### Must be run as \"chroot\" user"
 echo "### ---------------------------"
 
@@ -68,8 +68,6 @@ echo "... Cleaning up $SOURCE_FILE_NAME"
 cd /sources
 [ ! $SHOULD_NOT_CLEAN ] && rm -rf $(ls -d /sources/$INSTALL_NAME*/)
 
-get_build_errors
-
 echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
@@ -77,9 +75,4 @@ echo "### Please run the next step:"
 echo "### ./6.8-chroot_man-pages.sh"
 echo ""
 
-if [ $ERRORS_COUNTER -ne 0 ]
-then
-	exit 11
-else
-	exit 0
-fi
+exit 0

@@ -1,13 +1,13 @@
 #!/bin/bash
 
-CHAPTER_SECTION=8
-INSTALL_NAME=man-pages
+CHAPTER_SECTION=14
+INSTALL_NAME=gmp
 
 echo ""
 echo "### ---------------------------"
-echo "###         MAN-PAGES       ###"
+echo "###              GMP        ###"
 echo "###        CHAPTER 6.$CHAPTER_SECTION      ###"
-echo "### Man-pages-4.02"
+echo "### GMP-6.0.0a"
 echo "### Must be run as \"chroot\" user"
 echo "### ---------------------------"
 
@@ -45,8 +45,38 @@ echo ""
 echo "... Installation starts now"
 time {
 
+  echo ".... Configuring $SOURCE_FILE_NAME"
+  ./configure                          \
+    --prefix=/usr                      \
+	  --enable-cxx                       \
+	  --docdir=/usr/share/doc/gmp-6.0.0a \
+	  &> $LOG_FILE-configure.log
+
+	echo ".... Making $SOURCE_FILE_NAME"
+  make $PROCESSOR_CORES &> $LOG_FILE-make.log
+
+  echo ".... Making HTML $SOURCE_FILE_NAME"
+  make html $PROCESSOR_CORES &> $LOG_FILE-make-html.log
+
+  echo ".... Make Checking $SOURCE_FILE_NAME"
+  make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
+
+  echo ".... Testing $SOURCE_FILE_NAME"
+  awk '/tests passed/{total+=$2} ; END{print total}' $LOG_FILE-make-check.log
+
+  echo ""
+  echo "Check above that the 188 tests passed"
+  echo ""
+  echo -e "\a"
+  read -p "Enter to confirm" -n 1 -r
+  echo ""
+
 	echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
+
+  echo ".... Installing HTML $SOURCE_FILE_NAME"
+  make install-html $PROCESSOR_CORES &> $LOG_FILE-make-install-html.log
+
 }
 
 echo ""
@@ -58,7 +88,7 @@ echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
-echo "### ./6.9-chroot_glibc.sh"
+echo "### ./6.15-chroot_mpfr.sh"
 echo ""
 
 exit 0

@@ -1,13 +1,13 @@
 #!/bin/bash
 
-CHAPTER_SECTION=x
-INSTALL_NAME=xxx
+CHAPTER_SECTION=9
+INSTALL_NAME=glibc
 
 echo ""
 echo "### ---------------------------"
-echo "###        EMPTY SKELETON      ###"
+echo "###            GLIBC        ###"
 echo "###        CHAPTER 6.$CHAPTER_SECTION      ###"
-echo "### empty skeleton"
+echo "### Glibc-2.22"
 echo "### Must be run as \"chroot\" user"
 echo "### ---------------------------"
 
@@ -35,6 +35,7 @@ check_chroot
 
 echo ""
 echo "... Setup building environment"
+BUILD_DIRECTORY=$INSTALL_NAME-build
 LOG_FILE=$LFS_BUILD_LOGS_6$CHAPTER_SECTION-$INSTALL_NAME
 cd /sources
 test_only_one_tarball_exists
@@ -163,8 +164,6 @@ echo "... Cleaning up $SOURCE_FILE_NAME"
 cd /sources
 [ ! $SHOULD_NOT_CLEAN ] && rm -rf $(ls -d /sources/$INSTALL_NAME*/)
 
-get_build_errors
-
 echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
@@ -172,9 +171,4 @@ echo "### Please run the next step:"
 echo "### ./6.10-chroot_toolchain.sh"
 echo ""
 
-if [ $ERRORS_COUNTER -ne 0 ]
-then
-	exit 11
-else
-	exit 0
-fi
+exit 0

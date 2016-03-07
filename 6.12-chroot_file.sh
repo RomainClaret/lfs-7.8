@@ -1,13 +1,13 @@
 #!/bin/bash
 
-CHAPTER_SECTION=8
-INSTALL_NAME=man-pages
+CHAPTER_SECTION=12
+INSTALL_NAME=file
 
 echo ""
 echo "### ---------------------------"
-echo "###         MAN-PAGES       ###"
+echo "###               ###"
 echo "###        CHAPTER 6.$CHAPTER_SECTION      ###"
-echo "### Man-pages-4.02"
+echo "### File-5.24"
 echo "### Must be run as \"chroot\" user"
 echo "### ---------------------------"
 
@@ -45,8 +45,18 @@ echo ""
 echo "... Installation starts now"
 time {
 
+  echo ".... Configuring $SOURCE_FILE_NAME"
+  ./configure --prefix=/usr &> $LOG_FILE-configure.log
+
+	echo ".... Making $SOURCE_FILE_NAME"
+  make $PROCESSOR_CORES &> $LOG_FILE-make.log
+
+  echo ".... Make Checking $SOURCE_FILE_NAME"
+  make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
+
 	echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
+
 }
 
 echo ""
@@ -58,7 +68,7 @@ echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
-echo "### ./6.9-chroot_glibc.sh"
+echo "### ./6.13-chroot_binutils.sh"
 echo ""
 
 exit 0

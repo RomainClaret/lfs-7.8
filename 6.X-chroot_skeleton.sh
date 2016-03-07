@@ -5,9 +5,9 @@ INSTALL_NAME=xxx
 
 echo ""
 echo "### ---------------------------"
-echo "###        EMPTY SKELETON      ###"
+echo "###         SKELETON      ###"
 echo "###        CHAPTER 6.$CHAPTER_SECTION      ###"
-echo "### empty skeleton"
+echo "### skeleton"
 echo "### Must be run as \"chroot\" user"
 echo "### ---------------------------"
 
@@ -35,6 +35,7 @@ check_chroot
 
 echo ""
 echo "... Setup building environment"
+BUILD_DIRECTORY=$INSTALL_NAME-build
 LOG_FILE=$LFS_BUILD_LOGS_6$CHAPTER_SECTION-$INSTALL_NAME
 cd /sources
 test_only_one_tarball_exists
@@ -47,10 +48,13 @@ time {
 
   echo ".... Pre-Configuring $SOURCE_FILE_NAME"
 
+  mkdir ../$BUILD_DIRECTORY
+  cd ../$BUILD_DIRECTORY
+
   echo ".... Configuring $SOURCE_FILE_NAME"
 
 	echo ".... Making $SOURCE_FILE_NAME"
-  make example $PROCESSOR_CORES &> $LOG_FILE-make.log
+  make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
 
@@ -65,8 +69,6 @@ echo "... Cleaning up $SOURCE_FILE_NAME"
 cd /sources
 [ ! $SHOULD_NOT_CLEAN ] && rm -rf $(ls -d /sources/$INSTALL_NAME*/)
 
-get_build_errors
-
 echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
@@ -74,9 +76,4 @@ echo "### Please run the next step:"
 echo "### ./6.X-lfs_empty-skeleton.sh"
 echo ""
 
-if [ $ERRORS_COUNTER -ne 0 ]
-then
-	exit 11
-else
-	exit 0
-fi
+exit 0
