@@ -55,6 +55,74 @@ function self_check
 	chmod +x 5.34-lfs_xz-5.2.1.sh
 	chmod +x 5.35-lfs_stripping.sh
 	chmod +x 5.36-root_changing-ownership.sh
+	chmod +x 6.5-chroot_creating-directories.sh
+	chmod +x 6.6-chroot_essentials.sh
+	chmod +x 6.7-chroot_api-headers.sh
+	chmod +x 6.8-chroot_man-pages.sh
+	chmod +x 6.9-chroot_glibc.sh
+	chmod +x 6.10-chroot_toolchain.sh
+	chmod +x 6.11-chroot_zlib.sh
+	chmod +x 6.12-chroot_file.sh
+	chmod +x 6.13-chroot_binutils.sh
+	chmod +x 6.14-chroot_gmp.sh
+	chmod +x 6.15-chroot_mpfr.sh
+	chmod +x 6.16-chroot_mpc.sh
+	chmod +x 6.17-chroot_gcc.sh
+	chmod +x 6.18-chroot_bzip2.sh
+	chmod +x 6.19-chroot_pkg-config.sh
+	chmod +x 6.20-chroot_ncurses.sh
+	chmod +x 6.21-chroot_attr.sh
+	chmod +x 6.22-chroot_acl.sh
+	chmod +x 6.23-chroot_libcap.sh
+	chmod +x 6.24-chroot_sed.sh
+	chmod +x 6.25-chroot_shadow.sh
+	chmod +x 6.26-chroot_psmisc.sh
+	chmod +x 6.27-chroot_procps-ng.sh
+	chmod +x 6.28-chroot_e2fsprogs.sh
+	chmod +x 6.29-chroot_coreutils.sh
+	chmod +x 6.30-chroot_iana-Etc.sh
+	chmod +x 6.31-chroot_m4.sh
+	chmod +x 6.32-chroot_flex.sh
+	chmod +x 6.33-chroot_bison.sh
+	chmod +x 6.34-chroot_grep.sh
+	chmod +x 6.35-chroot_readline.sh
+	chmod +x 6.36-chroot_bash.sh
+	chmod +x 6.37-chroot_bc.sh
+	chmod +x 6.38-chroot_libtool.sh
+	chmod +x 6.39-chroot_gdbm.sh
+	chmod +x 6.40-chroot_expat.sh
+	chmod +x 6.41-chroot_inetutils.sh
+	chmod +x 6.42-chroot_perl.sh
+	chmod +x 6.43-chroot_xml-parser.sh
+	chmod +x 6.44-chroot_autoconf.sh
+	chmod +x 6.45-chroot_automake.sh
+	chmod +x 6.46-chroot_diffutils.sh
+	chmod +x 6.47-chroot_gawk.sh
+	chmod +x 6.48-chroot_findutils.sh
+	chmod +x 6.49-chroot_gettext.sh
+	chmod +x 6.50-chroot_intltool.sh
+	chmod +x 6.51-chroot_gperf.sh
+	chmod +x 6.52-chroot_groff.sh
+	chmod +x 6.53-chroot_xz.sh
+	chmod +x 6.54-chroot_grub.sh
+	chmod +x 6.55-chroot_less.sh
+	chmod +x 6.56-chroot_gzip.sh
+	chmod +x 6.57-chroot_iproute2.sh
+	chmod +x 6.58-chroot_kbd.sh
+	chmod +x 6.59-chroot_kmod.sh
+	chmod +x 6.60-chroot_libpipeline.sh
+	chmod +x 6.61-chroot_make.sh
+	chmod +x 6.62-chroot_patch.sh
+	chmod +x 6.63-chroot_sysklogd.sh
+	chmod +x 6.64-chroot_sysvinit.sh
+	chmod +x 6.65-chroot_tar.sh
+	chmod +x 6.66-chroot_texinfo.sh
+	chmod +x 6.67-chroot_eudev.sh
+	chmod +x 6.68-chroot_util-linux.sh
+	chmod +x 6.69-chroot_man-db.sh
+	chmod +x 6.70-chroot_vim.sh
+	chmod +x 6.72-chroot_stripping.sh
+	chmod +x 6.73-chroot_cleaning-up.sh
 }
 
 function check_partitions
@@ -149,8 +217,14 @@ function get_build_errors {
 	    echo "!! Fatal Error 7: $SOURCE_FILE_NAME build has $ERRORS_COUNTER errors"
 	    grep -n " [Ee]rrors*:* \|^FAIL:" $LFS_BUILD_LOGS_5*
 	    echo "--> Please check on http://www.linuxfromscratch.org/lfs/build-logs for comparaison"
-			exit 7
 	else
 		  echo "---> Congrats you have no errors."
+	fi
+}
+
+function check_chroot {
+	if test !  -d "/sources" && test ! -d "/build-logs"  ; then
+	  echo "!! Fatal Error 10: $LFS_PARTITION_ROOT is not chrooted as a root directory"
+  	exit 10
 	fi
 }

@@ -1,4 +1,7 @@
 #!/bin/bash
+
+CHAPTER_SECTION=4
+
 echo ""
 echo "### ---------------------------"
 echo "###    CHROOT ENVIRONMENT   ###"
@@ -26,7 +29,7 @@ source ./script-all_commun-variables.sh
 echo ""
 echo "... Validating the environment"
 check_partitions
-is_user lfs
+is_user root
 
 echo ""
 echo "... Entering the Chroot Environment"

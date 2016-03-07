@@ -80,6 +80,14 @@ else
 fi
 
 echo ""
+echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
+echo "Read carefully above, no errors should be detected"
+echo ""
+echo -e "\a"
+read -p "Enter to confirm" -n 1 -r
+echo ""
+
+echo ""
 echo "######### END OF CHAPTER 5.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"

@@ -114,6 +114,17 @@ rm -rf $BUILD_DIRECTORY
 get_build_errors
 
 echo ""
+echo "If you have the error:"
+echo "no include path in which to search for stdc-predef.h"
+echo "It should be okay: https://wiki.debian.org/toolchain/BootstrapIssues"
+echo ""
+echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
+echo "Read carefully above"
+echo ""
+echo -e "\a"
+read -p "Enter to confirm" -n 1 -r
+
+echo ""
 echo "######### END OF CHAPTER 5.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"

@@ -30,7 +30,7 @@ source ./script-all_commun-variables.sh
 echo ""
 echo "... Validating the environment"
 check_partitions
-is_user lfs
+is_user root
 
 echo ""
 echo "... Setting up the environment"

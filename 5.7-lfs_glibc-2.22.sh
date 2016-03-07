@@ -83,6 +83,11 @@ rm -rf $BUILD_DIRECTORY
 get_build_errors
 
 echo ""
+echo "If you have the error:"
+echo "no include path in which to search for stdc-predef.h"
+echo "It should be okay: https://wiki.debian.org/toolchain/BootstrapIssues"
+
+echo ""
 echo 'int main(){}' > dummy.c
 $LFS_TGT-gcc dummy.c
 readelf -l a.out | grep ': /tools'
@@ -96,7 +101,7 @@ echo -e "\a"
 read -p "Enter to confirm" -n 1 -r
 echo ""
 
-rm ../dummy.c ../a.out
+rm $LFS_MOUNT_SOURCES/dummy.c $LFS_MOUNT_SOURCES/a.out
 
 echo ""
 echo "######### END OF CHAPTER 5.$CHAPTER_SECTION ########"

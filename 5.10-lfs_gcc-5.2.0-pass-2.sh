@@ -108,15 +108,9 @@ rm -rf $BUILD_DIRECTORY
 get_build_errors
 
 echo ""
-echo "configure: WARNING:"
-echo "### These auxiliary programs are missing or"
-echo "### incompatible versions: msgfmt"
-echo "### some features will be disabled."
-echo "### Check the INSTALL file for required versions."
-echo ""
-echo -e "\a"
-read -p "Enter to start test" -n 1 -r
-echo ""
+echo "If you have the error:"
+echo "no include path in which to search for stdc-predef.h"
+echo "It should be okay: https://wiki.debian.org/toolchain/BootstrapIssues"
 
 echo 'int main(){}' > dummy.c
 cc dummy.c

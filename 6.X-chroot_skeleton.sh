@@ -29,23 +29,54 @@ source ./script-all_commun-variables.sh
 
 echo ""
 echo "... Validating the environment"
+check_user root
 check_partitions
-is_user lfs
+check_chroot
 
 echo ""
 echo "... Setup building environment"
-BUILD_DIRECTORY=$INSTALL_NAME-build
 LOG_FILE=$LFS_BUILD_LOGS_6$CHAPTER_SECTION-$INSTALL_NAME
+cd /sources
+test_only_one_tarball_exists
+extract_tarball ""
+cd $(ls -d /sources/$INSTALL_NAME*/)
 
 echo ""
-echo "... Doing stuff"
+echo "... Installation starts now"
+time {
 
+  echo ".... Pre-Configuring $SOURCE_FILE_NAME"
+
+  echo ".... Configuring $SOURCE_FILE_NAME"
+
+	echo ".... Making $SOURCE_FILE_NAME"
+  make example $PROCESSOR_CORES &> $LOG_FILE-make.log
+
+  echo ".... Make Checking $SOURCE_FILE_NAME"
+
+	echo ".... Installing $SOURCE_FILE_NAME"
+
+  echo ".... Post-Installing $SOURCE_FILE_NAME"
+
+}
 
 echo ""
-echo "######### END OF CHAPTER 5.$CHAPTER_SECTION ########"
+echo "... Cleaning up $SOURCE_FILE_NAME"
+cd /sources
+[ ! $SHOULD_NOT_CLEAN ] && rm -rf $(ls -d /sources/$INSTALL_NAME*/)
+
+get_build_errors
+
+echo ""
+echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
 echo "### ./6.X-lfs_empty-skeleton.sh"
 echo ""
 
-exit 0
+if [ $ERRORS_COUNTER -ne 0 ]
+then
+	exit 11
+else
+	exit 0
+fi
