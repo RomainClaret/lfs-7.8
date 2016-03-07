@@ -88,7 +88,7 @@ time {
 
   echo ""
   echo "ABOVE should be the same output than below"
-  echo "### #include <...>"
+  echo "### #include <...> search starts here:"
   echo "### /usr/include"
   echo ""
   echo -e "\a"

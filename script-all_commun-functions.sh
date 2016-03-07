@@ -214,9 +214,17 @@ function get_build_errors {
 	ERRORS_COUNTER=$(grep -n " [Ee]rrors*:* \|^FAIL:" $LFS_BUILD_LOGS_5* | wc -l)
 
 	if [ $ERRORS_COUNTER -ne 0 ]; then
-	    echo "!! Fatal Error 7: $SOURCE_FILE_NAME build has $ERRORS_COUNTER errors"
+	    echo "!! Error 7: $SOURCE_FILE_NAME build has $ERRORS_COUNTER errors"
 	    grep -n " [Ee]rrors*:* \|^FAIL:" $LFS_BUILD_LOGS_5*
 	    echo "--> Please check on http://www.linuxfromscratch.org/lfs/build-logs for comparaison"
+			echo ""
+			echo "Known errors and not critical:"
+			echo "Chapter 5.5"
+			echo "Chapter 5.7"
+			echo "Chapter 5.12"
+			echo "Chapter 5.14"
+			echo "Chapter 5.15"
+			echo "Chapter 5.16"
 	else
 		  echo "---> Congrats you have no errors."
 	fi

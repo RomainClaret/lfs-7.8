@@ -76,11 +76,6 @@ rm -rf $BUILD_DIRECTORY
 get_build_errors
 
 echo ""
-echo "If you have the error:"
-echo "no include path in which to search for stdc-predef.h"
-echo "It should be okay: https://wiki.debian.org/toolchain/BootstrapIssues"
-
-echo ""
 echo "######### END OF CHAPTER 5.$CHAPTER_SECTION ########"
 echo "### Warning Counter: $WARNINGS_COUNTER"
 echo "### Error Counter: $ERRORS_COUNTER"

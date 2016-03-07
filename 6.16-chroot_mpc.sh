@@ -1,13 +1,13 @@
 #!/bin/bash
 
-CHAPTER_SECTION=x
-INSTALL_NAME=xxx
+CHAPTER_SECTION=16
+INSTALL_NAME=mpc
 
 echo ""
 echo "### ---------------------------"
-echo "###         SKELETON      ###"
+echo "###             MPC         ###"
 echo "###        CHAPTER 6.$CHAPTER_SECTION      ###"
-echo "### skeleton"
+echo "### MPC-1.0.3"
 echo "### Must be run as \"chroot\" user"
 echo "### ---------------------------"
 
@@ -35,7 +35,6 @@ check_chroot
 
 echo ""
 echo "... Setup building environment"
-BUILD_DIRECTORY=$INSTALL_NAME-build
 LOG_FILE=$LFS_BUILD_LOGS_6$CHAPTER_SECTION-$INSTALL_NAME
 cd /sources
 test_only_one_tarball_exists
@@ -46,13 +45,14 @@ echo ""
 echo "... Installation starts now"
 time {
 
-  echo ".... Pre-Configuring $SOURCE_FILE_NAME"
-  mkdir ../$BUILD_DIRECTORY
-  cd ../$BUILD_DIRECTORY
-
   echo ".... Configuring $SOURCE_FILE_NAME"
+  ./configure                         \
+    --prefix=/usr    		              \
+    --disable-static 					        \
+    --docdir=/usr/share/doc/mpc-1.0.3 \
+	  &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Making HTML $SOURCE_FILE_NAME"
@@ -61,13 +61,11 @@ time {
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Installing HTML $SOURCE_FILE_NAME"
   make install-html $PROCESSOR_CORES &> $LOG_FILE-make-install-html.log
-
-  echo ".... Post-Installing $SOURCE_FILE_NAME"
 
 }
 
@@ -80,7 +78,7 @@ echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
-echo "### ./6.X-lfs_empty-skeleton.sh"
+echo "### ./6.17-chroot_gcc.sh"
 echo ""
 
 exit 0
