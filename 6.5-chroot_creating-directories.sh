@@ -32,7 +32,7 @@ echo "... Validating the environment"
 check_chroot
 
 echo ""
-echo "... Setup building environment"
+echo "... Setting up the building environment"
 LOG_FILE=$LFS_BUILD_LOGS_6$CHAPTER_SECTION-$INSTALL_NAME.log
 
 echo ""
@@ -67,6 +67,7 @@ echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next steps:"
+echo "### rm -rf /root/lfs"
 echo "### mv /tools/lfs /root/lfs"
 echo "### cd /root/lfs"
 echo "### ./6.6-chroot_essentials.sh"
