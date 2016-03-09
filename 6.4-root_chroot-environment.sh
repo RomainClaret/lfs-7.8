@@ -52,4 +52,7 @@ chroot "$LFS_MOUNT" /tools/bin/env -i \
   PATH=/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin \
   /tools/bin/bash --login +h
 
-echo "... Exited the Chroot Environment"
+echo ""
+echo "---> You have exited the shell 3/3"
+echo "### Please continue the instructions from 6.72"
+echo ""

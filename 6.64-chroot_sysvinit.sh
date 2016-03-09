@@ -1,13 +1,13 @@
 #!/tools/bin/bash
 
-CHAPTER_SECTION=36
-INSTALL_NAME=bash
+CHAPTER_SECTION=64
+INSTALL_NAME=sysvinit
 
 echo ""
 echo "### ---------------------------"
-echo "###             BASH        ###"
+echo "###         SYSVINIT      ###"
 echo "###        CHAPTER 6.$CHAPTER_SECTION      ###"
-echo "### Bash-4.3.30"
+echo "### Sysvinit-2.88dsf"
 echo "### Must be run as \"chroot\" user"
 echo "### ---------------------------"
 
@@ -34,6 +34,7 @@ check_chroot
 
 echo ""
 echo "... Setup building environment"
+BUILD_DIRECTORY=$INSTALL_NAME-build
 LOG_FILE=$LFS_BUILD_LOGS_6$CHAPTER_SECTION-$INSTALL_NAME
 cd /sources
 check_tarball_uniqueness
@@ -45,26 +46,13 @@ echo "... Installation starts now"
 time {
 
   echo ".... Pre-Configuring $SOURCE_FILE_NAME"
-  patch -Np1 -i ../bash-4.3.30-upstream_fixes-2.patch &> $LOG_FILE-patch.log
-
-  echo ".... Configuring $SOURCE_FILE_NAME"
-  ./configure                           \
-    --prefix=/usr                       \
-    --bindir=/bin                       \
-    --docdir=/usr/share/doc/bash-4.3.30 \
-    --without-bash-malloc               \
-    --with-installed-readline           \
-	  &> $LOG_FILE-configure.log
+  patch -Np1 -i ../sysvinit-2.88dsf-consolidated-1.patch &> $LOG_FILE-patch.log
 
 	echo ".... Making $SOURCE_FILE_NAME"
-  make $PROCESSOR_CORES &> $LOG_FILE-make.log
-
-  echo ".... Make Checking $SOURCE_FILE_NAME"
-  chown -Rv nobody . &> $LOG_FILE-make-check.log
-  su nobody -s /bin/bash -c "PATH=$PATH make tests" &>> $LOG_FILE-make-check.log
+  make -C src $PROCESSOR_CORES &> $LOG_FILE-make.log
 
 	echo ".... Installing $SOURCE_FILE_NAME"
-  make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
+  make -C src install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }
 
@@ -76,12 +64,8 @@ cd /sources
 echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
-echo "### Please run the next steps:"
-echo "### cd /root/lfs"
-echo "### ./6.37-chroot_bc.sh"
+echo "### Please run the next step:"
+echo "### ./6.65-chroot_tar.sh"
 echo ""
 
-exec /bin/bash --login +h
-
-echo ""
-echo "-> You have exited the shell 1/3"
+exit 0

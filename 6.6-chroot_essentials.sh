@@ -89,3 +89,6 @@ echo "### ./6.7-chroot_api-headers.sh"
 echo ""
 
 exec /tools/bin/bash --login +h
+
+echo ""
+echo "--> You have exited the shell 2/3"

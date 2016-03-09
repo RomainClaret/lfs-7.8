@@ -1,13 +1,13 @@
 #!/tools/bin/bash
 
-CHAPTER_SECTION=36
-INSTALL_NAME=bash
+CHAPTER_SECTION=68
+INSTALL_NAME=util-linux
 
 echo ""
 echo "### ---------------------------"
-echo "###             BASH        ###"
+echo "###         UTIL-LINUX      ###"
 echo "###        CHAPTER 6.$CHAPTER_SECTION      ###"
-echo "### Bash-4.3.30"
+echo "### Util-linux-2.27"
 echo "### Must be run as \"chroot\" user"
 echo "### ---------------------------"
 
@@ -45,23 +45,31 @@ echo "... Installation starts now"
 time {
 
   echo ".... Pre-Configuring $SOURCE_FILE_NAME"
-  patch -Np1 -i ../bash-4.3.30-upstream_fixes-2.patch &> $LOG_FILE-patch.log
+  mkdir -pv /var/lib/hwclock
 
   echo ".... Configuring $SOURCE_FILE_NAME"
-  ./configure                           \
-    --prefix=/usr                       \
-    --bindir=/bin                       \
-    --docdir=/usr/share/doc/bash-4.3.30 \
-    --without-bash-malloc               \
-    --with-installed-readline           \
-	  &> $LOG_FILE-configure.log
+  ./configure                               \
+    ADJTIME_PATH=/var/lib/hwclock/adjtime   \
+    --docdir=/usr/share/doc/util-linux-2.27 \
+    --disable-chfn-chsh                     \
+    --disable-login                         \
+    --disable-nologin                       \
+    --disable-su                            \
+    --disable-setpriv                       \
+    --disable-runuser                       \
+    --disable-pylibmount                    \
+    --disable-static                        \
+    --without-python                        \
+    --without-systemd                       \
+    --without-systemdsystemunitdir          \
+    &> $LOG_FILE-configure.log
 
 	echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
-  chown -Rv nobody . &> $LOG_FILE-make-check.log
-  su nobody -s /bin/bash -c "PATH=$PATH make tests" &>> $LOG_FILE-make-check.log
+  chown -Rv nobody .
+  su nobody -s /bin/bash -c "PATH=$PATH make -k check" &> $LOG_FILE-make-check.log
 
 	echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
@@ -76,12 +84,8 @@ cd /sources
 echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
-echo "### Please run the next steps:"
-echo "### cd /root/lfs"
-echo "### ./6.37-chroot_bc.sh"
+echo "### Please run the next step:"
+echo "### ./6.69-chroot_man-db.sh"
 echo ""
 
-exec /bin/bash --login +h
-
-echo ""
-echo "-> You have exited the shell 1/3"
+exit 0

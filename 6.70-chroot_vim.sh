@@ -1,13 +1,13 @@
 #!/tools/bin/bash
 
-CHAPTER_SECTION=36
-INSTALL_NAME=bash
+CHAPTER_SECTION=70
+INSTALL_NAME=vim
 
 echo ""
 echo "### ---------------------------"
-echo "###             BASH        ###"
+echo "###            VIM          ###"
 echo "###        CHAPTER 6.$CHAPTER_SECTION      ###"
-echo "### Bash-4.3.30"
+echo "### Vim-7.4"
 echo "### Must be run as \"chroot\" user"
 echo "### ---------------------------"
 
@@ -45,26 +45,38 @@ echo "... Installation starts now"
 time {
 
   echo ".... Pre-Configuring $SOURCE_FILE_NAME"
-  patch -Np1 -i ../bash-4.3.30-upstream_fixes-2.patch &> $LOG_FILE-patch.log
+  echo '#define SYS_VIMRC_FILE "/etc/vimrc"' >> src/feature.h
 
   echo ".... Configuring $SOURCE_FILE_NAME"
-  ./configure                           \
-    --prefix=/usr                       \
-    --bindir=/bin                       \
-    --docdir=/usr/share/doc/bash-4.3.30 \
-    --without-bash-malloc               \
-    --with-installed-readline           \
-	  &> $LOG_FILE-configure.log
+  ./configure     \
+    --prefix=/usr \
+    &> $LOG_FILE-configure.log
 
 	echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
-  chown -Rv nobody . &> $LOG_FILE-make-check.log
-  su nobody -s /bin/bash -c "PATH=$PATH make tests" &>> $LOG_FILE-make-check.log
+  make $PROCESSOR_CORES test &> $LOG_FILE-make-check.log
 
 	echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
+
+  echo ".... Post-Installing $SOURCE_FILE_NAME"
+  ln -sv vim /usr/bin/vi
+	for L in /usr/share/man/{,*/}man1/vim.1; do
+	 ln -sv vim.1 $(dirname $L)/vi.1
+	done
+	ln -sv ../vim/vim74/doc /usr/share/doc/vim-7.4
+	cat > /etc/vimrc << "EOF"
+" Begin /etc/vimrc
+set nocompatible
+set backspace=2
+syntax on
+if (&term == "iterm") || (&term == "putty")
+ set background=dark
+endif
+" End /etc/vimrc
+EOF
 
 }
 
@@ -76,12 +88,8 @@ cd /sources
 echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
-echo "### Please run the next steps:"
-echo "### cd /root/lfs"
-echo "### ./6.37-chroot_bc.sh"
+echo "### Please run the next step:"
+echo "### ./6.72-chroot_stripping.sh"
 echo ""
 
-exec /bin/bash --login +h
-
-echo ""
-echo "-> You have exited the shell 1/3"
+exit 0

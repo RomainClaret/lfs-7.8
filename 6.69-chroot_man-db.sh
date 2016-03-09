@@ -1,13 +1,13 @@
 #!/tools/bin/bash
 
-CHAPTER_SECTION=36
-INSTALL_NAME=bash
+CHAPTER_SECTION=69
+INSTALL_NAME=man-db
 
 echo ""
 echo "### ---------------------------"
-echo "###             BASH        ###"
+echo "###           MAN-DB        ###"
 echo "###        CHAPTER 6.$CHAPTER_SECTION      ###"
-echo "### Bash-4.3.30"
+echo "### Man-DB-2.7.2"
 echo "### Must be run as \"chroot\" user"
 echo "### ---------------------------"
 
@@ -44,24 +44,22 @@ echo ""
 echo "... Installation starts now"
 time {
 
-  echo ".... Pre-Configuring $SOURCE_FILE_NAME"
-  patch -Np1 -i ../bash-4.3.30-upstream_fixes-2.patch &> $LOG_FILE-patch.log
-
   echo ".... Configuring $SOURCE_FILE_NAME"
-  ./configure                           \
-    --prefix=/usr                       \
-    --bindir=/bin                       \
-    --docdir=/usr/share/doc/bash-4.3.30 \
-    --without-bash-malloc               \
-    --with-installed-readline           \
-	  &> $LOG_FILE-configure.log
+  ./configure                            \
+    --prefix=/usr                        \
+    --docdir=/usr/share/doc/man-db-2.7.2 \
+    --sysconfdir=/etc                    \
+    --disable-setuid                     \
+    --with-browser=/usr/bin/lynx         \
+    --with-vgrind=/usr/bin/vgrind        \
+    --with-grap=/usr/bin/grap            \
+    &> $LOG_FILE-configure.log
 
 	echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
-  chown -Rv nobody . &> $LOG_FILE-make-check.log
-  su nobody -s /bin/bash -c "PATH=$PATH make tests" &>> $LOG_FILE-make-check.log
+  make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
 	echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
@@ -76,12 +74,8 @@ cd /sources
 echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
-echo "### Please run the next steps:"
-echo "### cd /root/lfs"
-echo "### ./6.37-chroot_bc.sh"
+echo "### Please run the next step:"
+echo "### ./6.70-chroot_vim.sh"
 echo ""
 
-exec /bin/bash --login +h
-
-echo ""
-echo "-> You have exited the shell 1/3"
+exit 0

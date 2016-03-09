@@ -99,4 +99,10 @@ cd /root/lfs
 ./6.69-chroot_man-db.sh
 ./6.70-chroot_vim.sh
 ./6.72-chroot_stripping.sh
+exit
+exit
+exit
+chroot $LFS_MOUNT /tools/bin/env -i HOME=/root TERM=$TERM PS1='\u:\w\$ ' PATH=/bin:/usr/bin:/sbin:/usr/sbin /tools/bin/bash --login
+cd /root/lfs
+/tools/bin/find /{,usr/}{bin,lib,sbin} -type f -exec /tools/bin/strip --strip-debug '{}' ';'
 ./6.73-chroot_cleaning-up.sh
