@@ -95,4 +95,4 @@ echo "### Please run the next step:"
 echo "### ./6.29-chroot_coreutils.sh"
 echo ""
 
-exit 0
+exit

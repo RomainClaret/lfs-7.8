@@ -82,4 +82,4 @@ echo "### Please run the next step:"
 echo "### ./6.23-chroot_libcap.sh"
 echo ""
 
-exit 0
+exit

@@ -95,4 +95,4 @@ echo "### Please run the next step:"
 echo "### ./6.21-chroot_attr.sh"
 echo ""
 
-exit 0
+exit

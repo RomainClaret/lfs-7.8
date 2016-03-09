@@ -75,4 +75,4 @@ echo "### Please run the next step:"
 echo "### ./6.20-chroot_ncurses.sh"
 echo ""
 
-exit 0
+exit

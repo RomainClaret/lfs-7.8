@@ -72,4 +72,4 @@ echo "### Please run the next step:"
 echo "### ./6.24-chroot_sed.sh"
 echo ""
 
-exit 0
+exit

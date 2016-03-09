@@ -90,4 +90,4 @@ echo "### Please run the next step:"
 echo "### ./6.15-chroot_mpfr.sh"
 echo ""
 
-exit 0
+exit

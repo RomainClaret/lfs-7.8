@@ -64,4 +64,4 @@ echo "### Please run the next step:"
 echo "### ./6.31-chroot_m4.sh"
 echo ""
 
-exit 0
+exit

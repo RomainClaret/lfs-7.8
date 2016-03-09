@@ -74,4 +74,4 @@ echo "### Please run the next step:"
 echo "### ./6.8-chroot_man-pages.sh"
 echo ""
 
-exit 0
+exit

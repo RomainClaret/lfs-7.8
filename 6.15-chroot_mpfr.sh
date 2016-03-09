@@ -84,4 +84,4 @@ echo "### Please run the next step:"
 echo "### ./6.16-chroot_mpc.sh"
 echo ""
 
-exit 0
+exit

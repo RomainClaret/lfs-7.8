@@ -197,4 +197,4 @@ echo "### Please run the next step:"
 echo "### ./6.18-chroot_bzip2.sh"
 echo ""
 
-exit 0
+exit

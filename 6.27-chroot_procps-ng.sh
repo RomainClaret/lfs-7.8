@@ -82,4 +82,4 @@ echo "### Please run the next step:"
 echo "### ./6.28-chroot_e2fsprogs.sh"
 echo ""
 
-exit 0
+exit

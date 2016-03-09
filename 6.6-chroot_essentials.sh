@@ -88,4 +88,4 @@ echo "### Please run the next step:"
 echo "### ./6.7-chroot_api-headers.sh"
 echo ""
 
-exit 0
+exec /tools/bin/bash --login +h

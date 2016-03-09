@@ -73,4 +73,4 @@ echo "### Please run the next step:"
 echo "### ./6.27-chroot_procps-ng.sh"
 echo ""
 
-exit 0
+exit

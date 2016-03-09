@@ -83,4 +83,4 @@ echo "### Please run the next step:"
 echo "### ./6.22-chroot_acl.sh"
 echo ""
 
-exit 0
+exit

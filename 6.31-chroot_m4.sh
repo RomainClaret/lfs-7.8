@@ -72,4 +72,4 @@ echo "### Please run the next step:"
 echo "### ./6.32-chroot_flex.sh"
 echo ""
 
-exit 0
+exit

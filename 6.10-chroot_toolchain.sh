@@ -148,4 +148,4 @@ echo "### Please run the next step:"
 echo "### ./6.11-chroot_zlib.sh"
 echo ""
 
-exit 0
+exit

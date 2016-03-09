@@ -74,4 +74,4 @@ echo "### Please run the next step:"
 echo "### ./6.12-chroot_file.sh"
 echo ""
 
-exit 0
+exit

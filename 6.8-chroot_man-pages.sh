@@ -60,4 +60,4 @@ echo "### Please run the next step:"
 echo "### ./6.9-chroot_glibc.sh"
 echo ""
 
-exit 0
+exit

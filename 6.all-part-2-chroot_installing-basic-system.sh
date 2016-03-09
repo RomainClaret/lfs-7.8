@@ -29,6 +29,9 @@ echo "... Validating the environment"
 check_chroot
 
 ./6.5-chroot_creating-directories.sh
+rm -rf /root/lfs
+mv /tools/lfs /root/lfs
+cd /root/lfs
 ./6.6-chroot_essentials.sh
 ./6.7-chroot_api-headers.sh
 ./6.8-chroot_man-pages.sh

@@ -79,4 +79,4 @@ echo "### Please run the next step:"
 echo "### ./6.19-chroot_pkg-config.sh"
 echo ""
 
-exit 0
+exit

@@ -80,4 +80,4 @@ echo "### Please run the next step:"
 echo "### ./6.25-chroot_shadow.sh"
 echo ""
 
-exit 0
+exit

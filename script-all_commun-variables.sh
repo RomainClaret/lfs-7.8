@@ -30,3 +30,6 @@ PROCESSOR_CORES=-j1
 
 # 6.2 and more
 LFS_BUILD_LOGS_6=/build-logs/chapter_6_
+
+# 6.9
+LFS_TIME_ZONE=Europe/Zurich

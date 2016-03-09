@@ -70,4 +70,4 @@ echo "### Please run the next step:"
 echo "### ./6.13-chroot_binutils.sh"
 echo ""
 
-exit 0
+exit

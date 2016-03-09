@@ -81,4 +81,4 @@ echo "### Please run the next step:"
 echo "### ./6.26-chroot_psmisc.sh"
 echo ""
 
-exit 0
+exit

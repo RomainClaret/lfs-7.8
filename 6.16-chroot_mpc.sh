@@ -80,4 +80,4 @@ echo "### Please run the next step:"
 echo "### ./6.17-chroot_gcc.sh"
 echo ""
 
-exit 0
+exit

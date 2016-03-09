@@ -64,12 +64,10 @@ ln -sv /run/lock /var/lock &>> $LOG_FILE
 mkdir -pv /var/{opt,cache,lib/{color,misc,locate},local} &>> $LOG_FILE
 
 echo ""
-echo "######### END OF CHAPTER 5.$CHAPTER_SECTION ########"
+echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next steps:"
 echo "### mv /tools/lfs /root/lfs"
 echo "### cd /root/lfs"
 echo "### ./6.6-chroot_essentials.sh"
 echo ""
-
-exit 0

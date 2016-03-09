@@ -86,4 +86,4 @@ echo "### Please run the next step:"
 echo "### ./6.14-chroot_gmp.sh"
 echo ""
 
-exit 0
+exit

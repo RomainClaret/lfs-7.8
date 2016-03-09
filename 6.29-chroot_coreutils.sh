@@ -90,4 +90,4 @@ echo "### Please run the next step:"
 echo "### ./6.30-chroot_iana-etc.sh"
 echo ""
 
-exit 0
+exit

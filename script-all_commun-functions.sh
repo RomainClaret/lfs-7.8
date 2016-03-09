@@ -213,10 +213,10 @@ function init_tarball
 
 function extract_tarball
 {
-	echo "....Initializing '$INSTALL_NAME' tarball"
+	echo "....Loading '$INSTALL_NAME' tarball"
 	if [ ! -d /sources/$INSTALL_NAME*/  ]; then
 	    tar xf $SOURCE_FILE_NAME
-			echo "---> Initialized '$INSTALL_NAME' tarball"
+			echo "---> Loaded '$INSTALL_NAME' tarball"
 	else
 	    SHOULD_NOT_CLEAN=1
 			echo "---> Tarball '$INSTALL_NAME' is already initialized."
