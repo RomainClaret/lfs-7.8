@@ -29,7 +29,7 @@ source ./script-all_commun-variables.sh
 
 echo ""
 echo "... Validating the environment"
-check_user root
+is_user root
 check_chroot
 
 echo ""

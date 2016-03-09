@@ -29,7 +29,7 @@ source ./script-all_commun-variables.sh
 
 echo ""
 echo "... Validating the environment"
-check_user root
+is_user root
 check_chroot
 
 echo ""
@@ -37,8 +37,8 @@ echo "... Setup building environment"
 BUILD_DIRECTORY=$INSTALL_NAME-build
 LOG_FILE=$LFS_BUILD_LOGS_6$CHAPTER_SECTION-$INSTALL_NAME
 cd /sources
-test_only_one_tarball_exists
-extract_tarball ""
+check_tarball_uniqueness
+extract_tarball
 cd $(ls -d /sources/$INSTALL_NAME*/)
 
 echo ""
