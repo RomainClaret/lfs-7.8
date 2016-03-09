@@ -30,7 +30,6 @@ source ./script-all_commun-variables.sh
 echo ""
 echo "... Validating the environment"
 check_user root
-check_partitions
 check_chroot
 
 echo ""

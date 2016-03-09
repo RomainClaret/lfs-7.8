@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/tools/bin/bash
+
 echo ""
 echo "### -------------------------------"
 echo "###    INSTALLING BASIC SYSTEM  ###"
@@ -25,7 +26,6 @@ source ./script-all_commun-variables.sh
 
 echo ""
 echo "... Validating the environment"
-check_partitions
 check_chroot
 
 ./6.5-chroot_creating-directories.sh

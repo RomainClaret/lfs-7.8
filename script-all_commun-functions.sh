@@ -199,7 +199,8 @@ function check_tarball_uniqueness
 	fi
 }
 
-function init_tarball {
+function init_tarball
+{
 	echo "....Initializing '$INSTALL_NAME' tarball"
 	if [ ! -d $LFS_MOUNT_SOURCES/$INSTALL_NAME*/  ]; then
 	    tar xf $SOURCE_FILE_NAME
@@ -210,7 +211,8 @@ function init_tarball {
 	fi
 }
 
-function get_build_errors {
+function get_build_errors
+{
 	WARNINGS_COUNTER=0
   ERRORS_COUNTER=0
 
@@ -235,7 +237,24 @@ function get_build_errors {
 	fi
 }
 
-function check_chroot {
+function check_chroot
+{
+	if [ ! $(awk -v needle="$LFS_PARTITION_ROOT" '$1==needle {print $2}' /proc/mounts) = "/" ] ; then
+		echo "!! Fatal Error 10: $LFS_PARTITION_ROOT is not mounted correctly"
+		echo "### You must exit chroot and mount it with ./2.all-root_make-new-partitions.sh"
+		exit 10
+	else
+		echo "!! Info: $LFS_PARTITION_ROOT has been mounted correctly"
+	fi
+
+	if [ -z $(awk -v needle="$LFS_PARTITION_SWAP" '$1==needle {print $1}' /proc/swaps)  ] ; then
+	    echo "!! Fatal Error 10: $LFS_PARTITION_SWAP has not the swap activated"
+	    echo "### You must exit chroot and mount it with ./2.all-root_make-new-partitions.sh"
+	 	  exit 10
+	else
+      echo "!! Info: $LFS_PARTITION_SWAP is correctly configured as swap"
+	fi
+
 	if test !  -d "/sources" && test ! -d "/build-logs"  ; then
 	  echo "!! Fatal Error 10: $LFS_PARTITION_ROOT is not chrooted as a root directory"
   	exit 10
