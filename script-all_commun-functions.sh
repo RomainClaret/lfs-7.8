@@ -138,7 +138,7 @@ function check_partitions
 	  echo "!! Fatal Error 4: $LFS_PARTITION_ROOT not mounted, run ./2.all-root_make-new-partitions.sh"
 	  exit 4
 	fi
-	echo "!! Info: $LFS_PARTITION_ROOT has been mounted correctly"
+	echo "!! Info: $LFS_PARTITION_ROOT is correctly mounted"
 
 	echo ""
 	/sbin/swapon -s | grep "$LFS_PARTITION_SWAP"
@@ -244,7 +244,7 @@ function check_chroot
 		echo "### You must exit chroot and mount it with ./2.all-root_make-new-partitions.sh"
 		exit 10
 	else
-		echo "!! Info: $LFS_PARTITION_ROOT has been mounted correctly"
+		echo "!! Info: $LFS_PARTITION_ROOT is correctly mounted"
 	fi
 
 	if [ -z $(awk -v needle="$LFS_PARTITION_SWAP" '$1==needle {print $1}' /proc/swaps)  ] ; then

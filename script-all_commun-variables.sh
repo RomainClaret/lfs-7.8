@@ -29,4 +29,4 @@ LFS_MOUNT_SOURCES=$LFS_MOUNT/sources
 PROCESSOR_CORES=-j1
 
 # 6.2 and more
-LFS_BUILD_LOGS_6=$LFS_BUILD_LOGS/chapter_6_
+LFS_BUILD_LOGS_6=/build-logs/chapter_6_
