@@ -35,19 +35,18 @@ echo ""
 echo "... Entering the Chroot Environment"
 cp -r /root/lfs-7.8 $LFS_MOUNT_TOOLS/lfs
 
+echo ""
+echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
+echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
+echo "--> Note that the bash prompt will say I have no name! This is normal because the /etc/passwd file has not been created yet."
+echo "### Please run the next steps:"
+echo "cd /tools/lfs"
+echo "### ./6.all-part-2-chroot_installing-basic-system.sh"
+echo ""
+
 chroot "$LFS_MOUNT" /tools/bin/env -i \
   HOME=/root \
   TERM="$TERM" \
   PS1='\u:\w\$ ' \
   PATH=/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin \
   /tools/bin/bash --login +h
-
-echo ""
-echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
-echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
-echo "### Please run the next steps:"
-echo "cd /tools/lfs"
-echo "### ./6.5-chroot_creating-directories.sh"
-echo ""
-
-exit 0
