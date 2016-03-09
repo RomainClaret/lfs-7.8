@@ -52,4 +52,4 @@ chroot "$LFS_MOUNT" /tools/bin/env -i \
   PATH=/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin \
   /tools/bin/bash --login +h
 
-echo "... Exited the Chrrot Environment"
+echo "... Exited the Chroot Environment"

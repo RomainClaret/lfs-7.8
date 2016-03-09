@@ -33,11 +33,11 @@ check_chroot
 
 echo ""
 echo "... Setup building environment"
-LOG_FILE=$LFS_BUILD_LOGS_6$CHAPTER_SECTION-$INSTALL_NAME
+LOG_FILE=$LFS_BUILD_LOGS_6$CHAPTER_SECTION-$INSTALL_NAME.log
 
 echo ""
 echo "... Linking essentials"
-ln -sv /tools/bin/{bash,cat,echo,pwd,stty} /bin &>> $LOG_FILE
+ln -sv /tools/bin/{bash,cat,echo,pwd,stty} /bin &> $LOG_FILE
 ln -sv /tools/bin/perl /usr/bin &>> $LOG_FILE
 ln -sv /tools/lib/libgcc_s.so{,.1} /usr/lib &>> $LOG_FILE
 ln -sv /tools/lib/libstdc++.so{,.6} /usr/lib &>> $LOG_FILE

@@ -33,10 +33,10 @@ check_chroot
 
 echo ""
 echo "... Setup building environment"
-LOG_FILE=$LFS_BUILD_LOGS_6$CHAPTER_SECTION-$INSTALL_NAME
+LOG_FILE=$LFS_BUILD_LOGS_6$CHAPTER_SECTION-$INSTALL_NAME.log
 
 echo ""
-echo "... Creating the initial directories and children: /bin /boot /etc /usr" | tee $LOG_FILE
+echo "... Creating the initial directories and children: /bin /boot /etc /usr" &> $LOG_FILE
 mkdir -pv /{bin,boot,etc/{opt,sysconfig},home,lib/firmware,mnt,opt} &>> $LOG_FILE
 mkdir -pv /{media/{floppy,cdrom},sbin,srv,var} &>> $LOG_FILE
 install -dv -m 0750 /root &>> $LOG_FILE
@@ -47,7 +47,8 @@ mkdir -v  /usr/{,local/}share/{misc,terminfo,zoneinfo} &>> $LOG_FILE
 mkdir -v  /usr/libexec &>> $LOG_FILE
 mkdir -pv /usr/{,local/}share/man/man{1..8} &>> $LOG_FILE
 
-echo "... Processing for x86_64 processors" | tee -a $LOG_FILE
+echo "" &>> $LOG_FILE
+echo "... Processing for x86_64 processors" &>> $LOG_FILE
 case $(uname -m) in
 x86_64) ln -sv lib /lib64
   ln -sv lib /usr/lib64 &>> $LOG_FILE
@@ -55,7 +56,8 @@ x86_64) ln -sv lib /lib64
   ;;
 esac
 
-echo "*** Creating /var directory and sub directories."	| tee -a $LOG_FILE
+echo "" &>> $LOG_FILE
+echo "... Creating /var directory and sub directories."	&>> $LOG_FILE
 mkdir -v /var/{log,mail,spool} &>> $LOG_FILE
 ln -sv /run /var/run &>> $LOG_FILE
 ln -sv /run/lock /var/lock &>> $LOG_FILE
