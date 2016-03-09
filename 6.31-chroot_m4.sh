@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/tools/bin/bash
 
 CHAPTER_SECTION=31
 INSTALL_NAME=m4

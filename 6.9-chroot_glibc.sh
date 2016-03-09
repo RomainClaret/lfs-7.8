@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/tools/bin/bash
 
 CHAPTER_SECTION=9
 INSTALL_NAME=glibc

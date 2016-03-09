@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/tools/bin/bash
 
 CHAPTER_SECTION=14
 INSTALL_NAME=gmp

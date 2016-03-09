@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/tools/bin/bash
 
 CHAPTER_SECTION=28
 INSTALL_NAME=e2fsprogs

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/tools/bin/bash
 
 CHAPTER_SECTION=11
 INSTALL_NAME=zlib
