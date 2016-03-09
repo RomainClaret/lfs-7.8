@@ -64,7 +64,7 @@ time {
   awk '/tests passed/{total+=$2} ; END{print total}' $LOG_FILE-make-check.log
 
   echo ""
-  echo "Check above that the 188 tests passed"
+  echo "Check above that the value 188 (passed tests) is present"
   echo ""
   echo -e "\a"
   read -p "Enter to confirm" -n 1 -r

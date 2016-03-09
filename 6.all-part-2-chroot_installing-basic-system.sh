@@ -63,6 +63,7 @@ cd /root/lfs
 ./6.34-chroot_grep.sh
 ./6.35-chroot_readline.sh
 ./6.36-chroot_bash.sh
+cd /root/lfs
 ./6.37-chroot_bc.sh
 ./6.38-chroot_libtool.sh
 ./6.39-chroot_gdbm.sh

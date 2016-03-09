@@ -45,7 +45,7 @@ echo "... Installation starts now"
 time {
 
   echo ".... Configuring $SOURCE_FILE_NAME"
-  ./configure
+  ./configure     \
     --prefix=/usr \
 	  &> $LOG_FILE-configure.log
 

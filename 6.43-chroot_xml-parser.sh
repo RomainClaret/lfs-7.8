@@ -1,13 +1,13 @@
 #!/tools/bin/bash
 
-CHAPTER_SECTION=25
-INSTALL_NAME=shadow
+CHAPTER_SECTION=43
+INSTALL_NAME=xml-parser
 
 echo ""
 echo "### ---------------------------"
-echo "###            SHADOW       ###"
+echo "###         XML-PARSER      ###"
 echo "###        CHAPTER 6.$CHAPTER_SECTION      ###"
-echo "### Shadow-4.2.1"
+echo "### XML::Parser-2.44"
 echo "### Must be run as \"chroot\" user"
 echo "### ---------------------------"
 
@@ -45,29 +45,16 @@ echo "... Installation starts now"
 time {
 
   echo ".... Pre-Configuring $SOURCE_FILE_NAME"
-  sed -i 's/groups$(EXEEXT) //' src/Makefile.in
-	find man -name Makefile.in -exec sed -i 's/groups\.1 / /' {} \;
-	sed -i -e 's@#ENCRYPT_METHOD DES@ENCRYPT_METHOD SHA512@' \
-	       -e 's@/var/spool/mail@/var/mail@' etc/login.defs
-	sed -i 's/1000/999/' etc/useradd
-
-  echo ".... Configuring $SOURCE_FILE_NAME"
-  ./configure                       \
-    --sysconfdir=/etc               \
-    --with-group-name-max-length=32 \
-	  &> $LOG_FILE-configure.log
+  perl Makefile.PL
 
 	echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
+  echo ".... Make Checking $SOURCE_FILE_NAME"
+  make test $PROCESSOR_CORES &> $LOG_FILE-make-test.log
+
 	echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
-
-  echo ".... Post-Installing $SOURCE_FILE_NAME"
-  mv -v /usr/bin/passwd /bin
-	pwconv
-	grpconv
-	echo "root:$LFS_PASSWORD" | chpasswd
 
 }
 
@@ -80,7 +67,7 @@ echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
-echo "### ./6.26-chroot_psmisc.sh"
+echo "### ./6.44-chroot_autoconf.sh"
 echo ""
 
-exit
+exit 0

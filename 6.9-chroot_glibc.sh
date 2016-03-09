@@ -143,8 +143,6 @@ EOF
 
   mkdir -pv /etc/ld.so.conf.d
 
-  }
-
 }
 
 echo ""

@@ -45,7 +45,9 @@ echo "... Installation starts now"
 time {
 
   echo ".... Configuring $SOURCE_FILE_NAME"
-  ./configure --prefix=/usr &> $LOG_FILE-configure.log
+  ./configure     \
+    --prefix=/usr \
+    &> $LOG_FILE-configure.log
 
 	echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log

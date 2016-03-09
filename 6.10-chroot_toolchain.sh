@@ -59,8 +59,8 @@ time {
 
   echo ""
   echo "ABOVE should be the same output than below"
-  echo "32bit: [Requesting program interpreter: /tools/lib/ld-linux.so.2]"
-  echo "64bit: [Requesting program interpreter: /tools/lib64/ld-linux-x86-64.so.2]"
+  echo "32bit: [Requesting program interpreter: /lib/ld-linux.so.2]"
+  echo "64bit: [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]"
   echo ""
   echo -e "\a"
   read -p "Enter to confirm" -n 1 -r
@@ -99,9 +99,10 @@ time {
   echo ""
   echo "ABOVE should be the same output than below"
   echo "32bit:"
-  echo '### SEARCH_DIR("/tools/i686-pc-linux-gnu/lib")'
+  echo '### SEARCH_DIR("=/tools/i686-pc-linux-gnu/lib32")'
 	echo '### SEARCH_DIR("/usr/lib")'
 	echo '### SEARCH_DIR("/lib");'
+  echo '### SEARCH_DIR("/tools/i686-pc-linux-gnu/lib")'
   echo "64bit:"
   echo '### SEARCH_DIR("=/tools/x86_64-unknown-linux-gnu/lib64")'
   echo '### SEARCH_DIR("/usr/lib")'

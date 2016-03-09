@@ -1,13 +1,13 @@
 #!/tools/bin/bash
 
-CHAPTER_SECTION=25
-INSTALL_NAME=shadow
+CHAPTER_SECTION=35
+INSTALL_NAME=readline
 
 echo ""
 echo "### ---------------------------"
-echo "###            SHADOW       ###"
+echo "###          READLINE       ###"
 echo "###        CHAPTER 6.$CHAPTER_SECTION      ###"
-echo "### Shadow-4.2.1"
+echo "### Readline-6.3"
 echo "### Must be run as \"chroot\" user"
 echo "### ---------------------------"
 
@@ -45,29 +45,31 @@ echo "... Installation starts now"
 time {
 
   echo ".... Pre-Configuring $SOURCE_FILE_NAME"
-  sed -i 's/groups$(EXEEXT) //' src/Makefile.in
-	find man -name Makefile.in -exec sed -i 's/groups\.1 / /' {} \;
-	sed -i -e 's@#ENCRYPT_METHOD DES@ENCRYPT_METHOD SHA512@' \
-	       -e 's@/var/spool/mail@/var/mail@' etc/login.defs
-	sed -i 's/1000/999/' etc/useradd
+  patch -Np1 -i ../readline-6.3-upstream_fixes-3.patch &> $LOG_FILE-patch.log
+	sed -i '/MV.*old/d' Makefile.in
+	sed -i '/{OLDSUFF}/c:' support/shlib-install
 
   echo ".... Configuring $SOURCE_FILE_NAME"
-  ./configure                       \
-    --sysconfdir=/etc               \
-    --with-group-name-max-length=32 \
+  ./configure                            \
+    --prefix=/usr                        \
+    --disable-static                     \
+    --docdir=/usr/share/doc/readline-6.3 \
 	  &> $LOG_FILE-configure.log
 
 	echo ".... Making $SOURCE_FILE_NAME"
-  make $PROCESSOR_CORES &> $LOG_FILE-make.log
+  make SHLIB_LIBS=-lncurses $PROCESSOR_CORES &> $LOG_FILE-make.log
 
 	echo ".... Installing $SOURCE_FILE_NAME"
-  make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
+  make SHLIB_LIBS=-lncurses install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
+
+  echo ".... Installing HTML $SOURCE_FILE_NAME"
+  make install-html $PROCESSOR_CORES &> $LOG_FILE-make-install-html.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"
-  mv -v /usr/bin/passwd /bin
-	pwconv
-	grpconv
-	echo "root:$LFS_PASSWORD" | chpasswd
+  mv -v /usr/lib/lib{readline,history}.so.* /lib &> $LOG_FILE-post-install.log
+	ln -sfv ../../lib/$(readlink /usr/lib/libreadline.so) /usr/lib/libreadline.so &>> $LOG_FILE-post-install.log
+	ln -sfv ../../lib/$(readlink /usr/lib/libhistory.so ) /usr/lib/libhistory.so &>> $LOG_FILE-post-install.log
+	install -v -m644 doc/*.{ps,pdf,html,dvi} /usr/share/doc/readline-6.3 &>> $LOG_FILE-post-install.log
 
 }
 
@@ -80,7 +82,7 @@ echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
-echo "### ./6.26-chroot_psmisc.sh"
+echo "### ./6.36-chroot_bash.sh"
 echo ""
 
-exit
+exit 0

@@ -49,8 +49,8 @@ time {
 	sed -i '/tests\/misc\/sort.pl/ d' Makefile.in
 
   echo ".... Configuring $SOURCE_FILE_NAME"
-  FORCE_UNSAFE_CONFIGURE=1 ./configure \
-    --prefix=/usr            \
+  FORCE_UNSAFE_CONFIGURE=1 ./configure      \
+    --prefix=/usr                           \
     --enable-no-install-program=kill,uptime \
 	  &> $LOG_FILE-configure.log
 

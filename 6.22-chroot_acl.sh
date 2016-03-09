@@ -50,10 +50,10 @@ time {
 	sed -i -e "/TABS-1;/a if (x > (TABS-1)) x = (TABS-1);" libacl/__acl_to_any_text.c
 
   echo ".... Configuring $SOURCE_FILE_NAME"
-  ./configure
-    --prefix=/usr    \
-    --bindir=/bin    \
-    --disable-static \
+  ./configure             \
+    --prefix=/usr         \
+    --bindir=/bin         \
+    --disable-static      \
     --libexecdir=/usr/lib \
 	  &> $LOG_FILE-configure.log
 
