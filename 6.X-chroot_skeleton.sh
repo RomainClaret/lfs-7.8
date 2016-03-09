@@ -1,7 +1,7 @@
 #!/tools/bin/bash
 
 CHAPTER_SECTION=x
-INSTALL_NAME=xxx
+INSTALL_NAME=time
 
 echo ""
 echo "### ---------------------------"
