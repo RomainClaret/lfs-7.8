@@ -26,7 +26,7 @@ source ./script-all_commun-variables.sh
 echo ""
 echo "... Validating the environment"
 check_partitions
-is_user lfs
+check_chroot
 
 ./6.5-chroot_creating-directories.sh
 ./6.6-chroot_essentials.sh

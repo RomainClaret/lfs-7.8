@@ -55,6 +55,10 @@ function self_check
 	chmod +x 5.34-lfs_xz-5.2.1.sh
 	chmod +x 5.35-lfs_stripping.sh
 	chmod +x 5.36-root_changing-ownership.sh
+	chmod +x 6.all-part-1-root_installing-basic-system.sh
+	chmod +x 6.all-part-2-chroot_installing-basic-system.sh
+	chmod +x 6.2-root_preparing-virtual-kernel.sh
+	chmod +x 6.4-root_chroot-environment.sh
 	chmod +x 6.5-chroot_creating-directories.sh
 	chmod +x 6.6-chroot_essentials.sh
 	chmod +x 6.7-chroot_api-headers.sh
@@ -80,7 +84,7 @@ function self_check
 	chmod +x 6.27-chroot_procps-ng.sh
 	chmod +x 6.28-chroot_e2fsprogs.sh
 	chmod +x 6.29-chroot_coreutils.sh
-	chmod +x 6.30-chroot_iana-Etc.sh
+	chmod +x 6.30-chroot_iana-etc.sh
 	chmod +x 6.31-chroot_m4.sh
 	chmod +x 6.32-chroot_flex.sh
 	chmod +x 6.33-chroot_bison.sh
