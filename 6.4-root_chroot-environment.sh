@@ -33,7 +33,7 @@ is_user root
 
 echo ""
 echo "... Entering the Chroot Environment"
-cp -r /root/lfs $LFS_MOUNT_TOOLS/lfs
+cp -r /root/lfs-7.8 $LFS_MOUNT_TOOLS/lfs
 
 chroot "$LFS_MOUNT" /tools/bin/env -i \
   HOME=/root \
