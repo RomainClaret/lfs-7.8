@@ -1,4 +1,4 @@
-#!/tools/bin/bash
+#!/bin/bash
 
 CHAPTER_SECTION=58
 INSTALL_NAME=kdb

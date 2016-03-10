@@ -1,4 +1,4 @@
-#!/tools/bin/bash
+#!/bin/bash
 
 CHAPTER_SECTION=26
 INSTALL_NAME=psmisc

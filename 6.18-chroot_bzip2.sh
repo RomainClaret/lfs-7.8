@@ -1,4 +1,4 @@
-#!/tools/bin/bash
+#!/bin/bash
 
 CHAPTER_SECTION=18
 INSTALL_NAME=bzip

@@ -1,4 +1,4 @@
-#!/tools/bin/bash
+#!/bin/bash
 
 CHAPTER_SECTION=32
 INSTALL_NAME=flex

@@ -1,4 +1,4 @@
-#!/tools/bin/bash
+#!/bin/bash
 
 CHAPTER_SECTION=53
 INSTALL_NAME=xz
@@ -11,9 +11,9 @@ echo "### Xz-5.2.1"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	time"
-echo "### user	time"
-echo "### sys	  time"
+echo "### real	0m44.997s"
+echo "### user	0m29.454s"
+echo "### sys	  0m4.652s"
 echo "### ---------------------------"
 
 echo ""

@@ -1,4 +1,4 @@
-#!/tools/bin/bash
+#!/bin/bash
 
 echo ""
 echo "### -------------------------------"
