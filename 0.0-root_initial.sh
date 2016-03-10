@@ -35,6 +35,13 @@ echo ""
 echo "... Validating required libraries"
 sh script-root_library-check.sh
 echo ""
+echo "... Updating environment"
+rm -f /etc/motd
+mv motd /etc/
+echo "" >> /etc/motd
+echo "Host Machine" >> /etc/motd
+echo "Scripts used for building the LFS: https://github.com/Rocla/lfs-7.8" >> /etc/motd
+echo ""
 
 echo ""
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"

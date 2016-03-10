@@ -64,6 +64,14 @@ ln -sv /run/lock /var/lock &>> $LOG_FILE
 mkdir -pv /var/{opt,cache,lib/{color,misc,locate},local} &>> $LOG_FILE
 
 echo ""
+echo "... Updating environment"
+rm -f /etc/motd
+mv motd /etc/
+echo "" >> /etc/motd
+echo "Fresh LFS OS" >> /etc/motd
+echo "Scripts used for building this LFS: https://github.com/Rocla/lfs-7.8" >> /etc/motd
+
+echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next steps:"
