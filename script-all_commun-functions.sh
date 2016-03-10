@@ -282,10 +282,10 @@ function get_build_errors_6
 
 	if [ $ERRORS_COUNTER -ne 0 ]; then
 		echo "!! Info: Known errors and not critical:"
-		echo "Chapters 6.9, 6.17, 6.28, 6.31, 6.33, 6.34, 6.36, 6.38, 6.40, 6.44, 6.45, 6.46, 6.57, 6.58, 6.65, 6.68"
+		echo "Chapters 6.9, 6.17, 6.28, 6.31, 6.33, 6.34, 6.36, 6.38, 6.40, 6.44, 6.45, 6.46, 6.57, 6.58, 6.65, 6.68, 6.70"
 		echo ""
 		echo "!! Info: Until now you had $ERRORS_COUNTER errors, however they are not all critical. Crtical errors are displayed below:"
-    grep -n " [Ee]rrors*:* \|^FAIL:" $LFS_BUILD_LOGS_6* | grep -v "_6_9\|_6_17\|_6_28\|_6_31\|_6_33\|_6_34\|_6_36\|_6_38\|_6_40\|_6_44\|_6_45\|_6_46\|_6_57\|_6_58\|_6_65\|_6_68"
+    grep -n " [Ee]rrors*:* \|^FAIL:" $LFS_BUILD_LOGS_6* | grep -v "_6_9\|_6_17\|_6_28\|_6_31\|_6_33\|_6_34\|_6_36\|_6_38\|_6_40\|_6_44\|_6_45\|_6_46\|_6_57\|_6_58\|_6_65\|_6_68\|_6_70"
     echo "--> If any error, please check on http://www.linuxfromscratch.org/lfs/build-logs for comparaison."
 	else
 	  echo "---> Congrats you have no errors."

@@ -10,10 +10,6 @@ echo "###        CHAPTER 6.$CHAPTER_SECTION      ###"
 echo "### Vim-7.4"
 echo "### Must be run as \"chroot\" user"
 echo ""
-echo "### Time estimate:"
-echo "### real	time"
-echo "### user	time"
-echo "### sys	  time"
 echo "### ---------------------------"
 
 echo ""
@@ -61,7 +57,7 @@ time {
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
-  make $PROCESSOR_CORES test &> $LOG_FILE-make-check.log
+  make -j1 test &> $LOG_FILE-make-check.log
 
 	echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
@@ -78,7 +74,7 @@ set nocompatible
 set backspace=2
 syntax on
 if (&term == "iterm") || (&term == "putty")
- set background=dark
+  set background=dark
 endif
 " End /etc/vimrc
 EOF

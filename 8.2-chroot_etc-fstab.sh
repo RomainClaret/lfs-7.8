@@ -61,7 +61,7 @@ echo ""
 echo "######### END OF CHAPTER 8.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
-echo "### ./8.3-chroot_linux-42.sh"
+echo "### ./8.3-chroot_linux-42-part-1.sh"
 echo ""
 
 exit 0
