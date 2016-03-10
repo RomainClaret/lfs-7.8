@@ -1,13 +1,13 @@
 #!/tools/bin/bash
 
-CHAPTER_SECTION=4
-INSTALL_NAME=managing-dev
+CHAPTER_SECTION=9
+INSTALL_NAME=etc-shells
 
 echo ""
 echo "### ---------------------------"
-echo "###     MANAGING DEVICES    ###"
+echo "###         ETC-SHELLS      ###"
 echo "###        CHAPTER 7.$CHAPTER_SECTION      ###"
-echo "### Managing Devices"
+echo "### Create the /etc/shells File"
 echo "### Must be run as \"chroot\" user"
 echo "### ---------------------------"
 
@@ -37,17 +37,24 @@ echo "... Setup building environment"
 LOG_FILE=$LFS_BUILD_LOGS_7$CHAPTER_SECTION-$INSTALL_NAME
 
 echo ""
-echo "... Creating Custom Udev Rules"
-bash /lib/udev/init-net-rules.sh
+echo "... Creating /etc/shells"
+cat > /etc/shells << "EOF"
+# Begin /etc/shells
+/bin/sh
+/bin/bash
+# End /etc/shells
+EOF
 
 echo ""
-echo "... Review content of /etc/udev/rules.d/70-persistent-net.rules"
-cat /etc/udev/rules.d/70-persistent-net.rules | tee $LOG_FILE-persistent-net-rules.log
+echo "... Review content of /etc/shells"
+cat /etc/shells | tee $LOG_FILE-shells.log
 echo "<-- End"
 
 echo ""
 echo "######### END OF CHAPTER 7.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
-echo "### ./7.5-chroot_network.sh"
+echo "### ./8.all-chroot_make-bootable.sh"
 echo ""
+
+exit 0

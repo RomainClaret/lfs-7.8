@@ -71,24 +71,24 @@ $LFS_ADDRESS $LFS_DOMAINNAME $LFS_HOSTNAME
 EOF
 
 echo ""
-echo "... Content of /etc/sysconfig/ifconfig.eth0"
+echo "... Review content of /etc/sysconfig/ifconfig.eth0"
 cat /etc/sysconfig/ifconfig.eth0 | tee $LOG_FILE-ifconfig-eth0.log
 echo "<-- End"
 
 echo ""
-echo "... Content of /etc/resolv.conf"
+echo "... Review content of /etc/resolv.conf"
 cat /etc/resolv.conf | tee $LOG_FILE-resolv.log
 echo "<-- End"
 
 
 echo ""
-echo "... Content of /etc/hostname"
+echo "... Review content of /etc/hostname"
 cat /etc/hostname | tee $LOG_FILE-hostname.log
 echo "<-- End"
 
 
 echo ""
-echo "... Content of /etc/hosts"
+echo "... Review content of /etc/hosts"
 cat /etc/hosts | tee $LOG_FILE-hosts.log
 echo "<-- End"
 
