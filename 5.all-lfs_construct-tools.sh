@@ -28,6 +28,17 @@ echo "... Validating the environment"
 check_partitions
 is_user lfs
 
+echo ""
+echo "READ CAREFULLY"
+echo "Running this script will be long, ~2h"
+echo "The compilation time is ~1h30m in the best cases."
+echo "But note that you will be required during some of the steps."
+echo "When steps are required from you, the terminal will produce a sound. But check often, in case you didn't hear it."
+echo ""
+echo -e "\a"
+read -p "Enter to confirm" -n 1 -r
+echo ""
+
 ./5.3-lfs_check-tools.sh
 ./5.4-lfs_binutils-2.25.1-pass-1.sh
 ./5.5-lfs_gcc-5.2.0-pass-1.sh

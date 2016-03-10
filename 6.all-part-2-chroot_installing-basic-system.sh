@@ -5,7 +5,7 @@ echo "### -------------------------------"
 echo "###    INSTALLING BASIC SYSTEM  ###"
 echo "###         CHAPTER 6.all       ###"
 echo "### Installing Basic System Software"
-echo "### Must be run as \"lfs\" user"
+echo "### Must be run as \"chroot\" user"
 echo "### -------------------------------"
 
 echo ""
@@ -27,6 +27,17 @@ source ./script-all_commun-variables.sh
 echo ""
 echo "... Validating the environment"
 check_chroot
+
+echo ""
+echo "READ CAREFULLY"
+echo "Running this script will be long, ~6h"
+echo "The compilation time is ~5h in the best cases."
+echo "But note that you will be required during some of the steps."
+echo "When steps are required from you, the terminal will produce a sound. But check often, in case you didn't hear it."
+echo ""
+echo -e "\a"
+read -p "Enter to confirm" -n 1 -r
+echo ""
 
 ./6.5-chroot_creating-directories.sh
 rm -rf /root/lfs

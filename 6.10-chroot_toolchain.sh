@@ -146,6 +146,7 @@ time {
 echo ""
 echo "... Cleaning up $SOURCE_FILE_NAME"
 rm -v dummy.c a.out dummy.log
+get_build_errors_6
 
 echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"

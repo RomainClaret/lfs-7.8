@@ -11,9 +11,9 @@ echo "### Bash-4.3.30"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	time"
-echo "### user	time"
-echo "### sys	  time"
+echo "### real	3m20.831s"
+echo "### user	0m26.546s"
+echo "### sys	  0m5.072s"
 echo "### ---------------------------"
 
 echo ""
@@ -77,6 +77,7 @@ echo ""
 echo "... Cleaning up $SOURCE_FILE_NAME"
 cd /sources
 [ ! $SHOULD_NOT_CLEAN ] && rm -rf $(ls -d /sources/$INSTALL_NAME*/)
+get_build_errors_6
 
 echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"

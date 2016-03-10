@@ -81,6 +81,8 @@ nogroup:x:99:
 users:x:999:
 EOF
 
+get_build_errors_6
+
 echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"

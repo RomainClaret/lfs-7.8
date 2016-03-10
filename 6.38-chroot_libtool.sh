@@ -11,9 +11,9 @@ echo "### Libtool-2.4.6"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	time"
-echo "### user	time"
-echo "### sys	  time"
+echo "### real	4m42.085s"
+echo "### user	2m4.744s"
+echo "### sys	  0m28.162s"
 echo "### ---------------------------"
 
 echo ""
@@ -69,6 +69,7 @@ echo ""
 echo "... Cleaning up $SOURCE_FILE_NAME"
 cd /sources
 [ ! $SHOULD_NOT_CLEAN ] && rm -rf $(ls -d /sources/$INSTALL_NAME*/)
+get_build_errors_6
 
 echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"

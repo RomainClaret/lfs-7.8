@@ -11,9 +11,9 @@ echo "### Inetutils-1.9.4"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	time"
-echo "### user	time"
-echo "### sys	  time"
+echo "### real	0m52.593s"
+echo "### user	0m24.598s"
+echo "### sys	  0m8.405s"
 echo "### ---------------------------"
 
 echo ""
@@ -84,6 +84,7 @@ echo ""
 echo "... Cleaning up $SOURCE_FILE_NAME"
 cd /sources
 [ ! $SHOULD_NOT_CLEAN ] && rm -rf $(ls -d /sources/$INSTALL_NAME*/)
+get_build_errors_6
 
 echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"

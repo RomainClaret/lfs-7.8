@@ -223,7 +223,7 @@ function extract_tarball
 	fi
 }
 
-function get_build_errors
+function get_build_errors_5
 {
 	WARNINGS_COUNTER=0
   ERRORS_COUNTER=0
@@ -244,6 +244,46 @@ function get_build_errors
 			echo "Chapter 5.15"
 			echo "Chapter 5.16"
 			echo "Chapter 5.30"
+	else
+		  echo "---> Congrats you have no errors."
+	fi
+}
+
+function get_build_errors_mnt_lfs
+{
+	WARNINGS_COUNTER=0
+  ERRORS_COUNTER=0
+
+	WARNINGS_COUNTER=$(grep -n " [Ww]arnings*:* " $LFS_BUILD_LOGS_MNT* | wc -l)
+	ERRORS_COUNTER=$(grep -n " [Ee]rrors*:* \|^FAIL:" $LFS_BUILD_LOGS_MNT* | wc -l)
+
+	if [ $ERRORS_COUNTER -ne 0 ]; then
+	    echo "!! Error 7: $SOURCE_FILE_NAME build has $ERRORS_COUNTER errors"
+	    grep -n " [Ee]rrors*:* \|^FAIL:" $LFS_BUILD_LOGS_MNT*
+	    echo "--> Please check on http://www.linuxfromscratch.org/lfs/build-logs for comparaison"
+			echo ""
+			echo "Known errors and not critical:"
+			echo "Chapter 6.X"
+	else
+		  echo "---> Congrats you have no errors."
+	fi
+}
+
+function get_build_errors_6
+{
+	WARNINGS_COUNTER=0
+  ERRORS_COUNTER=0
+
+	WARNINGS_COUNTER=$(grep -n " [Ww]arnings*:* " $LFS_BUILD_LOGS_6* | wc -l)
+	ERRORS_COUNTER=$(grep -n " [Ee]rrors*:* \|^FAIL:" $LFS_BUILD_LOGS_6* | wc -l)
+
+	if [ $ERRORS_COUNTER -ne 0 ]; then
+	    echo "!! Error 7: $SOURCE_FILE_NAME build has $ERRORS_COUNTER errors"
+	    grep -n " [Ee]rrors*:* \|^FAIL:" $LFS_BUILD_LOGS_6*
+	    echo "--> Please check on http://www.linuxfromscratch.org/lfs/build-logs for comparaison"
+			echo ""
+			echo "Known errors and not critical:"
+			echo "Chapter 6.X"
 	else
 		  echo "---> Congrats you have no errors."
 	fi

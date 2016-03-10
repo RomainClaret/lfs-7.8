@@ -11,9 +11,9 @@ echo "### Perl-5.22.0"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	time"
-echo "### user	time"
-echo "### sys	  time"
+echo "### real	12m45.809s"
+echo "### user	7m53.034s"
+echo "### sys	  0m38.658s"
 echo "### ---------------------------"
 
 echo ""
@@ -83,6 +83,7 @@ echo ""
 echo "... Cleaning up $SOURCE_FILE_NAME"
 cd /sources
 [ ! $SHOULD_NOT_CLEAN ] && rm -rf $(ls -d /sources/$INSTALL_NAME*/)
+get_build_errors_6
 
 echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"

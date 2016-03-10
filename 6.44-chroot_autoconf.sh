@@ -11,9 +11,9 @@ echo "### Autoconf-2.69"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	time"
-echo "### user	time"
-echo "### sys	  time"
+echo "### real	8m26.423s"
+echo "### user	3m8.808s"
+echo "### sys	  0m51.303s"
 echo "### ---------------------------"
 
 echo ""
@@ -69,6 +69,7 @@ echo ""
 echo "... Cleaning up $SOURCE_FILE_NAME"
 cd /sources
 [ ! $SHOULD_NOT_CLEAN ] && rm -rf $(ls -d /sources/$INSTALL_NAME*/)
+get_build_errors_6
 
 echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"

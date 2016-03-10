@@ -5,7 +5,7 @@ echo "### -------------------------------"
 echo "###    INSTALLING BASIC SYSTEM  ###"
 echo "###         CHAPTER 6.all       ###"
 echo "### Installing Basic System Software"
-echo "### Must be run as \"lfs\" user"
+echo "### Must be run as \"root\" user"
 echo "### -------------------------------"
 
 echo ""

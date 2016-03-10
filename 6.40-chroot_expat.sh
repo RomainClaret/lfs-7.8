@@ -11,9 +11,9 @@ echo "### Expat-2.1.0"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	time"
-echo "### user	time"
-echo "### sys	  time"
+echo "### real	0m9.042s"
+echo "### user	0m6.236s"
+echo "### sys	  0m0.756s"
 echo "### ---------------------------"
 
 echo ""
@@ -75,12 +75,13 @@ echo ""
 echo "... Cleaning up $SOURCE_FILE_NAME"
 cd /sources
 [ ! $SHOULD_NOT_CLEAN ] && rm -rf $(ls -d /sources/$INSTALL_NAME*/)
+get_build_errors_6
 
 echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
-echo "### ./6.X-lfs_empty-skeleton.sh"
+echo "### ./6.41-chroot_inetutils.sh"
 echo ""
 
 exit 0

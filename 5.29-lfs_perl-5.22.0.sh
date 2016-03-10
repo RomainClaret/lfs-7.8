@@ -74,7 +74,7 @@ cd $LFS_MOUNT_SOURCES
 [ ! $SHOULD_NOT_CLEAN ] && rm -rf $(ls -d  $LFS_MOUNT_SOURCES/$INSTALL_NAME*/)
 rm -rf $BUILD_DIRECTORY
 
-get_build_errors
+get_build_errors_5
 
 echo ""
 echo "######### END OF CHAPTER 5.$CHAPTER_SECTION ########"
