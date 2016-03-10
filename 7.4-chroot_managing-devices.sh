@@ -1,13 +1,13 @@
 #!/tools/bin/bash
 
-CHAPTER_SECTION=73
-INSTALL_NAME=cleanup
+CHAPTER_SECTION=4
+INSTALL_NAME=managing-dev
 
 echo ""
 echo "### ---------------------------"
-echo "###        CLEANING-UP      ###"
-echo "###        CHAPTER 6.$CHAPTER_SECTION      ###"
-echo "### Cleaning Up"
+echo "###     MANAGING DEVICES    ###"
+echo "###        CHAPTER 7.$CHAPTER_SECTION      ###"
+echo "### Managing Devices"
 echo "### Must be run as \"chroot\" user"
 echo "### ---------------------------"
 
@@ -34,20 +34,20 @@ check_chroot
 
 echo ""
 echo "... Setup building environment"
-LOG_FILE=$LFS_BUILD_LOGS_6$CHAPTER_SECTION-$INSTALL_NAME
+LOG_FILE=$LFS_BUILD_LOGS_7$CHAPTER_SECTION-$INSTALL_NAME
 
 echo ""
-echo "... Cleaning up $SOURCE_FILE_NAME"
-rm -rf /tmp/* &> $LOG_FILE-rm-temp.log
-rm /usr/lib/lib{bfd,opcodes}.a &> $LOG_FILE-rm-build-libs.log
-rm /usr/lib/libbz2.a &>> $LOG_FILE-rm-build-libs.log
-rm /usr/lib/lib{com_err,e2p,ext2fs,ss}.a &>> $LOG_FILE-rm-build-libs.log
-rm /usr/lib/libltdl.a &>> $LOG_FILE-rm-build-libs.log
-rm /usr/lib/libz.a &>> $LOG_FILE-rm-build-libs.log
+echo "... Creating Custom Udev Rules"
+bash /lib/udev/init-net-rules.sh
 
 echo ""
-echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
+echo "... Content of /etc/udev/rules.d/70-persistent-net.rules"
+cat /etc/udev/rules.d/70-persistent-net.rules | tee $LOG_FILE-persistent-net-rules.log
+echo "<-- End"
+
+echo ""
+echo "######### END OF CHAPTER 7.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
-echo "### ./7.X-chroot_skeleton.sh"
+echo "### ./7.5-chroot_network.sh"
 echo ""

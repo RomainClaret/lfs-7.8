@@ -1,19 +1,14 @@
 #!/tools/bin/bash
 
-CHAPTER_SECTION=46
-INSTALL_NAME=diffutils
+CHAPTER_SECTION=x
+INSTALL_NAME=xxx
 
 echo ""
 echo "### ---------------------------"
-echo "###          DIFFUTILS      ###"
-echo "###        CHAPTER 6.$CHAPTER_SECTION      ###"
-echo "### Diffutils-3.3"
+echo "###         SKELETON      ###"
+echo "###        CHAPTER 7.$CHAPTER_SECTION      ###"
+echo "### skeleton"
 echo "### Must be run as \"chroot\" user"
-echo ""
-echo "### Time estimate:"
-echo "### real	0m55.020s"
-echo "### user	0m26.246s"
-echo "### sys	  0m6.376s"
 echo "### ---------------------------"
 
 echo ""
@@ -39,7 +34,8 @@ check_chroot
 
 echo ""
 echo "... Setup building environment"
-LOG_FILE=$LFS_BUILD_LOGS_6$CHAPTER_SECTION-$INSTALL_NAME
+BUILD_DIRECTORY=$INSTALL_NAME-build
+LOG_FILE=$LFS_BUILD_LOGS_7$CHAPTER_SECTION-$INSTALL_NAME
 cd /sources
 check_tarball_uniqueness
 extract_tarball
@@ -50,7 +46,8 @@ echo "... Installation starts now"
 time {
 
   echo ".... Pre-Configuring $SOURCE_FILE_NAME"
-  sed -i 's:= @mkdir_p@:= /bin/mkdir -p:' po/Makefile.in.in
+  mkdir ../$BUILD_DIRECTORY
+  cd ../$BUILD_DIRECTORY
 
   echo ".... Configuring $SOURCE_FILE_NAME"
   ./configure     \
@@ -60,11 +57,19 @@ time {
 	echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
+  echo ".... Making HTML $SOURCE_FILE_NAME"
+  make html $PROCESSOR_CORES &> $LOG_FILE-make-html.log
+
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
 	echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
+
+  echo ".... Installing HTML $SOURCE_FILE_NAME"
+  make install-html $PROCESSOR_CORES &> $LOG_FILE-make-install-html.log
+
+  echo ".... Post-Installing $SOURCE_FILE_NAME"
 
 }
 
@@ -72,13 +77,13 @@ echo ""
 echo "... Cleaning up $SOURCE_FILE_NAME"
 cd /sources
 [ ! $SHOULD_NOT_CLEAN ] && rm -rf $(ls -d /sources/$INSTALL_NAME*/)
-get_build_errors_6
+get_build_errors_7
 
 echo ""
-echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
+echo "######### END OF CHAPTER 7.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
-echo "### ./6.47-chroot_gawk.sh"
+echo "### ./7.X-lfs_empty-skeleton.sh"
 echo ""
 
 exit 0

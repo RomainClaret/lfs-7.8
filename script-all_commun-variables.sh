@@ -34,3 +34,16 @@ LFS_BUILD_LOGS_6=/build-logs/chapter_6_
 
 # 6.9
 LFS_TIME_ZONE=Europe/Zurich
+
+# 7.2 and more
+LFS_BUILD_LOGS_7=/build-logs/chapter_7_
+
+# 7.5 and more
+LFS_ADDRESS=192.168.1.2
+LFS_GATEWAY=192.168.1.1
+LFS_PREFIX=24
+LFS_BROADCAST=192.168.1.255
+LFS_NS1=8.8.8.8
+LFS_NS2=8.8.4.4
+LFS_HOSTNAME=lfs
+LFS_DOMAINNAME=lfs.rocla.ch

@@ -49,10 +49,6 @@ echo ""
 echo "... Installation starts now"
 time {
 
-  echo ".... Pre-Configuring $SOURCE_FILE_NAME"
-  mkdir ../$BUILD_DIRECTORY
-  cd ../$BUILD_DIRECTORY
-
   echo ".... Configuring $SOURCE_FILE_NAME"
   ./configure     \
     --prefix=/usr \

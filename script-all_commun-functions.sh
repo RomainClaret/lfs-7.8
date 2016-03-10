@@ -127,6 +127,13 @@ function self_check
 	chmod +x 6.70-chroot_vim.sh
 	chmod +x 6.72-chroot_stripping.sh
 	chmod +x 6.73-chroot_cleaning-up.sh
+	chmod +x 7.2-chroot_bootscripts.sh
+	chmod +x 7.4-chroot_managing-devices.sh
+	chmod +x 7.5-chroot_network.sh
+	chmod +x 7.6-chroot_system-v.sh
+	chmod +x 7.7-chroot_bash-shell.sh
+	chmod +x 7.8-chroot_etc-inputrc.sh
+	chmod +x 7.9-chroot_etc-shells.sh
 }
 
 function check_partitions
@@ -233,17 +240,11 @@ function get_build_errors_5
 
 	if [ $ERRORS_COUNTER -ne 0 ]; then
 	    echo "!! Error 7: $SOURCE_FILE_NAME build has $ERRORS_COUNTER errors"
-	    grep -n " [Ee]rrors*:* \|^FAIL:" $LFS_BUILD_LOGS_5*
+	    grep -n " [Ee]rrors*:* \|^FAIL:" $LFS_BUILD_LOGS_5* | grep -v "_5_5\|_5_7\|_5_12\|_5_14\|_5_15\|_5_16\|_6_30"
 	    echo "--> Please check on http://www.linuxfromscratch.org/lfs/build-logs for comparaison"
 			echo ""
-			echo "Known errors and not critical:"
-			echo "Chapter 5.5"
-			echo "Chapter 5.7"
-			echo "Chapter 5.12"
-			echo "Chapter 5.14"
-			echo "Chapter 5.15"
-			echo "Chapter 5.16"
-			echo "Chapter 5.30"
+			echo "The errors from the following chapters are known and not critical:"
+			echo "Chapters 5.5, 5.7, 5.12, 5.14, 5.15, 5.16, 5.30"
 	else
 		  echo "---> Congrats you have no errors."
 	fi
@@ -279,11 +280,31 @@ function get_build_errors_6
 
 	if [ $ERRORS_COUNTER -ne 0 ]; then
 	    echo "!! Error 7: $SOURCE_FILE_NAME build has $ERRORS_COUNTER errors"
-	    grep -n " [Ee]rrors*:* \|^FAIL:" $LFS_BUILD_LOGS_6*
+	    grep -n " [Ee]rrors*:* \|^FAIL:" $LFS_BUILD_LOGS_6 | grep -v "_6_9\|_6_17\|_6_28\|_6_31\|_6_33\|_6_34\|_6_36\|_6_38\|_6_40\|_6_44\|_6_45\|_6_46"
 	    echo "--> Please check on http://www.linuxfromscratch.org/lfs/build-logs for comparaison"
 			echo ""
 			echo "Known errors and not critical:"
-			echo "Chapter 6.X"
+			echo "Chapters 6.9, 6.17, 6.28, 6.31, 6.33, 6.34, 6.36, 6.38, 6.40, 6.44, 6.45, 6.46"
+	else
+		  echo "---> Congrats you have no errors."
+	fi
+}
+
+function get_build_errors_7
+{
+	WARNINGS_COUNTER=0
+  ERRORS_COUNTER=0
+
+	WARNINGS_COUNTER=$(grep -n " [Ww]arnings*:* " $LFS_BUILD_LOGS_7* | wc -l)
+	ERRORS_COUNTER=$(grep -n " [Ee]rrors*:* \|^FAIL:" $LFS_BUILD_LOGS_7* | wc -l)
+
+	if [ $ERRORS_COUNTER -ne 0 ]; then
+	    echo "!! Error 7: $SOURCE_FILE_NAME build has $ERRORS_COUNTER errors"
+	    grep -n " [Ee]rrors*:* \|^FAIL:" $LFS_BUILD_LOGS_7*
+	    echo "--> Please check on http://www.linuxfromscratch.org/lfs/build-logs for comparaison"
+			echo ""
+			echo "Known errors and not critical:"
+			echo "Chapter 7.X"
 	else
 		  echo "---> Congrats you have no errors."
 	fi
