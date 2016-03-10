@@ -11,11 +11,11 @@ echo "### Libpipeline-1.4.0"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	time"
-echo "### user	time"
-echo "### sys	  time"
+echo "### real	0m21.474s"
+echo "### user	0m8.909s"
+echo "### sys	  0m3.396s"
 echo "### -----------------------------"
-
+	
 echo ""
 echo "... Loading commun functions and variables"
 if [ ! -f ./script-all_commun-functions.sh ]
