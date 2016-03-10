@@ -6,7 +6,7 @@ INSTALL_NAME=etc-fstab
 echo ""
 echo "### ---------------------------"
 echo "###         ETC-FSTAB       ###"
-echo "###        CHAPTER 7.$CHAPTER_SECTION      ###"
+echo "###        CHAPTER 8.$CHAPTER_SECTION      ###"
 echo "### Create the /etc/fstab File"
 echo "### Must be run as \"chroot\" user"
 echo "### ---------------------------"
@@ -58,7 +58,7 @@ cat /etc/fstab | tee $LOG_FILE-fstab.log
 echo "<-- End"
 
 echo ""
-echo "######### END OF CHAPTER 7.$CHAPTER_SECTION ########"
+echo "######### END OF CHAPTER 8.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
 echo "### ./8.3-chroot_linux-42.sh"
