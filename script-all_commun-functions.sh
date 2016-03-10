@@ -137,7 +137,8 @@ function self_check
 	chmod +x 7.9-chroot_etc-shells.sh
 	chmod +x 8.all-chroot_make-bootable.sh
 	chmod +x 8.2-chroot_etc-fstab.sh
-	chmod +x 8.3-chroot_linux-42.sh
+	chmod +x 8.3-chroot_linux-42-part-1.sh
+	chmod +x 8.3-chroot_linux-42-part-2.sh
 	chmod +x 8.4-chroot_grub.sh
 }
 
