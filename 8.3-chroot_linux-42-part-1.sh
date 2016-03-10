@@ -1,13 +1,13 @@
 #!/bin/bash
 
-CHAPTER_SECTION=2
-INSTALL_NAME=etc-fstab
+CHAPTER_SECTION=3
+INSTALL_NAME=linux
 
 echo ""
 echo "### ---------------------------"
-echo "###         ETC-FSTAB       ###"
+echo "###      LINUX-42-PART-1    ###"
 echo "###        CHAPTER 8.$CHAPTER_SECTION      ###"
-echo "### Create the /etc/fstab File"
+echo "### Linux-4.20"
 echo "### Must be run as \"chroot\" user"
 echo "### ---------------------------"
 
@@ -35,33 +35,31 @@ check_chroot
 echo ""
 echo "... Setup building environment"
 LOG_FILE=$LFS_BUILD_LOGS_8$CHAPTER_SECTION-$INSTALL_NAME
+cd /sources
+check_tarball_uniqueness
+extract_tarball
+cd $(ls -d /sources/$INSTALL_NAME*/)
 
 echo ""
-echo "... Creating /etc/fstab"
-cat > /etc/fstab << "EOF"
-# Begin /etc/fstab
-# file      mount   type      options           dump fsck
-#                                                    ordr
-/dev/sdb2   /       ext4      defaults            1 1
-/dev/sdb1   swap    swap      pri=1               0 0
-proc        /proc   proc      nosuid,noexec,nodev 0 0
-sysfs       /sys    sysfs     nosuid,noexec,nodev 0 0
-devpts      /dev/pts devpts   gid=5,mode=620      0 0
-tmpfs       /run    tmpfs     defaults            0 0
-devtmpfs    /dev    devtmpfs  mode=0755,nosuid    0 0
-# End /etc/fstab
-EOF
-
-echo ""
-echo "... Review content of /etc/fstab"
-cat /etc/fstab | tee $LOG_FILE-fstab.log
-echo "<-- End"
+echo "... Cleaning up the kernel tree"
+make mrproper $PROCESSOR_CORES &> $LOG_FILE-make-mrproper.log
 
 echo ""
 echo "######### END OF CHAPTER 8.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
-echo "### Please run the next step:"
+echo "!! Careful: Be sure to select at least the option below:"
+echo "Device Drivers  --->"
+echo "  Generic Driver Options  --->"
+echo "    [ ] Support for uevent helper [CONFIG_UEVENT_HELPER]"
+echo "    [*] Maintain a devtmpfs filesystem to mount at /dev [CONFIG_DEVTMPFS"
+echo "### Please run the next steps:"
+echo "### pushd /sources/linux*"
+echo "### make defconfig"
+echo "### make menuconfig"
 echo "### ./8.3-chroot_linux-42-part-1.sh"
 echo ""
+
+
+
 
 exit 0

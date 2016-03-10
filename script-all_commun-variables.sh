@@ -50,3 +50,6 @@ LFS_DOMAINNAME=lfs.rocla.ch
 
 # 7.7
 LFS_LANGUAGE=en_US.UTF-8
+
+# 8.2 and more
+LFS_BUILD_LOGS_8=/build-logs/chapter_8_
