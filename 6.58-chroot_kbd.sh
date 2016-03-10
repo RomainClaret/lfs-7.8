@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CHAPTER_SECTION=58
-INSTALL_NAME=kdb
+INSTALL_NAME=kbd
 
 echo ""
 echo "### ---------------------------"
