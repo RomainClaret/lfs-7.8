@@ -31,5 +31,3 @@ check_chroot
 
 ./8.2-chroot_etc-fstab.sh
 ./8.3-chroot_linux-42-part-1.sh
-./8.3-chroot_linux-42-part-2.sh
-./8.4-chroot_grub.sh
