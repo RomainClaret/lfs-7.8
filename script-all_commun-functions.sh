@@ -140,6 +140,8 @@ function self_check
 	chmod +x 8.3-chroot_linux-42-part-1.sh
 	chmod +x 8.3-chroot_linux-42-part-2.sh
 	chmod +x 8.4-chroot_grub.sh
+	chmod +x 9.1-chroot_the-end.sh
+	chmod +x 9.3-chroot-reboot.sh
 }
 
 function check_partitions
