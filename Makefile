@@ -3,4 +3,4 @@
 .PHONY: all test clean
 
 ci:
-	ci/test.sh
+	ci/tests.sh
