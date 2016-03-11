@@ -37,7 +37,7 @@ echo "... Setup building environment"
 LOG_FILE=$LFS_BUILD_LOGS_9$CHAPTER_SECTION-$INSTALL_NAME
 
 echo ""
-echo "... Installation starts now"
+echo "... Ending starts now"
 echo $LFS_DISTRIB_RELEASE > /etc/lfs-release
 cat > /etc/lsb-release << EOF
 DISTRIB_ID=$LFS_DISTRIBUTION_ID
