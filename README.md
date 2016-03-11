@@ -17,4 +17,19 @@ There will be an english version Markdown soon... soon... (I don't know when to 
 
 However, note that all the instructions in the scripts themselves are in english. So... If it's alright with you... I don't think you need my report to be translated right away..
 
+## I used virtualbox:
+https://www.virtualbox.org
+
+## Debian running on my host machine:
+- Host machine installer: http://ftp.it.debian.org/debian-cd/7.8.0/i386/bt-cd/debian-7.8.0-i386-xfce-CD-1.iso.torrent
+- Core: 1
+- Ram: 12GB
+- Host HDD: 40GB
+- LFS HDD: 20BG (recommended 10GB by LFS 7.8)
+
+## Tips:
+- Do snapshots often!
+
+## I love pull requests :)
+
 C ya :)
