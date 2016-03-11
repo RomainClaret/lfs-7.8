@@ -53,3 +53,10 @@ LFS_LANGUAGE=en_US.UTF-8
 
 # 8.2 and more
 LFS_BUILD_LOGS_8=/build-logs/chapter_8_
+
+# 9.1 and more
+LFS_BUILD_LOGS_9=/build-logs/chapter_9_
+LFS_DISTRIBUTION_ID="Linux From Scratch"
+LFS_DISTRIBUTION_RELEASE="7.8"
+LFS_DISTRIBUTION_CODENAME="Linux From Scratch"
+LFS_DISTRIBUTION_DESCRIPTION="Linux From Scratch by Rocla using automated scripts from github.com/Rocla/lfs-7.8"
