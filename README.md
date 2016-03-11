@@ -1,4 +1,5 @@
 # Linux from Scratch 7.8
+[![Build Status](https://travis-ci.org/Rocla/lfs-7.8.svg?branch=master)](https://travis-ci.org/Rocla/lfs-7.8)
 
 This Shell scripts have for purpose to let you to speed up the process to build a LFS system.
 
