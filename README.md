@@ -34,9 +34,9 @@ https://www.virtualbox.org
 - Give the permission rights to the first file (chmod +x 0.0-root_initial.sh)
 - Run the first file (./0.0-root_initial.sh)
 - Then you have the options to go
-  - auto-pilote
-    - ./all-root_auto-pilote.sh
-  - semi-auto-pilote
+  - auto-pilot
+    - ./all-root_auto-pilot.sh
+  - semi-auto-pilot
     - ./2.all-root_make-new-partitions.sh
     - ./3.all-root_packages-patches.sh
     - ./4.all-root_final-preparations.sh
