@@ -11,9 +11,9 @@ echo "### Coreutils-8.24"
 echo "### Must be run as \"lfs\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	5m20.088s"
-echo "### user	2m15.276s"
-echo "### sys	  0m43.411s"
+echo "### real  5m20.088s"
+echo "### user  2m15.276s"
+echo "### sys   0m43.411s"
 echo "### ---------------------------"
 
 echo ""
@@ -51,16 +51,16 @@ echo ""
 echo "... Installation starts now"
 time {
 
-	echo ".... Configuring $SOURCE_FILE_NAME"
+  echo ".... Configuring $SOURCE_FILE_NAME"
   ./configure                         \
     --prefix=/tools                   \
     --enable-install-program=hostname \
-	  &> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
-	echo ".... Checking make $SOURCE_FILE_NAME"
+  echo ".... Checking make $SOURCE_FILE_NAME"
   make RUN_EXPENSIVE_TESTS=yes check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
   echo ".... Installing $SOURCE_FILE_NAME"
@@ -87,7 +87,7 @@ echo ""
 
 if [ $ERRORS_COUNTER -ne 0 ]
 then
-	exit 6
+  exit 6
 else
-	exit 0
+  exit 0
 fi

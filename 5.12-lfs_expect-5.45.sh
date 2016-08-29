@@ -11,9 +11,9 @@ echo "### Expect-5.45"
 echo "### Must be run as \"lfs\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m18.514s"
-echo "### user	0m8.633s"
-echo "### sys	  0m2.052s"
+echo "### real  0m18.514s"
+echo "### user  0m8.633s"
+echo "### sys   0m2.052s"
 echo "### ---------------------------"
 
 echo ""
@@ -51,24 +51,24 @@ echo ""
 echo "... Installation starts now"
 time {
 
-	echo ".... Pre-Configuring"
+  echo ".... Pre-Configuring"
   cp -v configure{,.orig}
-	sed 's:/usr/local/bin:/bin:' configure.orig > configure
+  sed 's:/usr/local/bin:/bin:' configure.orig > configure
 
-	echo ".... Configuring $SOURCE_FILE_NAME"
+  echo ".... Configuring $SOURCE_FILE_NAME"
   ./configure                        \
     --prefix=/tools                  \
-	  --with-tcl=/tools/lib            \
-	  --with-tclinclude=/tools/include \
-		&> $LOG_FILE-configure.log
+    --with-tcl=/tools/lib            \
+    --with-tclinclude=/tools/include \
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
-	make $PROCESSOR_CORES &> $LOG_FILE-make.log
+  echo ".... Making $SOURCE_FILE_NAME"
+  make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Testing make $SOURCE_FILE_NAME"
   make test $PROCESSOR_CORES &> $LOG_FILE-make-test.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make SCRIPTS="" install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }
@@ -92,7 +92,7 @@ echo ""
 
 if [ $ERRORS_COUNTER -ne 0 ]
 then
-	exit 6
+  exit 6
 else
-	exit 0
+  exit 0
 fi

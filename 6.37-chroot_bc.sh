@@ -11,9 +11,9 @@ echo "### Bc-1.06.95"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m19.113s"
-echo "### user	0m15.589s"
-echo "### sys	  0m0.780s"
+echo "### real  0m19.113s"
+echo "### user  0m15.589s"
+echo "### sys   0m0.780s"
 echo "### ---------------------------"
 
 echo ""
@@ -58,15 +58,15 @@ time {
     --with-readline           \
     --mandir=/usr/share/man   \
     --infodir=/usr/share/info \
-	  &> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Checking $SOURCE_FILE_NAME"
   echo "quit" | ./bc/bc -l Test/checklib.b &> $LOG_FILE-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }

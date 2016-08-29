@@ -11,9 +11,9 @@ echo "### Glibc-2.22"
 echo "### Must be run as \"lfs\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	14m54.298s"
-echo "### user	11m45.084s"
-echo "### sys	  1m39.134s"
+echo "### real  14m54.298s"
+echo "### user  11m45.084s"
+echo "### sys   1m39.134s"
 echo "### ---------------------------"
 
 echo ""
@@ -51,13 +51,13 @@ echo ""
 echo "... Installation starts now"
 time {
 
-	echo ".... Pre-Configuring"
+  echo ".... Pre-Configuring"
   patch -Np1 -i ../glibc-2.22-upstream_i386_fix-1.patch &> $LOG_FILE-patch.log
 
-	mkdir ../$BUILD_DIRECTORY
-	cd ../$BUILD_DIRECTORY
+  mkdir ../$BUILD_DIRECTORY
+  cd ../$BUILD_DIRECTORY
 
-	echo ".... Configuring $SOURCE_FILE_NAME"
+  echo ".... Configuring $SOURCE_FILE_NAME"
   ../glibc-2.22/configure                           \
       --prefix=/tools                               \
       --host=$LFS_TGT                               \
@@ -69,13 +69,13 @@ time {
       libc_cv_forced_unwind=yes                     \
       libc_cv_ctors_header=yes                      \
       libc_cv_c_cleanup=yes                         \
-		&> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
-	make $PROCESSOR_CORES &> $LOG_FILE-make.log
+  echo ".... Making $SOURCE_FILE_NAME"
+  make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
-	make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
+  echo ".... Installing $SOURCE_FILE_NAME"
+  make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }
 
@@ -114,7 +114,7 @@ echo ""
 
 if [ $ERRORS_COUNTER -ne 0 ]
 then
-	exit 6
+  exit 6
 else
-	exit 0
+  exit 0
 fi

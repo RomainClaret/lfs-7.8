@@ -11,9 +11,9 @@ echo "### Perl-5.22.0"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	12m45.809s"
-echo "### user	7m53.034s"
-echo "### sys	  0m38.658s"
+echo "### real  12m45.809s"
+echo "### user  7m53.034s"
+echo "### sys   0m38.658s"
 echo "### ---------------------------"
 
 echo ""
@@ -51,8 +51,8 @@ time {
 
   echo ".... Pre-Configuring $SOURCE_FILE_NAME"
   echo "127.0.0.1 localhost $(hostname)" > /etc/hosts
-	export BUILD_ZLIB=False
-	export BUILD_BZIP2=0
+  export BUILD_ZLIB=False
+  export BUILD_BZIP2=0
 
   echo ".... Configuring $SOURCE_FILE_NAME"
   sh Configure                    \
@@ -63,15 +63,15 @@ time {
     -Dman3dir=/usr/share/man/man3 \
     -Dpager="/usr/bin/less -isR"  \
     -Duseshrplib                  \
-	  &> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make -k test $PROCESSOR_CORES &> $LOG_FILE-make-test.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"

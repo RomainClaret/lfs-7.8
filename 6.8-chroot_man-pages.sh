@@ -11,9 +11,9 @@ echo "### Man-pages-4.02"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m0.142s"
-echo "### user	0m0.036s"
-echo "### sys	  0m0.084s"
+echo "### real  0m0.142s"
+echo "### user  0m0.036s"
+echo "### sys   0m0.084s"
 echo "### ---------------------------"
 
 echo ""
@@ -49,7 +49,7 @@ echo ""
 echo "... Installation starts now"
 time {
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 }
 

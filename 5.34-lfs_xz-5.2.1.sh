@@ -11,9 +11,9 @@ echo "### Xz-5.2.1"
 echo "### Must be run as \"lfs\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m44.148s"
-echo "### user	0m29.994s"
-echo "### sys	  0m4.284s"
+echo "### real  0m44.148s"
+echo "### user  0m29.994s"
+echo "### sys   0m4.284s"
 echo "### ---------------------------"
 
 echo ""
@@ -53,15 +53,15 @@ time {
 
   echo ".... Pre-Configuring"
 
-	echo ".... Configuring $SOURCE_FILE_NAME"
+  echo ".... Configuring $SOURCE_FILE_NAME"
   ./configure       \
     --prefix=/tools \
-	  &> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
-	echo ".... Checking make $SOURCE_FILE_NAME"
+  echo ".... Checking make $SOURCE_FILE_NAME"
   make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
   echo ".... Installing $SOURCE_FILE_NAME"
@@ -88,7 +88,7 @@ echo ""
 
 if [ $ERRORS_COUNTER -ne 0 ]
 then
-	exit 6
+  exit 6
 else
-	exit 0
+  exit 0
 fi

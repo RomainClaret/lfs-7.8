@@ -57,7 +57,7 @@ x86_64) ln -sv lib /lib64
 esac
 
 echo "" &>> $LOG_FILE
-echo "... Creating /var directory and sub directories."	&>> $LOG_FILE
+echo "... Creating /var directory and sub directories."  &>> $LOG_FILE
 mkdir -v /var/{log,mail,spool} &>> $LOG_FILE
 ln -sv /run /var/run &>> $LOG_FILE
 ln -sv /run/lock /var/lock &>> $LOG_FILE

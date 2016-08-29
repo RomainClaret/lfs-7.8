@@ -11,9 +11,9 @@ echo "### Gperf-3.0.4"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m5.633s"
-echo "### user	0m2.980s"
-echo "### sys	  0m0.652s"
+echo "### real  0m5.633s"
+echo "### user  0m2.980s"
+echo "### sys   0m0.652s"
 echo "### ---------------------------"
 
 echo ""
@@ -55,13 +55,13 @@ time {
     --docdir=/usr/share/doc/gperf-3.0.4 \
     &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 }
 

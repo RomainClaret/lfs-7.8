@@ -53,22 +53,22 @@ time {
     --prefix=/usr \
     &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make -j1 test &> $LOG_FILE-make-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"
   ln -sv vim /usr/bin/vi
-	for L in /usr/share/man/{,*/}man1/vim.1; do
-	 ln -sv vim.1 $(dirname $L)/vi.1
-	done
-	ln -sv ../vim/vim74/doc /usr/share/doc/vim-7.4
-	cat > /etc/vimrc << "EOF"
+  for L in /usr/share/man/{,*/}man1/vim.1; do
+   ln -sv vim.1 $(dirname $L)/vi.1
+  done
+  ln -sv ../vim/vim74/doc /usr/share/doc/vim-7.4
+  cat > /etc/vimrc << "EOF"
 " Begin /etc/vimrc
 set nocompatible
 set backspace=2

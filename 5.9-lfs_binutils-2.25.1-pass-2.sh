@@ -11,9 +11,9 @@ echo "### Binutils-2.25.1 - Pass 2"
 echo "### Must be run as \"lfs\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	3m10.914s"
-echo "### user	2m21.009s"
-echo "### sys	  0m17.189s"
+echo "### real  3m10.914s"
+echo "### user  2m21.009s"
+echo "### sys   0m17.189s"
 echo "### ---------------------------"
 
 echo ""
@@ -51,37 +51,37 @@ echo ""
 echo "... Installation starts now"
 time {
 
-	echo ".... Pre-Configuring"
-	mkdir ../$BUILD_DIRECTORY
-	cd ../$BUILD_DIRECTORY
+  echo ".... Pre-Configuring"
+  mkdir ../$BUILD_DIRECTORY
+  cd ../$BUILD_DIRECTORY
 
-	echo ".... Configuring $SOURCE_FILE_NAME"
+  echo ".... Configuring $SOURCE_FILE_NAME"
   CC=$LFS_TGT-gcc                \
-	AR=$LFS_TGT-ar                 \
-	RANLIB=$LFS_TGT-ranlib         \
-	../binutils-2.25.1/configure   \
-		--prefix=/tools              \
-		--disable-nls                \
-		--disable-werror             \
-		--with-lib-path=/tools/lib   \
-		--with-sysroot 			         \
-		&> $LOG_FILE-configure.log
+  AR=$LFS_TGT-ar                 \
+  RANLIB=$LFS_TGT-ranlib         \
+  ../binutils-2.25.1/configure   \
+    --prefix=/tools              \
+    --disable-nls                \
+    --disable-werror             \
+    --with-lib-path=/tools/lib   \
+    --with-sysroot                \
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
-	make $PROCESSOR_CORES &> $LOG_FILE-make.log
+  echo ".... Making $SOURCE_FILE_NAME"
+  make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
-	case $(uname -m) in x86_64)
+  case $(uname -m) in x86_64)
     echo "---> 64bit architecture detected"
     mkdir /tools/lib && ln -sv lib /tools/lib64 ;;
-	esac
+  esac
 
-	echo ".... Installing $SOURCE_FILE_NAME"
-	make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
+  echo ".... Installing $SOURCE_FILE_NAME"
+  make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"
   make -C ld clean &> $LOG_FILE-install-make-ld-clean.log
-	make -C ld LIB_PATH=/usr/lib:/lib &> $LOG_FILE-postinstall-make-ld-lib.log
-	cp -v ld/ld-new /tools/bin &> $LOG_FILE-postinstall-make-copy.log
+  make -C ld LIB_PATH=/usr/lib:/lib &> $LOG_FILE-postinstall-make-ld-lib.log
+  cp -v ld/ld-new /tools/bin &> $LOG_FILE-postinstall-make-copy.log
 
 }
 
@@ -104,7 +104,7 @@ echo ""
 
 if [ $ERRORS_COUNTER -ne 0 ]
 then
-	exit 6
+  exit 6
 else
-	exit 0
+  exit 0
 fi

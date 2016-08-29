@@ -11,9 +11,9 @@ echo "### DejaGNU-1.5.3"
 echo "### Must be run as \"lfs\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m3.144s"
-echo "### user	0m1.208s"
-echo "### sys	  0m0.344s"
+echo "### real  0m3.144s"
+echo "### user  0m1.208s"
+echo "### sys   0m0.344s"
 echo "### ---------------------------"
 
 echo ""
@@ -51,15 +51,15 @@ echo ""
 echo "... Installation starts now"
 time {
 
-	echo ".... Configuring $SOURCE_FILE_NAME"
+  echo ".... Configuring $SOURCE_FILE_NAME"
   ./configure       \
     --prefix=/tools \
-		&> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
-	echo ".... Checking make $SOURCE_FILE_NAME"
+  echo ".... Checking make $SOURCE_FILE_NAME"
   make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
 }
@@ -83,7 +83,7 @@ echo ""
 
 if [ $ERRORS_COUNTER -ne 0 ]
 then
-	exit 6
+  exit 6
 else
-	exit 0
+  exit 0
 fi

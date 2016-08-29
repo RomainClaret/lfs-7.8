@@ -11,9 +11,9 @@ echo "### Ncurses-6.0"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m48.676s"
-echo "### user	0m32.802s"
-echo "### sys	  0m5.680s"
+echo "### real  0m48.676s"
+echo "### user  0m32.802s"
+echo "### sys   0m5.680s"
 echo "### ---------------------------"
 
 echo ""
@@ -61,30 +61,30 @@ time {
     --without-normal        \
     --enable-pc-files       \
     --enable-widec          \
-	  &> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"
   mv -v /usr/lib/libncursesw.so.6* /lib &> $LOG_FILE-post-install.log
-	ln -sfv ../../lib/$(readlink /usr/lib/libncursesw.so) /usr/lib/libncursesw.so &>> $LOG_FILE-post-install.log
+  ln -sfv ../../lib/$(readlink /usr/lib/libncursesw.so) /usr/lib/libncursesw.so &>> $LOG_FILE-post-install.log
 
   for lib in ncurses form panel menu ; do
-	  rm -vf /usr/lib/lib${lib}.so &>> $LOG_FILE-post-install.log
-	  echo "INPUT(-l${lib}w)" > /usr/lib/lib${lib}.so
-	  ln -sfv ${lib}w.pc /usr/lib/pkgconfig/${lib}.pc &>> $LOG_FILE-post-install.log
-	done
+    rm -vf /usr/lib/lib${lib}.so &>> $LOG_FILE-post-install.log
+    echo "INPUT(-l${lib}w)" > /usr/lib/lib${lib}.so
+    ln -sfv ${lib}w.pc /usr/lib/pkgconfig/${lib}.pc &>> $LOG_FILE-post-install.log
+  done
 
-	ln -sfv libncurses++w.a /usr/lib/libncurses++.a &>> $LOG_FILE-post-install.log
-	rm -vf /usr/lib/libcursesw.so &>> $LOG_FILE-post-install.log
-	echo "INPUT(-lncursesw)" > /usr/lib/libcursesw.so
-	ln -sfv libncurses.so /usr/lib/libcurses.so
-	mkdir -v /usr/share/doc/ncurses-6.0 &>> $LOG_FILE-post-install.log
-	cp -v -R doc/* /usr/share/doc/ncurses-6.0 &>> $LOG_FILE-post-install.log
+  ln -sfv libncurses++w.a /usr/lib/libncurses++.a &>> $LOG_FILE-post-install.log
+  rm -vf /usr/lib/libcursesw.so &>> $LOG_FILE-post-install.log
+  echo "INPUT(-lncursesw)" > /usr/lib/libcursesw.so
+  ln -sfv libncurses.so /usr/lib/libcurses.so
+  mkdir -v /usr/share/doc/ncurses-6.0 &>> $LOG_FILE-post-install.log
+  cp -v -R doc/* /usr/share/doc/ncurses-6.0 &>> $LOG_FILE-post-install.log
 
 }
 

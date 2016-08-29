@@ -11,9 +11,9 @@ echo "### Iana-Etc-2.30"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m0.154s"
-echo "### user	0m0.132s"
-echo "### sys	  0m0.008s"
+echo "### real  0m0.154s"
+echo "### user  0m0.132s"
+echo "### sys   0m0.008s"
 echo "### ---------------------------"
 
 echo ""
@@ -49,10 +49,10 @@ echo ""
 echo "... Installation starts now"
 time {
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }

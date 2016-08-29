@@ -11,9 +11,9 @@ echo "### Automake-1.15"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	68m3.392s"
-echo "### user	18m25.349s"
-echo "### sys	  4m5.079s"
+echo "### real  68m3.392s"
+echo "### user  18m25.349s"
+echo "### sys   4m5.079s"
 echo "### ---------------------------"
 
 echo ""
@@ -58,14 +58,14 @@ time {
     --docdir=/usr/share/doc/automake-1.15 \
     &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
   sed -i "s:./configure:LEXLIB=/usr/lib/libfl.a &:" t/lex-{clean,depend}-cxx.sh
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }

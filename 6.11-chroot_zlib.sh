@@ -11,9 +11,9 @@ echo "### Zlib-1.2.8"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m5.602s"
-echo "### user	0m4.820s"
-echo "### sys	  0m0.360s"
+echo "### real  0m5.602s"
+echo "### user  0m4.820s"
+echo "### sys   0m0.360s"
 echo "### ---------------------------"
 
 echo ""
@@ -54,18 +54,18 @@ time {
     --prefix=/usr \
     &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"
   mv -v /usr/lib/libz.so.* /lib
-	ln -sfv ../../lib/$(readlink /usr/lib/libz.so) /usr/lib/libz.so
+  ln -sfv ../../lib/$(readlink /usr/lib/libz.so) /usr/lib/libz.so
 
 }
 

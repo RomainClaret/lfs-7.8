@@ -11,9 +11,9 @@ echo "### XML::Parser-2.44"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m2.966s"
-echo "### user	0m2.444s"
-echo "### sys	  0m0.300s"
+echo "### real  0m2.966s"
+echo "### user  0m2.444s"
+echo "### sys   0m0.300s"
 echo "### ---------------------------"
 
 echo ""
@@ -52,13 +52,13 @@ time {
   echo ".... Pre-Configuring $SOURCE_FILE_NAME"
   perl Makefile.PL
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make test $PROCESSOR_CORES &> $LOG_FILE-make-test.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }

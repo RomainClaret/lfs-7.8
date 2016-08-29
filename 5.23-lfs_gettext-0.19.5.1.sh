@@ -11,9 +11,9 @@ echo "### Gettext-0.19.5.1"
 echo "### Must be run as \"lfs\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	2m1.786s"
-echo "### user	1m2.832s"
-echo "### sys	  0m10.545s"
+echo "### real  2m1.786s"
+echo "### user  1m2.832s"
+echo "### sys   0m10.545s"
 echo "### ---------------------------"
 
 echo ""
@@ -54,18 +54,18 @@ time {
   echo ".... Pre-Configuring"
   cd gettext-tools
 
-	echo ".... Configuring $SOURCE_FILE_NAME"
+  echo ".... Configuring $SOURCE_FILE_NAME"
   EMACS="no" ./configure  \
     --prefix=/tools       \
     --disable-shared      \
-	  &> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make -C gnulib-lib $PROCESSOR_CORES &> $LOG_FILE-make-gnulib-lib.log
-	make -C intl pluralx.c &> $LOG_FILE-make-pluralx.log
-	make -C src msgfmt $PROCESSOR_CORES &> $LOG_FILE-make-src-msgfmt.log
-	make -C src msgmerge $PROCESSOR_CORES &> $LOG_FILE-make-src-msgmerge.log
-	make -C src xgettext $PROCESSOR_CORES &> $LOG_FILE-make-src-xgettext.log
+  make -C intl pluralx.c &> $LOG_FILE-make-pluralx.log
+  make -C src msgfmt $PROCESSOR_CORES &> $LOG_FILE-make-src-msgfmt.log
+  make -C src msgmerge $PROCESSOR_CORES &> $LOG_FILE-make-src-msgmerge.log
+  make -C src xgettext $PROCESSOR_CORES &> $LOG_FILE-make-src-xgettext.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"
   cp -v src/{msgfmt,msgmerge,xgettext} /tools/bin
@@ -91,7 +91,7 @@ echo ""
 
 if [ $ERRORS_COUNTER -ne 0 ]
 then
-	exit 6
+  exit 6
 else
-	exit 0
+  exit 0
 fi

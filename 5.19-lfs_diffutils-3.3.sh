@@ -11,9 +11,9 @@ echo "### Diffutils-3.3"
 echo "### Must be run as \"lfs\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m27.596s"
-echo "### user	0m12.213s"
-echo "### sys	  0m3.740s"
+echo "### real  0m27.596s"
+echo "### user  0m12.213s"
+echo "### sys   0m3.740s"
 echo "### ---------------------------"
 
 echo ""
@@ -51,19 +51,19 @@ echo ""
 echo "... Installation starts now"
 time {
 
-	echo ".... Configuring $SOURCE_FILE_NAME"
+  echo ".... Configuring $SOURCE_FILE_NAME"
   ./configure       \
     --prefix=/tools \
-	  &> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
-	echo ".... Checking make $SOURCE_FILE_NAME"
+  echo ".... Checking make $SOURCE_FILE_NAME"
   ake check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
   echo ".... Installing $SOURCE_FILE_NAME"
-	make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
+  make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }
 
@@ -86,7 +86,7 @@ echo ""
 
 if [ $ERRORS_COUNTER -ne 0 ]
 then
-	exit 6
+  exit 6
 else
-	exit 0
+  exit 0
 fi

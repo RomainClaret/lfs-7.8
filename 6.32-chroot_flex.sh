@@ -11,9 +11,9 @@ echo "### Flex-2.5.39"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	1m3.864s"
-echo "### user	0m48.899s"
-echo "### sys	  0m5.044s"
+echo "### real  1m3.864s"
+echo "### user  0m48.899s"
+echo "### sys   0m5.044s"
 echo "### ---------------------------"
 
 echo ""
@@ -56,15 +56,15 @@ time {
   ./configure                           \
     --prefix=/usr                       \
     --docdir=/usr/share/doc/flex-2.5.39 \
-	  &> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"

@@ -11,9 +11,9 @@ echo "### Gettext-0.19.5.1"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	6m15.129s"
-echo "### user	2m49.227s"
-echo "### sys	  0m39.314s"
+echo "### real  6m15.129s"
+echo "### user  2m49.227s"
+echo "### sys   0m39.314s"
 echo "### ---------------------------"
 
 echo ""
@@ -56,13 +56,13 @@ time {
     --docdir=/usr/share/doc/gettext-0.19.5.1  \
     &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }

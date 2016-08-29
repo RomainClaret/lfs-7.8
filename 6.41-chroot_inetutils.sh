@@ -11,9 +11,9 @@ echo "### Inetutils-1.9.4"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m52.593s"
-echo "### user	0m24.598s"
-echo "### sys	  0m8.405s"
+echo "### real  0m52.593s"
+echo "### user  0m24.598s"
+echo "### sys   0m8.405s"
 echo "### ---------------------------"
 
 echo ""
@@ -63,20 +63,20 @@ time {
     --disable-rlogin     \
     --disable-rsh        \
     --disable-servers    \
-	  &> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"
   mv -v /usr/bin/{hostname,ping,ping6,traceroute} /bin
-	mv -v /usr/bin/ifconfig /sbin
+  mv -v /usr/bin/ifconfig /sbin
 
 }
 

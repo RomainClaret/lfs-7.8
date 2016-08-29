@@ -11,9 +11,9 @@ echo "### Bison-3.0.4"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	6m45.966s"
-echo "### user	5m19.896s"
-echo "### sys	  0m37.966s"
+echo "### real  6m45.966s"
+echo "### user  5m19.896s"
+echo "### sys   0m37.966s"
 echo "### ---------------------------"
 
 echo ""
@@ -53,15 +53,15 @@ time {
   ./configure                           \
     --prefix=/usr                       \
     --docdir=/usr/share/doc/bison-3.0.4 \
-	  &> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }

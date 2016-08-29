@@ -11,9 +11,9 @@ echo "### Shadow-4.2.1"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m23.614s"
-echo "### user	0m13.701s"
-echo "### sys	  0m2.988s"
+echo "### real  0m23.614s"
+echo "### user  0m13.701s"
+echo "### sys   0m2.988s"
 echo "### ---------------------------"
 
 echo ""
@@ -51,28 +51,28 @@ time {
 
   echo ".... Pre-Configuring $SOURCE_FILE_NAME"
   sed -i 's/groups$(EXEEXT) //' src/Makefile.in
-	find man -name Makefile.in -exec sed -i 's/groups\.1 / /' {} \;
-	sed -i -e 's@#ENCRYPT_METHOD DES@ENCRYPT_METHOD SHA512@' \
-	       -e 's@/var/spool/mail@/var/mail@' etc/login.defs
-	sed -i 's/1000/999/' etc/useradd
+  find man -name Makefile.in -exec sed -i 's/groups\.1 / /' {} \;
+  sed -i -e 's@#ENCRYPT_METHOD DES@ENCRYPT_METHOD SHA512@' \
+         -e 's@/var/spool/mail@/var/mail@' etc/login.defs
+  sed -i 's/1000/999/' etc/useradd
 
   echo ".... Configuring $SOURCE_FILE_NAME"
   ./configure                       \
     --sysconfdir=/etc               \
     --with-group-name-max-length=32 \
-	  &> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"
   mv -v /usr/bin/passwd /bin
-	pwconv
-	grpconv
-	echo "root:$LFS_PASSWORD" | chpasswd
+  pwconv
+  grpconv
+  echo "root:$LFS_PASSWORD" | chpasswd
 
 }
 

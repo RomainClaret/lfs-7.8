@@ -11,9 +11,9 @@ echo "### Bash-4.3.30"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	3m20.831s"
-echo "### user	0m26.546s"
-echo "### sys	  0m5.072s"
+echo "### real  3m20.831s"
+echo "### user  0m26.546s"
+echo "### sys   0m5.072s"
 echo "### ---------------------------"
 
 echo ""
@@ -59,16 +59,16 @@ time {
     --docdir=/usr/share/doc/bash-4.3.30 \
     --without-bash-malloc               \
     --with-installed-readline           \
-	  &> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   chown -Rv nobody . &> $LOG_FILE-make-check.log
   su nobody -s /bin/bash -c "PATH=$PATH make tests" &>> $LOG_FILE-make-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }

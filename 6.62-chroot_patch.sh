@@ -11,9 +11,9 @@ echo "### Patch-2.7.5"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m32.407s"
-echo "### user	0m14.077s"
-echo "### sys	  0m4.620s"
+echo "### real  0m32.407s"
+echo "### user  0m14.077s"
+echo "### sys   0m4.620s"
 echo "### ---------------------------"
 
 echo ""
@@ -54,13 +54,13 @@ time {
     --prefix=/usr \
     &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }

@@ -11,9 +11,9 @@ echo "### Adjusting the Toolchain"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	1m5.732s"
-echo "### user	0m0.020s"
-echo "### sys	  0m0.044s"
+echo "### real  1m5.732s"
+echo "### user  0m0.020s"
+echo "### sys   0m0.044s"
 echo "### ---------------------------"
 
 echo ""
@@ -47,20 +47,20 @@ time {
 
   echo ".... Configuring"
   mv -v /tools/bin/{ld,ld-old}
-	mv -v /tools/$(gcc -dumpmachine)/bin/{ld,ld-old}
-	mv -v /tools/bin/{ld-new,ld}
-	ln -sv /tools/bin/ld /tools/$(gcc -dumpmachine)/bin/ld
+  mv -v /tools/$(gcc -dumpmachine)/bin/{ld,ld-old}
+  mv -v /tools/bin/{ld-new,ld}
+  ln -sv /tools/bin/ld /tools/$(gcc -dumpmachine)/bin/ld
 
-	gcc -dumpspecs | sed -e 's@/tools@@g'                   \
-	    -e '/\*startfile_prefix_spec:/{n;s@.*@/usr/lib/ @}' \
-	    -e '/\*cpp:/{n;s@$@ -isystem /usr/include@}' >      \
-	    `dirname $(gcc --print-libgcc-file-name)`/specs
+  gcc -dumpspecs | sed -e 's@/tools@@g'                   \
+      -e '/\*startfile_prefix_spec:/{n;s@.*@/usr/lib/ @}' \
+      -e '/\*cpp:/{n;s@$@ -isystem /usr/include@}' >      \
+      `dirname $(gcc --print-libgcc-file-name)`/specs
 
   echo ".... Sanity Checking"
 
   echo 'int main(){}' > dummy.c
-	cc dummy.c -v -Wl,--verbose &> dummy.log
-	readelf -l a.out | grep ': /lib'
+  cc dummy.c -v -Wl,--verbose &> dummy.log
+  readelf -l a.out | grep ': /lib'
 
   echo ""
   echo "ABOVE should be the same output than below"
@@ -76,13 +76,13 @@ time {
   echo ""
   echo "ABOVE should be the same output than below"
   echo "32bit:"
-	echo "### /usr/lib/crt1.o succeeded"
-	echo "### /usr/lib/crti.o succeeded"
-	echo "### /usr/lib/crtn.o succeeded"
+  echo "### /usr/lib/crt1.o succeeded"
+  echo "### /usr/lib/crti.o succeeded"
+  echo "### /usr/lib/crtn.o succeeded"
   echo "64bit:"
   echo "### /usr/lib/../lib64/crt1.o succeeded"
-	echo "### /usr/lib/../lib64/crti.o succeeded"
-	echo "### /usr/lib/../lib64/crtn.o succeeded"
+  echo "### /usr/lib/../lib64/crti.o succeeded"
+  echo "### /usr/lib/../lib64/crtn.o succeeded"
   echo ""
   echo -e "\a"
   read -p "Enter to confirm" -n 1 -r
@@ -105,8 +105,8 @@ time {
   echo "ABOVE should be the same output than below"
   echo "32bit:"
   echo '### SEARCH_DIR("=/tools/i686-pc-linux-gnu/lib32")'
-	echo '### SEARCH_DIR("/usr/lib")'
-	echo '### SEARCH_DIR("/lib");'
+  echo '### SEARCH_DIR("/usr/lib")'
+  echo '### SEARCH_DIR("/lib");'
   echo '### SEARCH_DIR("/tools/i686-pc-linux-gnu/lib")'
   echo "64bit:"
   echo '### SEARCH_DIR("=/tools/x86_64-unknown-linux-gnu/lib64")'

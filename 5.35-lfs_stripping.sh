@@ -11,9 +11,9 @@ echo "### Stripping"
 echo "### Must be run as \"lfs\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m1.317s"
-echo "### user	0m0.488s"
-echo "### sys	  0m0.700s"
+echo "### real  0m1.317s"
+echo "### user  0m0.488s"
+echo "### sys   0m0.700s"
 echo "### ---------------------------"
 
 echo ""
@@ -46,7 +46,7 @@ echo ""
 echo "... Installation starts now"
 time {
 
-	echo ".... Configuring $SOURCE_FILE_NAME"
+  echo ".... Configuring $SOURCE_FILE_NAME"
   strip --strip-debug /tools/lib/* &> $LOG_FILE-debugs.log
   /usr/bin/strip --strip-unneeded /tools/{,s}bin/* &> $LOG_FILE-unneeded.log
   rm -rf /tools/{,share}/{info,man,doc} &> $LOG_FILE-info-man_doc-files.log
@@ -81,7 +81,7 @@ echo ""
 
 if [ $ERRORS_COUNTER -ne 0 ]
 then
-	exit 6
+  exit 6
 else
-	exit 0
+  exit 0
 fi

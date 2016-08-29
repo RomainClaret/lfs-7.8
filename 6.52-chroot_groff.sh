@@ -11,9 +11,9 @@ echo "### Groff-1.22.3"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	1m7.113s"
-echo "### user	0m48.955s"
-echo "### sys	  0m4.812s"
+echo "### real  1m7.113s"
+echo "### user  0m48.955s"
+echo "### sys   0m4.812s"
 echo "### ---------------------------"
 
 echo ""
@@ -54,10 +54,10 @@ time {
     --prefix=/usr             \
     &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }

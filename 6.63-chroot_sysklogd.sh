@@ -11,9 +11,9 @@ echo "### Sysklogd-1.5.1"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m1.228s"
-echo "### user	0m1.076s"
-echo "### sys	  0m0.092s"
+echo "### real  0m1.228s"
+echo "### user  0m1.076s"
+echo "### sys   0m0.092s"
 echo "### ---------------------------"
 
 echo ""
@@ -52,10 +52,10 @@ time {
   echo ".... Pre-Configuring $SOURCE_FILE_NAME"
   sed -i '/Error loading kernel symbols/{n;n;d}' ksym_mod.c
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make BINDIR=/sbin install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"

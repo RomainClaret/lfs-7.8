@@ -11,9 +11,9 @@ echo "### Eudev-3.1.2"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m32.540s"
-echo "### user	0m18.125s"
-echo "### sys	  0m3.492s"
+echo "### real  0m32.540s"
+echo "### user  0m18.125s"
+echo "### sys   0m3.492s"
 echo "### ---------------------------"
 
 echo ""
@@ -51,7 +51,7 @@ time {
 
   echo ".... Pre-Configuring $SOURCE_FILE_NAME"
   sed -r -i 's|/usr(/bin/test)|\1|' test/udev-test.pl
-	cat > config.cache << "EOF"
+  cat > config.cache << "EOF"
 HAVE_BLKID=1
 BLKID_LIBS="-lblkid"
 BLKID_CFLAGS="-I/tools/include"
@@ -75,22 +75,22 @@ EOF
     --disable-static        \
     --config-cache          \
     --disable-gtk-doc-html  \
-	  &> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   LIBRARY_PATH=/tools/lib make $PROCESSOR_CORES &> $LOG_FILE-make.log
-	mkdir -pv /lib/udev/rules.d
-	mkdir -pv /etc/udev/rules.d
+  mkdir -pv /lib/udev/rules.d
+  mkdir -pv /etc/udev/rules.d
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make LD_LIBRARY_PATH=/tools/lib check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make LD_LIBRARY_PATH=/tools/lib install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"
-  tar -xvf ../udev-lfs-20140408.tar.bz2	&> $LOG_FILE-post-install.log
-	make -f udev-lfs-20140408/Makefile.lfs install $PROCESSOR_CORES &>> $LOG_FILE-post-install.log
+  tar -xvf ../udev-lfs-20140408.tar.bz2  &> $LOG_FILE-post-install.log
+  make -f udev-lfs-20140408/Makefile.lfs install $PROCESSOR_CORES &>> $LOG_FILE-post-install.log
   LD_LIBRARY_PATH=/tools/lib udevadm hwdb --update &>> $LOG_FILE-post-install.log
 
 }

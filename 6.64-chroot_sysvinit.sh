@@ -11,9 +11,9 @@ echo "### Sysvinit-2.88dsf"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m1.801s"
-echo "### user	0m1.460s"
-echo "### sys	  0m0.184s"
+echo "### real  0m1.801s"
+echo "### user  0m1.460s"
+echo "### sys   0m0.184s"
 echo "### ---------------------------"
 
 echo ""
@@ -53,10 +53,10 @@ time {
   echo ".... Pre-Configuring $SOURCE_FILE_NAME"
   patch -Np1 -i ../sysvinit-2.88dsf-consolidated-1.patch &> $LOG_FILE-patch.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make -C src $PROCESSOR_CORES &> $LOG_FILE-make.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make -C src install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }

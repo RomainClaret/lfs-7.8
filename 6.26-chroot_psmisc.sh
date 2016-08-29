@@ -11,9 +11,9 @@ echo "### Psmisc-22.21"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m5.421s"
-echo "### user	0m2.704s"
-echo "### sys	  0m0.676s"
+echo "### real  0m5.421s"
+echo "### user  0m2.704s"
+echo "### sys   0m0.676s"
 echo "### ---------------------------"
 
 echo ""
@@ -52,17 +52,17 @@ time {
   echo ".... Configuring $SOURCE_FILE_NAME"
   ./configure     \
     --prefix=/usr \
-	  &> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"
   mv -v /usr/bin/fuser /bin  &>> $LOG_FILE-post-make.log
-	mv -v /usr/bin/killall /bin  &>> $LOG_FILE-post-make.log
+  mv -v /usr/bin/killall /bin  &>> $LOG_FILE-post-make.log
 
 }
 

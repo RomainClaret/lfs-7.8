@@ -11,9 +11,9 @@ echo "### File-5.24"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m9.866s"
-echo "### user	0m5.624s"
-echo "### sys	  0m1.232s"
+echo "### real  0m9.866s"
+echo "### user  0m5.624s"
+echo "### sys   0m1.232s"
 echo "### ---------------------------"
 
 echo ""
@@ -54,13 +54,13 @@ time {
     --prefix=/usr \
     &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }

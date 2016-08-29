@@ -11,9 +11,9 @@ echo "### GCC-5.2.0 - Pass 1"
 echo "### Must be run as \"lfs\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	25m49.580s"
-echo "### user	22m42.813s"
-echo "### sys	  1m30.358s"
+echo "### real  25m49.580s"
+echo "### user  22m42.813s"
+echo "### sys   1m30.358s"
 echo "### ---------------------------"
 
 echo ""
@@ -51,34 +51,34 @@ echo ""
 echo "... Installation starts now"
 time {
 
-	echo ".... Pre-Configuring"
+  echo ".... Pre-Configuring"
   tar -xf ../mpfr-3.1.3.tar.xz
-	mv -v mpfr-3.1.3 mpfr	&> $LOG_FILE-mv-mpfr.log
-	tar -xf ../gmp-6.0.0a.tar.xz
-	mv -v gmp-6.0.0 gmp	&> $LOG_FILE-mv-gmp.log
-	tar -xf ../mpc-1.0.3.tar.gz
-	mv -v mpc-1.0.3 mpc	&> $LOG_FILE-mv-mpc.log
+  mv -v mpfr-3.1.3 mpfr  &> $LOG_FILE-mv-mpfr.log
+  tar -xf ../gmp-6.0.0a.tar.xz
+  mv -v gmp-6.0.0 gmp  &> $LOG_FILE-mv-gmp.log
+  tar -xf ../mpc-1.0.3.tar.gz
+  mv -v mpc-1.0.3 mpc  &> $LOG_FILE-mv-mpc.log
 
   for file in \
-	 $(find gcc/config -name linux64.h -o -name linux.h -o -name sysv4.h)
-	do
-	  cp -uv $file{,.orig}
-	  sed -e 's@/lib\(64\)\?\(32\)\?/ld@/tools&@g' \
-	      -e 's@/usr@/tools@g' $file.orig > $file
-	  echo '
+   $(find gcc/config -name linux64.h -o -name linux.h -o -name sysv4.h)
+  do
+    cp -uv $file{,.orig}
+    sed -e 's@/lib\(64\)\?\(32\)\?/ld@/tools&@g' \
+        -e 's@/usr@/tools@g' $file.orig > $file
+    echo '
 #undef STANDARD_STARTFILE_PREFIX_1
 #undef STANDARD_STARTFILE_PREFIX_2
 #define STANDARD_STARTFILE_PREFIX_1 "/tools/lib/"
 #define STANDARD_STARTFILE_PREFIX_2 ""' >> $file
-	  touch $file.orig
-	done
+    touch $file.orig
+  done
 
-	sed -i '/k prot/agcc_cv_libc_provides_ssp=yes' gcc/configure
+  sed -i '/k prot/agcc_cv_libc_provides_ssp=yes' gcc/configure
 
   mkdir ../$BUILD_DIRECTORY
   cd ../$BUILD_DIRECTORY
 
-	echo ".... Configuring $SOURCE_FILE_NAME"
+  echo ".... Configuring $SOURCE_FILE_NAME"
   ../gcc-5.2.0/configure                           \
     --target=$LFS_TGT                              \
     --prefix=/tools                                \
@@ -100,13 +100,13 @@ time {
     --disable-libvtv                               \
     --disable-libstdcxx                            \
     --enable-languages=c,c++                       \
-		&> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
-	make $PROCESSOR_CORES &> $LOG_FILE-make.log
+  echo ".... Making $SOURCE_FILE_NAME"
+  make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
-	make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
+  echo ".... Installing $SOURCE_FILE_NAME"
+  make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }
 
@@ -127,7 +127,7 @@ echo ""
 
 if [ $ERRORS_COUNTER -ne 0 ]
 then
-	exit 6
+  exit 6
 else
-	exit 0
+  exit 0
 fi

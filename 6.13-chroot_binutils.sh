@@ -11,9 +11,9 @@ echo "### Binutils-2.25.1"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	4m16.683s"
-echo "### user	2m31.605s"
-echo "### sys	  0m25.758s"
+echo "### real  4m16.683s"
+echo "### user  2m31.605s"
+echo "### sys   0m25.758s"
 echo "### ---------------------------"
 
 echo ""
@@ -52,11 +52,11 @@ time {
 
   echo ".... Pre-Configuring $SOURCE_FILE_NAME"
   if [ "$( expect -c 'spawn ls' | cat -v | tr -d '^M')" = "spawn ls"  ] ; then
-		echo "--> Success: expect -c 'spawn ls' succeeded"
-	else
-		echo "!! Fatal Error 10: expect -c 'spawn ls' not working"
-		exit 10
-	fi
+    echo "--> Success: expect -c 'spawn ls' succeeded"
+  else
+    echo "!! Fatal Error 10: expect -c 'spawn ls' not working"
+    exit 10
+  fi
 
   mkdir ../$BUILD_DIRECTORY
   cd ../$BUILD_DIRECTORY
@@ -68,13 +68,13 @@ time {
     --disable-werror           \
     &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make tooldir=/usr $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make -k check $PROCESSOR_CORES &> $LOG_FILE-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make tooldir=/usr install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }

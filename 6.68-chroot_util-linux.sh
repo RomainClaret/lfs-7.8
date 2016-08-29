@@ -11,9 +11,9 @@ echo "### Util-linux-2.27"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	1m59.422s"
-echo "### user	1m3.476s"
-echo "### sys	  0m11.521s"
+echo "### real  1m59.422s"
+echo "### user  1m3.476s"
+echo "### sys   0m11.521s"
 echo "### ---------------------------"
 
 echo ""
@@ -69,14 +69,14 @@ time {
     --without-systemdsystemunitdir          \
     &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   chown -Rv nobody .
   su nobody -s /bin/bash -c "PATH=$PATH make -k check" &> $LOG_FILE-make-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }

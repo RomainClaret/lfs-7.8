@@ -11,9 +11,9 @@ echo "### Procps-ng-3.3.11"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m19.122s"
-echo "### user	0m10.129s"
-echo "### sys	  0m1.972s"
+echo "### real  0m19.122s"
+echo "### user  0m10.129s"
+echo "### sys   0m1.972s"
 echo "### ---------------------------"
 
 echo ""
@@ -57,21 +57,21 @@ time {
     --docdir=/usr/share/doc/procps-ng-3.3.11 \
     --disable-static                         \
     --disable-kill                           \
-	  &> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
   sed -i -r 's|(pmap_initname)\\\$|\1|' testsuite/pmap.test/pmap.exp
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"
   mv -v /usr/lib/libprocps.so.* /lib
-	ln -sfv ../../lib/$(readlink /usr/lib/libprocps.so) /usr/lib/libprocps.so
+  ln -sfv ../../lib/$(readlink /usr/lib/libprocps.so) /usr/lib/libprocps.so
 
 }
 

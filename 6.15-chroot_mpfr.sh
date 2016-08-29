@@ -11,9 +11,9 @@ echo "### MPFR-3.1.3"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	1m52.472s"
-echo "### user	1m26.453s"
-echo "### sys	  0m7.604s"
+echo "### real  1m52.472s"
+echo "### user  1m26.453s"
+echo "### sys   0m7.604s"
 echo "### ---------------------------"
 
 echo ""
@@ -54,13 +54,13 @@ time {
 
   echo ".... Configuring $SOURCE_FILE_NAME"
   ./configure                          \
-    --prefix=/usr        			         \
-    --disable-static    			       	 \
-    --enable-thread-safe 				       \
+    --prefix=/usr                       \
+    --disable-static                    \
+    --enable-thread-safe                \
     --docdir=/usr/share/doc/mpfr-3.1.3 \
-	  &> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Making HTML $SOURCE_FILE_NAME"
@@ -69,7 +69,7 @@ time {
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Installing HTML $SOURCE_FILE_NAME"

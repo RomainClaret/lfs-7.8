@@ -11,9 +11,9 @@ echo "### MPC-1.0.3"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m58.857s"
-echo "### user	0m49.551s"
-echo "### sys	  0m2.904s"
+echo "### real  0m58.857s"
+echo "### user  0m49.551s"
+echo "### sys   0m2.904s"
 echo "### ---------------------------"
 
 echo ""
@@ -51,10 +51,10 @@ time {
 
   echo ".... Configuring $SOURCE_FILE_NAME"
   ./configure                         \
-    --prefix=/usr    		              \
-    --disable-static 					        \
+    --prefix=/usr                      \
+    --disable-static                   \
     --docdir=/usr/share/doc/mpc-1.0.3 \
-	  &> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
   echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log

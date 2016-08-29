@@ -11,9 +11,9 @@ echo "### Less-458"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m8.439s"
-echo "### user	0m5.524s"
-echo "### sys	  0m1.176s"
+echo "### real  0m8.439s"
+echo "### user  0m5.524s"
+echo "### sys   0m1.176s"
 echo "### ---------------------------"
 
 echo ""
@@ -55,10 +55,10 @@ time {
     --sysconfdir=/etc \
     &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }

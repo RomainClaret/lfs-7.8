@@ -11,9 +11,9 @@ echo "### Pkg-config-0.28"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m40.304s"
-echo "### user	0m25.534s"
-echo "### sys	  0m4.716s"
+echo "### real  0m40.304s"
+echo "### user  0m25.534s"
+echo "### sys   0m4.716s"
 echo "### ---------------------------"
 
 echo ""
@@ -55,15 +55,15 @@ time {
     --with-internal-glib                    \
     --disable-host-tool                     \
     --docdir=/usr/share/doc/pkg-config-0.28 \
-	  &> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }

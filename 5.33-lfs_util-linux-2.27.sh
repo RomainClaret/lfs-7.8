@@ -11,9 +11,9 @@ echo "### Util-linux-2.27"
 echo "### Must be run as \"lfs\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	1m39.585s"
-echo "### user	1m15.905s"
-echo "### sys	  0m9.337s"
+echo "### real  1m39.585s"
+echo "### user  1m15.905s"
+echo "### sys   0m9.337s"
 echo "### ---------------------------"
 
 echo ""
@@ -51,16 +51,16 @@ echo ""
 echo "... Installation starts now"
 time {
 
-	echo ".... Configuring $SOURCE_FILE_NAME"
+  echo ".... Configuring $SOURCE_FILE_NAME"
   ./configure                       \
     --prefix=/tools                 \
-    --without-python               	\
-    --disable-makeinstall-chown    	\
-    --without-systemdsystemunitdir 	\
-    PKG_CONFIG=""				           	\
-	  &> $LOG_FILE-configure.log
+    --without-python                 \
+    --disable-makeinstall-chown      \
+    --without-systemdsystemunitdir   \
+    PKG_CONFIG=""                     \
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Installing $SOURCE_FILE_NAME"
@@ -87,7 +87,7 @@ echo ""
 
 if [ $ERRORS_COUNTER -ne 0 ]
 then
-	exit 6
+  exit 6
 else
-	exit 0
+  exit 0
 fi

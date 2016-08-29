@@ -11,9 +11,9 @@ echo "### Glibc-2.22"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	39m22.875s"
-echo "### user	23m48.597s"
-echo "### sys	  4m40.822s"
+echo "### real  39m22.875s"
+echo "### user  23m48.597s"
+echo "### sys   4m40.822s"
 echo "### ---------------------------"
 
 echo ""
@@ -65,14 +65,14 @@ time {
     --enable-obsolete-rpc  \
     &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
   touch /etc/ld.so.conf
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"

@@ -11,9 +11,9 @@ echo "### Libstdc++-5.2.0"
 echo "### Must be run as \"lfs\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	1m9.437s"
-echo "### user	0m47.307s"
-echo "### sys	  0m7.916s"
+echo "### real  1m9.437s"
+echo "### user  0m47.307s"
+echo "### sys   0m7.916s"
 echo "### ---------------------------"
 
 echo ""
@@ -51,11 +51,11 @@ echo ""
 echo "... Installation starts now"
 time {
 
-	echo ".... Pre-Configuring"
-	mkdir ../$BUILD_DIRECTORY
-	cd ../$BUILD_DIRECTORY
+  echo ".... Pre-Configuring"
+  mkdir ../$BUILD_DIRECTORY
+  cd ../$BUILD_DIRECTORY
 
-	echo ".... Configuring $SOURCE_FILE_NAME"
+  echo ".... Configuring $SOURCE_FILE_NAME"
   ../gcc-5.2.0/libstdc++-v3/configure                        \
     --host=$LFS_TGT                                          \
     --prefix=/tools                                          \
@@ -64,13 +64,13 @@ time {
     --disable-libstdcxx-threads                              \
     --disable-libstdcxx-pch                                  \
     --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/5.2.0 \
-		&> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
-	make $PROCESSOR_CORES &> $LOG_FILE-make.log
+  echo ".... Making $SOURCE_FILE_NAME"
+  make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
-	make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
+  echo ".... Installing $SOURCE_FILE_NAME"
+  make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }
 
@@ -93,7 +93,7 @@ echo ""
 
 if [ $ERRORS_COUNTER -ne 0 ]
 then
-	exit 6
+  exit 6
 else
-	exit 0
+  exit 0
 fi

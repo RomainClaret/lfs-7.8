@@ -11,9 +11,9 @@ echo "### Binutils-2.25.1 - Pass 1"
 echo "### Must be run as \"lfs\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	2m51.460s"
-echo "### user	2m3.596s"
-echo "### sys	  0m15.765s"
+echo "### real  2m51.460s"
+echo "### user  2m3.596s"
+echo "### sys   0m15.765s"
 echo "### ---------------------------"
 
 echo ""
@@ -52,30 +52,30 @@ echo ""
 echo "... Installation starts now"
 time {
 
-	echo ".... Pre-Configuring"
-	mkdir ../$BUILD_DIRECTORY
-	cd ../$BUILD_DIRECTORY
+  echo ".... Pre-Configuring"
+  mkdir ../$BUILD_DIRECTORY
+  cd ../$BUILD_DIRECTORY
 
-	echo ".... Configuring $SOURCE_FILE_NAME"
-	../binutils-2.25.1/configure \
+  echo ".... Configuring $SOURCE_FILE_NAME"
+  ../binutils-2.25.1/configure \
     --prefix=/tools            \
     --with-sysroot=$LFS        \
     --with-lib-path=/tools/lib \
     --target=$LFS_TGT          \
     --disable-nls              \
     --disable-werror           \
-		&> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
-	make $PROCESSOR_CORES &> $LOG_FILE-make.log
+  echo ".... Making $SOURCE_FILE_NAME"
+  make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
-	case $(uname -m) in x86_64)
+  case $(uname -m) in x86_64)
     echo "---> 64bit architecture detected"
     mkdir /tools/lib && ln -sv lib /tools/lib64 ;;
-	esac
+  esac
 
-	echo ".... Installing $SOURCE_FILE_NAME"
-	make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
+  echo ".... Installing $SOURCE_FILE_NAME"
+  make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }
 
@@ -98,7 +98,7 @@ echo ""
 
 if [ $ERRORS_COUNTER -ne 0 ]
 then
-	exit 6
+  exit 6
 else
-	exit 0
+  exit 0
 fi

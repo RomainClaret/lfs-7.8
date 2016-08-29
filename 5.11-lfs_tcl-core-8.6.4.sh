@@ -11,9 +11,9 @@ echo "### Tcl-core-8.6.4"
 echo "### Must be run as \"lfs\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	4m35.511s"
-echo "### user	1m42.214s"
-echo "### sys	  0m8.909s"
+echo "### real  4m35.511s"
+echo "### user  1m42.214s"
+echo "### sys   0m8.909s"
 echo "### ---------------------------"
 
 echo ""
@@ -51,25 +51,25 @@ echo ""
 echo "... Installation starts now"
 time {
 
-	echo ".... Configuring $SOURCE_FILE_NAME"
+  echo ".... Configuring $SOURCE_FILE_NAME"
   cd unix
-	./configure       \
+  ./configure       \
     --prefix=/tools \
-		&> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
-	make $PROCESSOR_CORES &> $LOG_FILE-make.log
+  echo ".... Making $SOURCE_FILE_NAME"
+  make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Testing make $SOURCE_FILE_NAME"
   TZ=UTC make test $LFS_MAKE_FLAGS &> $LOG_FILE-make-test.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
-	make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
+  echo ".... Installing $SOURCE_FILE_NAME"
+  make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"
   chmod -v u+w /tools/lib/libtcl8.6.so &> $LOG_FILE-postinstall-chmod.log
-	make install-private-headers &> $LOG_FILE-postinstall-make-install-private-headers.log
-	ln -sv tclsh8.6 /tools/bin/tclsh &> $LOG_FILE-postinstall-symlink.log
+  make install-private-headers &> $LOG_FILE-postinstall-make-install-private-headers.log
+  ln -sv tclsh8.6 /tools/bin/tclsh &> $LOG_FILE-postinstall-symlink.log
 
 }
 
@@ -92,7 +92,7 @@ echo ""
 
 if [ $ERRORS_COUNTER -ne 0 ]
 then
-	exit 6
+  exit 6
 else
-	exit 0
+  exit 0
 fi

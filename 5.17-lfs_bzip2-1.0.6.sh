@@ -11,9 +11,9 @@ echo "### Bzip2-1.0.6"
 echo "### Must be run as \"lfs\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m5.134s"
-echo "### user	0m4.792s"
-echo "### sys	  0m0.196s"
+echo "### real  0m5.134s"
+echo "### user  0m4.792s"
+echo "### sys   0m0.196s"
 echo "### ---------------------------"
 
 echo ""
@@ -51,7 +51,7 @@ echo ""
 echo "... Installation starts now"
 time {
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Installing $SOURCE_FILE_NAME"
@@ -78,7 +78,7 @@ echo ""
 
 if [ $ERRORS_COUNTER -ne 0 ]
 then
-	exit 6
+  exit 6
 else
-	exit 0
+  exit 0
 fi

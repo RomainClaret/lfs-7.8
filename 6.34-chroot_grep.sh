@@ -11,9 +11,9 @@ echo "### Grep-2.21"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	1m15.588s"
-echo "### user	0m35.370s"
-echo "### sys	  0m10.529s"
+echo "### real  1m15.588s"
+echo "### user  0m35.370s"
+echo "### sys   0m10.529s"
 echo "### ---------------------------"
 
 echo ""
@@ -56,15 +56,15 @@ time {
   ./configure     \
     --prefix=/usr \
     --bindir=/bin \
-	  &> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }

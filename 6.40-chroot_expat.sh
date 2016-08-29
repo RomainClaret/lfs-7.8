@@ -11,9 +11,9 @@ echo "### Expat-2.1.0"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m9.042s"
-echo "### user	0m6.236s"
-echo "### sys	  0m0.756s"
+echo "### real  0m9.042s"
+echo "### user  0m6.236s"
+echo "### sys   0m0.756s"
 echo "### ---------------------------"
 
 echo ""
@@ -56,18 +56,18 @@ time {
     --disable-static  \
     &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"
   install -v -dm755 /usr/share/doc/expat-2.1.0 &> $LOG_FILE-install-1.log
-	install -v -m644 doc/*.{html,png,css} /usr/share/doc/expat-2.1.0 &> $LOG_FILE-install-2.log
+  install -v -m644 doc/*.{html,png,css} /usr/share/doc/expat-2.1.0 &> $LOG_FILE-install-2.log
 
 }
 

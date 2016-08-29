@@ -11,9 +11,9 @@ echo "### Xz-5.2.1"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m44.997s"
-echo "### user	0m29.454s"
-echo "### sys	  0m4.652s"
+echo "### real  0m44.997s"
+echo "### user  0m29.454s"
+echo "### sys   0m4.652s"
 echo "### ---------------------------"
 
 echo ""
@@ -56,19 +56,19 @@ time {
     --docdir=/usr/share/doc/xz-5.2.1  \
     &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"
   mv -v /usr/bin/{lzma,unlzma,lzcat,xz,unxz,xzcat} /bin
-	mv -v /usr/lib/liblzma.so.* /lib
-	ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so
+  mv -v /usr/lib/liblzma.so.* /lib
+  ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so
 
 }
 

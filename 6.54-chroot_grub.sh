@@ -11,9 +11,9 @@ echo "### GRUB-2.02~beta2"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	1m55.334s"
-echo "### user	1m8.972s"
-echo "### sys	  0m14.765s"
+echo "### real  1m55.334s"
+echo "### user  1m8.972s"
+echo "### sys   0m14.765s"
 echo "### ---------------------------"
 
 echo ""
@@ -63,10 +63,10 @@ time {
     --disable-werror       \
     &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }

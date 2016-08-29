@@ -11,9 +11,9 @@ echo "### Linux-4.2 API Headers"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m12.034s"
-echo "### user	0m2.124s"
-echo "### sys	  0m0.948s"
+echo "### real  0m12.034s"
+echo "### user  0m2.124s"
+echo "### sys   0m0.948s"
 echo "### ---------------------------"
 
 echo ""
@@ -51,19 +51,19 @@ time {
 
   echo ".... Pre-Configuring"
   touch /var/log/{btmp,lastlog,wtmp}
-	chgrp -v utmp /var/log/lastlog
-	chmod -v 664 /var/log/lastlog
-	chmod -v 600 /var/log/btmp
+  chgrp -v utmp /var/log/lastlog
+  chmod -v 664 /var/log/lastlog
+  chmod -v 600 /var/log/btmp
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make mrproper $PROCESSOR_CORES &> $LOG_FILE-make.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make INSTALL_HDR_PATH=dest headers_install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"
   find dest/include \( -name .install -o -name ..install.cmd \) -delete &> $LOG_FILE-find.log
-	cp -rv dest/include/* /usr/include &> $LOG_FILE-cp.log
+  cp -rv dest/include/* /usr/include &> $LOG_FILE-cp.log
 
 }
 

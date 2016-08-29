@@ -11,9 +11,9 @@ echo "### Kmod-18"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m11.055s"
-echo "### user	0m6.392s"
-echo "### sys	  0m1.188s"
+echo "### real  0m11.055s"
+echo "### user  0m6.392s"
+echo "### sys   0m1.188s"
 echo "### ---------------------------"
 
 echo ""
@@ -59,17 +59,17 @@ time {
     --with-zlib            \
     &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"
   for target in depmod insmod modinfo modprobe rmmod; do
-	  ln -sv ../bin/kmod /sbin/$target
-	done
-	ln -sv kmod /bin/lsmod
+    ln -sv ../bin/kmod /sbin/$target
+  done
+  ln -sv kmod /bin/lsmod
 
 }
 

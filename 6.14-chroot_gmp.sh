@@ -11,9 +11,9 @@ echo "### GMP-6.0.0a"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	6m16.739s"
-echo "### user	2m45.610s"
-echo "### sys	  0m15.489s"
+echo "### real  6m16.739s"
+echo "### user  2m45.610s"
+echo "### sys   0m15.489s"
 echo "### ---------------------------"
 
 echo ""
@@ -52,11 +52,11 @@ time {
   echo ".... Configuring $SOURCE_FILE_NAME"
   ./configure                          \
     --prefix=/usr                      \
-	  --enable-cxx                       \
-	  --docdir=/usr/share/doc/gmp-6.0.0a \
-	  &> $LOG_FILE-configure.log
+    --enable-cxx                       \
+    --docdir=/usr/share/doc/gmp-6.0.0a \
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Making HTML $SOURCE_FILE_NAME"
@@ -75,7 +75,7 @@ time {
   read -p "Enter to confirm" -n 1 -r
   echo ""
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Installing HTML $SOURCE_FILE_NAME"

@@ -11,9 +11,9 @@ echo "### Libcap-2.24"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m1.282s"
-echo "### user	0m0.844s"
-echo "### sys	  0m0.164s"
+echo "### real  0m1.282s"
+echo "### user  0m0.844s"
+echo "### sys   0m0.164s"
 echo "### ---------------------------"
 
 echo ""
@@ -52,16 +52,16 @@ time {
   echo ".... Pre-Configuring $SOURCE_FILE_NAME"
   sed -i '/install.*STALIBNAME/d' libcap/Makefile
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make RAISE_SETFCAP=no prefix=/usr install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"
   chmod -v 755 /usr/lib/libcap.so
-	mv -v /usr/lib/libcap.so.* /lib
-	ln -sfv ../../lib/$(readlink /usr/lib/libcap.so) /usr/lib/libcap.so
+  mv -v /usr/lib/libcap.so.* /lib
+  ln -sfv ../../lib/$(readlink /usr/lib/libcap.so) /usr/lib/libcap.so
 
 }
 

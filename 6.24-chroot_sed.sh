@@ -11,9 +11,9 @@ echo "### Sed-4.2.2"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m23.935s"
-echo "### user	0m11.557s"
-echo "### sys	  0m3.400s"
+echo "### real  0m23.935s"
+echo "### user  0m11.557s"
+echo "### sys   0m3.400s"
 echo "### ---------------------------"
 
 echo ""
@@ -54,9 +54,9 @@ time {
     --prefix=/usr                      \
     --bindir=/bin                      \
     --htmldir=/usr/share/doc/sed-4.2.2 \
-	  &> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Making HTML $SOURCE_FILE_NAME"
@@ -65,7 +65,7 @@ time {
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Installing HTML $SOURCE_FILE_NAME"

@@ -11,9 +11,9 @@ echo "### Linux-4.2 API Headers"
 echo "### Must be run as \"lfs\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m12.862s"
-echo "### user	0m2.440s"
-echo "### sys	  0m1.356s"
+echo "### real  0m12.862s"
+echo "### user  0m2.440s"
+echo "### sys   0m1.356s"
 echo "### ---------------------------"
 
 echo ""
@@ -51,10 +51,10 @@ echo ""
 echo "... Installation starts now"
 time {
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make mrproper $PROCESSOR_CORES &> $LOG_FILE-make-mrproper.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make INSTALL_HDR_PATH=dest headers_install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"
@@ -79,7 +79,7 @@ echo ""
 
 if [ $ERRORS_COUNTER -ne 0 ]
 then
-	exit 6
+  exit 6
 else
-	exit 0
+  exit 0
 fi

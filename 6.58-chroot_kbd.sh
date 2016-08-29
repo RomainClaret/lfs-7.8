@@ -11,9 +11,9 @@ echo "### Kbd-2.0.3"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m13.376s"
-echo "### user	0m6.580s"
-echo "### sys	  0m1.416s"
+echo "### real  0m13.376s"
+echo "### user  0m6.580s"
+echo "### sys   0m1.416s"
 echo "### ---------------------------"
 
 echo ""
@@ -51,27 +51,27 @@ time {
 
   echo ".... Pre-Configuring $SOURCE_FILE_NAME"
   patch -Np1 -i ../kbd-2.0.3-backspace-1.patch &> $LOG_FILE-patch.log
-	sed -i 's/\(RESIZECONS_PROGS=\)yes/\1no/g' configure
-	sed -i 's/resizecons.8 //' docs/man/man8/Makefile.in
+  sed -i 's/\(RESIZECONS_PROGS=\)yes/\1no/g' configure
+  sed -i 's/resizecons.8 //' docs/man/man8/Makefile.in
 
   echo ".... Configuring $SOURCE_FILE_NAME"
   PKG_CONFIG_PATH=/tools/lib/pkgconfig ./configure \
-		--prefix=/usr 	                               \
-		--disable-vlock                                \
+    --prefix=/usr                                  \
+    --disable-vlock                                \
     &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"
   mkdir -v /usr/share/doc/kbd-2.0.3
-	cp -R -v docs/doc/* /usr/share/doc/kbd-2.0.3 &> $LOG_FILE-post-install.log
+  cp -R -v docs/doc/* /usr/share/doc/kbd-2.0.3 &> $LOG_FILE-post-install.log
 
 }
 

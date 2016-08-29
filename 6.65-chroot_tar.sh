@@ -11,9 +11,9 @@ echo "### Tar-1.28"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	3m54.081s"
-echo "### user	0m42.091s"
-echo "### sys	  0m9.593s"
+echo "### real  3m54.081s"
+echo "### user  0m42.091s"
+echo "### sys   0m9.593s"
 echo "### ---------------------------"
 
 echo ""
@@ -55,13 +55,13 @@ time {
     --bindir=/bin                       \
     &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"

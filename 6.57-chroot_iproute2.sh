@@ -11,9 +11,9 @@ echo "### IPRoute2-3.19.0"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m20.651s"
-echo "### user	0m17.321s"
-echo "### sys	  0m2.092s"
+echo "### real  0m20.651s"
+echo "### user  0m17.321s"
+echo "### sys   0m2.092s"
 echo "### ---------------------------"
 
 echo ""
@@ -51,13 +51,13 @@ time {
 
   echo ".... Pre-Configuring $SOURCE_FILE_NAME"
   sed -i '/^TARGETS/s@arpd@@g' misc/Makefile
-	sed -i /ARPD/d Makefile
-	sed -i 's/arpd.8//' man/man8/Makefile
+  sed -i /ARPD/d Makefile
+  sed -i 's/arpd.8//' man/man8/Makefile
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make DOCDIR=/usr/share/doc/iproute2-4.2.0 install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }

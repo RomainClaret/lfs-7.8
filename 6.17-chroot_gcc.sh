@@ -11,9 +11,9 @@ echo "### GCC-5.2.0"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	235m26.724s ~= 4h"
-echo "### user	212m30.493s"
-echo "### sys	  22m7.003s"
+echo "### real  235m26.724s ~= 4h"
+echo "### user  212m30.493s"
+echo "### sys   22m7.003s"
 echo "### ---------------------------"
 
 echo ""
@@ -56,23 +56,23 @@ time {
 
   echo ".... Configuring $SOURCE_FILE_NAME"
   SED=sed                     \
-	../gcc-5.2.0/configure      \
+  ../gcc-5.2.0/configure      \
     --prefix=/usr             \
     --enable-languages=c,c++  \
     --disable-multilib        \
     --disable-bootstrap       \
     --with-system-zlib        \
-	  &> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   ulimit -s 32768
-	make -k check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
-	../gcc-4.9.2/contrib/test_summary &> $LOG_FILE-test-summary.log
+  make -k check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
+  ../gcc-4.9.2/contrib/test_summary &> $LOG_FILE-test-summary.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"

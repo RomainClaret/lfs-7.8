@@ -11,9 +11,9 @@ echo "### GCC-5.2.0 - Pass 2"
 echo "### Must be run as \"lfs\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	35m31.326s"
-echo "### user	30m40.039s"
-echo "### sys	  2m16.097s"
+echo "### real  35m31.326s"
+echo "### user  30m40.039s"
+echo "### sys   2m16.097s"
 echo "### ---------------------------"
 
 echo ""
@@ -51,53 +51,53 @@ echo ""
 echo "... Installation starts now"
 time {
 
-	echo ".... Pre-Configuring"
+  echo ".... Pre-Configuring"
   cat gcc/limitx.h gcc/glimits.h gcc/limity.h > `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/include-fixed/limits.h
   for file in \
-	 $(find gcc/config -name linux64.h -o -name linux.h -o -name sysv4.h)
-	do
-	  cp -uv $file{,.orig}
-	  sed -e 's@/lib\(64\)\?\(32\)\?/ld@/tools&@g' \
-		  -e 's@/usr@/tools@g' $file.orig > $file
-	  echo '
+   $(find gcc/config -name linux64.h -o -name linux.h -o -name sysv4.h)
+  do
+    cp -uv $file{,.orig}
+    sed -e 's@/lib\(64\)\?\(32\)\?/ld@/tools&@g' \
+      -e 's@/usr@/tools@g' $file.orig > $file
+    echo '
 #undef STANDARD_STARTFILE_PREFIX_1
 #undef STANDARD_STARTFILE_PREFIX_2
 #define STANDARD_STARTFILE_PREFIX_1 "/tools/lib/"
 #define STANDARD_STARTFILE_PREFIX_2 ""' >> $file
-	  touch $file.orig
-	done
+    touch $file.orig
+  done
 
-	tar -xf ../mpfr-3.1.3.tar.xz
-	mv -v mpfr-3.1.3 mpfr
-	tar -xf ../gmp-6.0.0a.tar.xz
-	mv -v gmp-6.0.0 gmp
-	tar -xf ../mpc-1.0.3.tar.gz
-	mv -v mpc-1.0.3 mpc
+  tar -xf ../mpfr-3.1.3.tar.xz
+  mv -v mpfr-3.1.3 mpfr
+  tar -xf ../gmp-6.0.0a.tar.xz
+  mv -v gmp-6.0.0 gmp
+  tar -xf ../mpc-1.0.3.tar.gz
+  mv -v mpc-1.0.3 mpc
 
-	mkdir ../$BUILD_DIRECTORY
-	cd ../$BUILD_DIRECTORY
+  mkdir ../$BUILD_DIRECTORY
+  cd ../$BUILD_DIRECTORY
 
-	echo ".... Configuring $SOURCE_FILE_NAME"
+  echo ".... Configuring $SOURCE_FILE_NAME"
   CC=$LFS_TGT-gcc                                  \
-	CXX=$LFS_TGT-g++                                 \
-	AR=$LFS_TGT-ar                                   \
-	RANLIB=$LFS_TGT-ranlib                           \
-	../gcc-5.2.0/configure                           \
-		--prefix=/tools                                \
-		--with-local-prefix=/tools                     \
-		--with-native-system-header-dir=/tools/include \
-		--enable-languages=c,c++                       \
-		--disable-libstdcxx-pch                        \
-		--disable-multilib                             \
-		--disable-bootstrap                            \
-		--disable-libgomp								\
-		&> $LOG_FILE-configure.log
+  CXX=$LFS_TGT-g++                                 \
+  AR=$LFS_TGT-ar                                   \
+  RANLIB=$LFS_TGT-ranlib                           \
+  ../gcc-5.2.0/configure                           \
+    --prefix=/tools                                \
+    --with-local-prefix=/tools                     \
+    --with-native-system-header-dir=/tools/include \
+    --enable-languages=c,c++                       \
+    --disable-libstdcxx-pch                        \
+    --disable-multilib                             \
+    --disable-bootstrap                            \
+    --disable-libgomp                \
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
-	make $PROCESSOR_CORES &> $LOG_FILE-make.log
+  echo ".... Making $SOURCE_FILE_NAME"
+  make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
-	make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
+  echo ".... Installing $SOURCE_FILE_NAME"
+  make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"
   ln -sv gcc /tools/bin/cc &> $LOG_FILE-make-symlink-for-gcc.log
@@ -138,7 +138,7 @@ echo ""
 
 if [ $ERRORS_COUNTER -ne 0 ]
 then
-	exit 6
+  exit 6
 else
-	exit 0
+  exit 0
 fi

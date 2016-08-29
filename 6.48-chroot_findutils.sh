@@ -11,9 +11,9 @@ echo "### Findutils-4.4.2"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	0m45.738s"
-echo "### user	0m15.889s"
-echo "### sys	  0m5.108s"
+echo "### real  0m45.738s"
+echo "### user  0m15.889s"
+echo "### sys   0m5.108s"
 echo "### ---------------------------"
 
 echo ""
@@ -55,18 +55,18 @@ time {
     --localstatedir=/var/lib/locate \
     &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
   echo ".... Post-Installing $SOURCE_FILE_NAME"
   mv -v /usr/bin/find /bin &> $LOG_FILE-post-install.log
-	sed -i 's|find:=${BINDIR}|find:=/bin|' /usr/bin/updatedb &>> $LOG_FILE-post-install.log
+  sed -i 's|find:=${BINDIR}|find:=/bin|' /usr/bin/updatedb &>> $LOG_FILE-post-install.log
 
 }
 

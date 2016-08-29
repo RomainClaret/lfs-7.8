@@ -11,9 +11,9 @@ echo "### Libtool-2.4.6"
 echo "### Must be run as \"chroot\" user"
 echo ""
 echo "### Time estimate:"
-echo "### real	4m42.085s"
-echo "### user	2m4.744s"
-echo "### sys	  0m28.162s"
+echo "### real  4m42.085s"
+echo "### user  2m4.744s"
+echo "### sys   0m28.162s"
 echo "### ---------------------------"
 
 echo ""
@@ -52,15 +52,15 @@ time {
   echo ".... Configuring $SOURCE_FILE_NAME"
   ./configure     \
     --prefix=/usr \
-	  &> $LOG_FILE-configure.log
+    &> $LOG_FILE-configure.log
 
-	echo ".... Making $SOURCE_FILE_NAME"
+  echo ".... Making $SOURCE_FILE_NAME"
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Make Checking $SOURCE_FILE_NAME"
   make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
-	echo ".... Installing $SOURCE_FILE_NAME"
+  echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log
 
 }
