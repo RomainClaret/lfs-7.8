@@ -59,7 +59,7 @@ if [ -h $LFS_MOUNT/dev/shm ]; then
   mkdir -pv $LFS_MOUNT/$(readlink $LFS_MOUNT/dev/shm) &>> $LOG_FILE
 fi
 
-get_build_errors_mnt_lfs
+get_build_errors_6_host
 
 echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"

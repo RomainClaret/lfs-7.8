@@ -267,12 +267,12 @@ function get_build_errors_mnt_lfs
   WARNINGS_COUNTER=0
   ERRORS_COUNTER=0
 
-  WARNINGS_COUNTER=$(grep -n " [Ww]arnings*:* " $LFS_BUILD_LOGS_MNT* | wc -l)
-  ERRORS_COUNTER=$(grep -n " [Ee]rrors*:* \|^FAIL:" $LFS_BUILD_LOGS_MNT* | wc -l)
+  WARNINGS_COUNTER=$(grep -n " [Ww]arnings*:* " $LFS_BUILD_LOGS_6_HOST* | wc -l)
+  ERRORS_COUNTER=$(grep -n " [Ee]rrors*:* \|^FAIL:" $LFS_BUILD_LOGS_6_HOST* | wc -l)
 
   if [ $ERRORS_COUNTER -ne 0 ]; then
     echo "!! Info: Until now you had $ERRORS_COUNTER errors, however they are not all critical. Crtical errors are displayed below:"
-    grep -n " [Ee]rrors*:* \|^FAIL:" $LFS_BUILD_LOGS_MNT* | grep -v ""
+    grep -n " [Ee]rrors*:* \|^FAIL:" $LFS_BUILD_LOGS_6_HOST* | grep -v ""
     echo "--> If any error, please check on http://www.linuxfromscratch.org/lfs/build-logs for comparaison."
   else
     echo "---> Congrats you have no errors."
