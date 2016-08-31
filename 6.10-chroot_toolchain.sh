@@ -64,8 +64,11 @@ time {
 
   echo ""
   echo "ABOVE should be the same output than below"
-  echo "32bit: [Requesting program interpreter: /lib/ld-linux.so.2]"
-  echo "64bit: [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]"
+  case $(uname -m) in x86_64)
+    echo "64bit: [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]" ;;
+  *)
+    echo "32bit: [Requesting program interpreter: /lib/ld-linux.so.2]" ;;
+  esac
   echo ""
   echo -e "\a"
   read -p "Enter to confirm" -n 1 -r
@@ -75,14 +78,17 @@ time {
 
   echo ""
   echo "ABOVE should be the same output than below"
-  echo "32bit:"
-  echo "### /usr/lib/crt1.o succeeded"
-  echo "### /usr/lib/crti.o succeeded"
-  echo "### /usr/lib/crtn.o succeeded"
-  echo "64bit:"
-  echo "### /usr/lib/../lib64/crt1.o succeeded"
-  echo "### /usr/lib/../lib64/crti.o succeeded"
-  echo "### /usr/lib/../lib64/crtn.o succeeded"
+  case $(uname -m) in x86_64)
+    echo "64bit:"
+    echo "### /usr/lib/../lib64/crt1.o succeeded"
+    echo "### /usr/lib/../lib64/crti.o succeeded"
+    echo "### /usr/lib/../lib64/crtn.o succeeded" ;;
+  *)
+    echo "32bit:"
+    echo "### /usr/lib/crt1.o succeeded"
+    echo "### /usr/lib/crti.o succeeded"
+    echo "### /usr/lib/crtn.o succeeded" ;;
+  esac
   echo ""
   echo -e "\a"
   read -p "Enter to confirm" -n 1 -r
@@ -103,16 +109,19 @@ time {
 
   echo ""
   echo "ABOVE should be the same output than below"
-  echo "32bit:"
-  echo '### SEARCH_DIR("=/tools/i686-pc-linux-gnu/lib32")'
-  echo '### SEARCH_DIR("/usr/lib")'
-  echo '### SEARCH_DIR("/lib");'
-  echo '### SEARCH_DIR("/tools/i686-pc-linux-gnu/lib")'
-  echo "64bit:"
-  echo '### SEARCH_DIR("=/tools/x86_64-unknown-linux-gnu/lib64")'
-  echo '### SEARCH_DIR("/usr/lib")'
-  echo '### SEARCH_DIR("/lib")'
-  echo '### SEARCH_DIR("=/tools/x86_64-unknown-linux-gnu/lib");'
+  case $(uname -m) in x86_64)
+    echo "64bit:"
+    echo '### SEARCH_DIR("=/tools/x86_64-unknown-linux-gnu/lib64")'
+    echo '### SEARCH_DIR("/usr/lib")'
+    echo '### SEARCH_DIR("/lib")'
+    echo '### SEARCH_DIR("=/tools/x86_64-unknown-linux-gnu/lib");' ;;
+  *)
+    echo "32bit:"
+    echo '### SEARCH_DIR("=/tools/i686-pc-linux-gnu/lib32")'
+    echo '### SEARCH_DIR("/usr/lib")'
+    echo '### SEARCH_DIR("/lib");'
+    echo '### SEARCH_DIR("/tools/i686-pc-linux-gnu/lib")' ;;
+  esac
   echo ""
   echo -e "\a"
   read -p "Enter to confirm" -n 1 -r
@@ -122,8 +131,11 @@ time {
 
   echo ""
   echo "ABOVE should be the same output than below"
-  echo "32bit: attempt to open /lib/libc.so.6 succeeded"
-  echo "64bit: attempt to open /lib64/libc.so.6 succeeded"
+  case $(uname -m) in x86_64)
+    echo "32bit: attempt to open /lib/libc.so.6 succeeded" ;;
+    *)
+    echo "64bit: attempt to open /lib64/libc.so.6 succeeded" ;;
+  esac
   echo ""
   echo -e "\a"
   read -p "Enter to confirm" -n 1 -r
@@ -133,8 +145,11 @@ time {
 
   echo ""
   echo "ABOVE should be the same output than below"
-  echo "32bit: found ld-linux.so.2 at /lib/ld-linux.so.2"
-  echo "64bit: found ld-linux-x86-64.so.2 at /lib64/ld-linux-x86-64.so.2"
+  case $(uname -m) in x86_64)
+    echo "32bit: found ld-linux.so.2 at /lib/ld-linux.so.2" ;;
+  *)
+    echo "64bit: found ld-linux-x86-64.so.2 at /lib64/ld-linux-x86-64.so.2" ;;
+  esac
   echo ""
   echo -e "\a"
   read -p "Enter to confirm" -n 1 -r

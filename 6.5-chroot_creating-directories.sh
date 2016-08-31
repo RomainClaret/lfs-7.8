@@ -49,11 +49,10 @@ mkdir -pv /usr/{,local/}share/man/man{1..8} &>> $LOG_FILE
 
 echo "" &>> $LOG_FILE
 echo "... Processing for x86_64 processors" &>> $LOG_FILE
-case $(uname -m) in
-x86_64) ln -sv lib /lib64
+case $(uname -m) in x86_64)
+  ln -sv lib /lib64 &>> $LOG_FILE
   ln -sv lib /usr/lib64 &>> $LOG_FILE
-  ln -sv lib /usr/local/lib64 &>> $LOG_FILE
-  ;;
+  ln -sv lib /usr/local/lib64 &>> $LOG_FILE ;;
 esac
 
 echo "" &>> $LOG_FILE

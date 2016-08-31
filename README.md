@@ -10,7 +10,7 @@ Running all the steps until the reboot of 9.3 will give a running LFS on your ho
 
 ## License
 
-Automated LFS 7.8 by [Romain Claret](http://www.romainclaret.com) is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+Automated LFS 7.8 by [Romain Claret](http://romainclaret.com) is licensed under a MIT License.
 
 ## Instructions
 The raport can be found in french at the root of this repo: Instructions_FR.pdf.

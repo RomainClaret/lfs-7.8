@@ -118,8 +118,11 @@ readelf -l a.out | grep ': /tools'
 
 echo ""
 echo "ABOVE should be without errors and with the same output than below"
-echo "32bit: [Requesting program interpreter: /tools/lib/ld-linux.so.2]"
-echo "64bit: [Requesting program interpreter: /tools/lib64/ld-linux-x86-64.so.2]"
+case $(uname -m) in x86_64)
+  echo "64bit: [Requesting program interpreter: /tools/lib64/ld-linux-x86-64.so.2]" ;;
+*)
+  echo "32bit: [Requesting program interpreter: /tools/lib/ld-linux.so.2]" ;;
+esac
 echo ""
 echo -e "\a"
 read -p "Enter to confirm" -n 1 -r
