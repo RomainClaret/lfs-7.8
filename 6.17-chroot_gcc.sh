@@ -87,6 +87,13 @@ echo ".... Sanity Checking"
 
 echo 'int main(){}' > dummy.c
 cc dummy.c -v -Wl,--verbose &> dummy.log
+
+echo ""
+echo "It was a long ride, please, human, come back and follow the steps"
+echo ""
+echo -e "\a"
+read -p "Enter to confirm" -n 1 -r
+echo ""
 readelf -l a.out | grep ': /lib'
 
 echo ""
@@ -109,7 +116,6 @@ echo "### /usr/lib/gcc/i686-pc-linux-gnu/5.2.0/../../../crtn.o succeeded"
 echo "64bit:"
 echo "### /usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../lib64/crt1.o succeeded"
 echo "### /usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../lib64/crti.o succeeded"
-echo "### /usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../lib64/crtn.o succeeded"
 echo ""
 echo -e "\a"
 read -p "Enter to confirm" -n 1 -r

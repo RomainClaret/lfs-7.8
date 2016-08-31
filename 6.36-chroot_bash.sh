@@ -84,7 +84,7 @@ echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next steps:"
 echo "### cd /root/lfs"
-echo "### ./6.37-chroot_bc.sh"
+echo "### ./6.all-part-4-chroot_installing-basic-system.sh"
 echo ""
 
 exec /bin/bash --login +h
