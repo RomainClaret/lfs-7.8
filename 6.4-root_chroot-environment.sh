@@ -34,7 +34,7 @@ is_user root
 echo ""
 echo "... Entering the Chroot Environment"
 rm -rf $LFS_MOUNT_TOOLS/lfs
-cp -r /root/lfs-7.8 $LFS_MOUNT_TOOLS/lfs
+cp -r $(pwd) $LFS_MOUNT_TOOLS/lfs
 
 echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
@@ -42,10 +42,6 @@ echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "--> Note that the bash prompt will say \"I have no name!\" This is normal because the /etc/passwd file has not been created yet."
 echo "### Please run the next steps if you are on Debian:"
 echo "### cd /tools/lfs"
-echo "### ./6.all-part-2-chroot_installing-basic-system.sh"
-echo ""
-echo "### Please run the next steps if you are on Ubuntu:"
-echo "### cd /tools"
 echo "### ./6.all-part-2-chroot_installing-basic-system.sh"
 echo ""
 
