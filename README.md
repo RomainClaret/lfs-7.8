@@ -26,7 +26,7 @@ https://www.virtualbox.org
 - Core: 1
 - Ram: 12GB
 - Host HDD: 40GB
-- LFS HDD: 20BG (recommended 10GB by LFS 7.8)
+- LFS HDD: 20BG (recommended 10GB by LFS 7.8) !! it's a second HDD different from the Host HDD !!
 
 ## How to start?
 - Clone the repo on your freshly installed debian

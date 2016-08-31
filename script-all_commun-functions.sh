@@ -172,12 +172,14 @@ function check_tools
   if [ $( readlink -f /bin/sh ) != "/bin/bash"   ]
   then
     echo "!! Fatal Error 3: /bin/sh is not symlinked to /bin/bash"
+    echo "sudo rm /bin/sh && sudo ln -s /bin/bash /bin/sh"
     exit 3
   fi
 
   if [ $( readlink -f /usr/bin/awk ) != "/usr/bin/gawk"   ]
   then
     echo "!! Fatal Error 3: /usr/bin/awk is not symlinked to /usr/bin/gawk"
+    echo "sudo rm /usr/bin/awk && sudo ln -s /usr/bin/gawk /usr/bin/awk"
     exit 3
   fi
 
@@ -190,6 +192,7 @@ function check_tools
   if [ $( readlink -f /usr/bin/yacc ) != "/usr/bin/bison.yacc"   ]
   then
     echo "!! Fatal Error 3: /usr/bin/yacc is not symlinked to /usr/bin/bison.yacc"
+    echo "sudo rm /usr/bin/yacc && sudo ln -s /usr/bin/bison.yacc /usr/bin/yacc"
     exit 3
   fi
 

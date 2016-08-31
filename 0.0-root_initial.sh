@@ -34,6 +34,7 @@ sh script-root_version-check.sh
 echo ""
 echo "... Validating required libraries"
 sh script-root_library-check.sh
+echo "libgmp.la, libmpfr.la, and libmpc.la Either all three should be present or absent, but not only one or two. If the problem exists on your system, either rename or delete the .la files or install the appropriate missing package."
 echo ""
 echo "... Updating environment"
 rm -f /etc/motd
