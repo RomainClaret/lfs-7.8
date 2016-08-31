@@ -37,12 +37,11 @@ https://www.virtualbox.org
   - auto-pilot
     - ./all-root_auto-pilot.sh
   - semi-auto-pilot
-    - ./2.all-root_make-new-partitions.sh
-    - ./3.all-root_packages-patches.sh
-    - ./4.all-root_final-preparations.sh
+    - ./2.all-root_make-new-partitions.sh !! READ steps and interact !!
     - ./5.all-lfs_construct-tools.sh
     - ./6.all-part-1-root_installing-basic-system.sh
     - ./6.all-part-2-chroot_installing-basic-system.sh
+    - ./6.all-part-3-chroot_installing-basic-system.sh
     - ./7.all-chroot_configuration_bootscripts.sh
     - ./8.all-chroot_make-bootable.sh
   - sequential (script per script)

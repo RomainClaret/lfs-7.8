@@ -59,7 +59,8 @@ then
   echo "... Backup folder is healthy, tranfert of $LFS_BACKUPS to $LFS_MOUNT/sources"
   cp -r $LFS_BACKUPS/* $LFS_MOUNT/sources
 else
-  echo "... Backup folder is unhealthy or incomplete, reset and download of packages"
+  echo "... Backup folder is unhealthy or incomplete"
+  echo ".... Reset and Download of required packages"
   wget -nc $LFS_OFFICIAL_78_PACKAGES_LIST -P $LFS_MOUNT/sources
   wget -nc $LFS_OFFICIAL_78_PACKAGES_MD5 -P $LFS_MOUNT/sources
   wget -nc -i $LFS_MOUNT/sources/wget-list -P $LFS_MOUNT/sources

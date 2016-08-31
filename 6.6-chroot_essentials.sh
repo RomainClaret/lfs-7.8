@@ -87,7 +87,7 @@ echo ""
 echo "######### END OF CHAPTER 6.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
-echo "### ./6.7-chroot_api-headers.sh"
+echo "### ./6.all-part-3-chroot_installing-basic-system.sh"
 echo ""
 
 exec /tools/bin/bash --login +h
