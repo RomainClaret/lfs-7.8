@@ -262,7 +262,7 @@ function get_build_errors_5
   fi
 }
 
-function get_build_errors_mnt_lfs
+function get_build_errors_6_host
 {
   WARNINGS_COUNTER=0
   ERRORS_COUNTER=0
