@@ -59,6 +59,7 @@ function self_check
   chmod +x 6.all-part-1-root_installing-basic-system.sh
   chmod +x 6.all-part-2-chroot_installing-basic-system.sh
   chmod +x 6.all-part-3-chroot_installing-basic-system.sh
+  chmod +x 6.all-part-4-chroot_installing-basic-system.sh
   chmod +x 6.2-root_preparing-virtual-kernel.sh
   chmod +x 6.4-root_chroot-environment.sh
   chmod +x 6.5-chroot_creating-directories.sh
