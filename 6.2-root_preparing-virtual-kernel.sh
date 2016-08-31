@@ -34,10 +34,10 @@ is_user root
 
 echo ""
 echo "... Setting up the environment"
-LOG_FILE=$LFS_BUILD_LOGS_6$CHAPTER_SECTION-$INSTALL_NAME
+LOG_FILE=$LFS_BUILD_LOGS_6_HOST$CHAPTER_SECTION-$INSTALL_NAME
 
 echo ""
-echo "... Preparing Virtual Kernel File Systems" &> $LOG_FILE
+echo "... Preparing Virtual Kernel File Systems" | tee $LOG_FILE
 mkdir -pv $LFS_MOUNT/{dev,proc,sys,run} &>> $LOG_FILE
 
 echo "... Creating Initial Device Nodes" | tee -a $LOG_FILE
