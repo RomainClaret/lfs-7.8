@@ -48,17 +48,17 @@ https://www.virtualbox.org
     - ./2.3-root_create-files-system-on-partitions.sh
     - Instead of **./5.all-lfs_construct-tools.sh**
       - ./5.3-lfs_check-tools.sh
-    - Instead of 6.all-part-1-chroot_installing-basic-system.sh
+    - Instead of **6.all-part-1-chroot_installing-basic-system.sh**
       - ./6.2-root_preparing-virtual-kernel.sh
-    - Instead of 6.all-part-2-chroot_installing-basic-system.sh
+    - Instead of **6.all-part-2-chroot_installing-basic-system.sh**
       - ./6.5-chroot_creating-directories.sh
-    - Instead of 6.all-part-3-chroot_installing-basic-system.sh
+    - Instead of **6.all-part-3-chroot_installing-basic-system.sh**
       - ./6.7-chroot_api-headers.sh
-    - Instead of 6.all-part-4-chroot_installing-basic-system.sh
+    - Instead of **6.all-part-4-chroot_installing-basic-system.sh**
       - ./6.37-chroot_bc.sh
-    - Instead of 7.all-chroot_configuration_bootscripts.sh
+    - Instead of **7.all-chroot_configuration_bootscripts.sh**
     - ./7.2-chroot_bootscripts.sh
-    - Instead of 8.all-chroot_make-bootable.sh
+    - Instead of **8.all-chroot_make-bootable.sh**
     - ./8.2-chroot_etc-fstab.sh
 
 ## Tips:
