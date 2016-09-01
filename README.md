@@ -64,6 +64,8 @@ https://www.virtualbox.org
 ## Tips:
 - Do snapshots often!
   - I recommend minimum at the end of each chapter
+- You can customize your LFS
+  - Change the variables in **script-all_commun-variables**
 
 ## I love pull requests :)
 If you find bugs or if you want to create a branch for the 7.9 or 7.10 LFS versions, I would be happy to :)

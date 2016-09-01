@@ -39,13 +39,10 @@ cd /sources
 check_tarball_uniqueness
 extract_tarball
 cd $(ls -d /sources/$INSTALL_NAME*/)
+echo ""
+echo "... Cleaning up the kernel tree"
+make mrproper $PROCESSOR_CORES &> $LOG_FILE-make-mrproper.log
 
-time
-{
-  echo ""
-  echo "... Cleaning up the kernel tree"
-  make mrproper $PROCESSOR_CORES &> $LOG_FILE-make-mrproper.log
-}
 echo ""
 echo "######### END OF CHAPTER 8.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
