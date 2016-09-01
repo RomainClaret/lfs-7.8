@@ -34,32 +34,32 @@ https://www.virtualbox.org
 - Give the permission rights to the first file (**chmod +x 0.0-root_initial.sh**)
 - Run the first file (**./0.0-root_initial.sh**)
 - Then you have the options to go
-  - Auto-Pilot (not recommended if first use) !! READ steps and interact !!
-    - ./all-root_auto-pilot.sh
-  - Semi-Auto-Pilot (not recommended if first time use) !! READ steps and interact !!
-    - ./2.all-root_make-new-partitions.sh
-    - ./5.all-lfs_construct-tools.sh
-    - ./6.all-part-1-root_installing-basic-system.sh
-    - ./6.all-part-2-chroot_installing-basic-system.sh
-    - ./6.all-part-3-chroot_installing-basic-system.sh
-    - ./7.all-chroot_configuration_bootscripts.sh
-    - ./8.all-chroot_make-bootable.sh
-  - Sequential (recommended if first use) ignore when a file has "all" in it and check next script below. Please: !! READ steps and interact !!
-    - ./2.3-root_create-files-system-on-partitions.sh
-    - Instead of **./5.all-lfs_construct-tools.sh**
-      - ./5.3-lfs_check-tools.sh
-    - Instead of **6.all-part-1-chroot_installing-basic-system.sh**
-      - ./6.2-root_preparing-virtual-kernel.sh
-    - Instead of **6.all-part-2-chroot_installing-basic-system.sh**
-      - ./6.5-chroot_creating-directories.sh
-    - Instead of **6.all-part-3-chroot_installing-basic-system.sh**
-      - ./6.7-chroot_api-headers.sh
-    - Instead of **6.all-part-4-chroot_installing-basic-system.sh**
-      - ./6.37-chroot_bc.sh
-    - Instead of **7.all-chroot_configuration_bootscripts.sh**
-      - ./7.2-chroot_bootscripts.sh
-    - Instead of **8.all-chroot_make-bootable.sh**
-      - ./8.2-chroot_etc-fstab.sh
+  - **Auto-Pilot** (not recommended if first use) !! READ steps and interact !!
+    - **./all-root_auto-pilot.sh**
+  - **Semi-Auto-Pilot** (not recommended if first time use) !! READ steps and interact !!
+    - **./2.all-root_make-new-partitions.sh**
+    - **./5.all-lfs_construct-tools.sh**
+    - **./6.all-part-1-root_installing-basic-system.sh**
+    - **./6.all-part-2-chroot_installing-basic-system.sh**
+    - **./6.all-part-3-chroot_installing-basic-system.sh**
+    - **./7.all-chroot_configuration_bootscripts.sh**
+    - **./8.all-chroot_make-bootable.sh**
+  - **Sequential** (recommended if first use) ignore when a file has "all" in it and check next script below. Please: !! READ steps and interact !!
+    - **./2.3-root_create-files-system-on-partitions.sh**
+    - Instead of *./5.all-lfs_construct-tools.sh*
+      - **./5.3-lfs_check-tools.sh**
+    - Instead of *6.all-part-1-chroot_installing-basic-system.sh*
+      - **./6.2-root_preparing-virtual-kernel.sh**
+    - Instead of *6.all-part-2-chroot_installing-basic-system.sh*
+      - **./6.5-chroot_creating-directories.sh**
+    - Instead of *6.all-part-3-chroot_installing-basic-system.sh*
+      - **./6.7-chroot_api-headers.sh**
+    - Instead of *6.all-part-4-chroot_installing-basic-system.sh*
+      - **./6.37-chroot_bc.sh**
+    - Instead of *7.all-chroot_configuration_bootscripts.sh*
+      - **./7.2-chroot_bootscripts.sh**
+    - Instead of *8.all-chroot_make-bootable.sh*
+      - **./8.2-chroot_etc-fstab.sh**
 
 ## Tips:
 - Do snapshots often!
