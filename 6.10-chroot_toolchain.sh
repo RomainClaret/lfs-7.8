@@ -132,9 +132,9 @@ time {
   echo ""
   echo "ABOVE should be the same output than below"
   case $(uname -m) in x86_64)
-    echo "32bit: attempt to open /lib/libc.so.6 succeeded" ;;
-    *)
     echo "64bit: attempt to open /lib64/libc.so.6 succeeded" ;;
+    *)
+    echo "32bit: attempt to open /lib/libc.so.6 succeeded" ;;
   esac
   echo ""
   echo -e "\a"
@@ -146,9 +146,9 @@ time {
   echo ""
   echo "ABOVE should be the same output than below"
   case $(uname -m) in x86_64)
-    echo "32bit: found ld-linux.so.2 at /lib/ld-linux.so.2" ;;
-  *)
     echo "64bit: found ld-linux-x86-64.so.2 at /lib64/ld-linux-x86-64.so.2" ;;
+  *)
+    echo "32bit: found ld-linux.so.2 at /lib/ld-linux.so.2" ;;
   esac
   echo ""
   echo -e "\a"
