@@ -31,8 +31,8 @@ https://www.virtualbox.org
 ## How to start?
 - Clone the repo
 - Go to the folder (default: lfs-7.8)
-- Give the permission rights to the first file (chmod +x 0.0-root_initial.sh)
-- Run the first file (./0.0-root_initial.sh)
+- Give the permission rights to the first file (**chmod +x 0.0-root_initial.sh**)
+- Run the first file (**./0.0-root_initial.sh**)
 - Then you have the options to go
   - Auto-Pilot (not recommended if first use) !! READ steps and interact !!
     - ./all-root_auto-pilot.sh
@@ -57,9 +57,9 @@ https://www.virtualbox.org
     - Instead of **6.all-part-4-chroot_installing-basic-system.sh**
       - ./6.37-chroot_bc.sh
     - Instead of **7.all-chroot_configuration_bootscripts.sh**
-    - ./7.2-chroot_bootscripts.sh
+      - ./7.2-chroot_bootscripts.sh
     - Instead of **8.all-chroot_make-bootable.sh**
-    - ./8.2-chroot_etc-fstab.sh
+      - ./8.2-chroot_etc-fstab.sh
 
 ## Tips:
 - Do snapshots often!
