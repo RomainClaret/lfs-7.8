@@ -254,15 +254,19 @@ function get_build_errors_5
 
   if [ $ERRORS_COUNTER -ne 0 ]; then
     echo "!! Info: Known errors and not critical:"
-    echo "Chapters 5.5, 5.7, 5.12, 5.14, 5.15, 5.16, 5.30"
+    echo "Chapters 5.5, 5.7, 5.12, 5.14, 5.15, 5.16, 5.18, 5.19, 5.24, 5.26, 5.30"
     echo ""
     echo "!! Info: Until now you had $ERRORS_COUNTER errors, however they are not all critical. Crtical errors are displayed below:"
-    grep -n " [Ee]rrors*:* \|^FAIL:" $LFS_BUILD_LOGS_5* | grep -v "_5_5\|_5_7\|_5_12\|_5_14\|_5_15\|_5_16\|_6_30"
+    grep -n " [Ee]rrors*:* \|^FAIL:" $LFS_BUILD_LOGS_5* | grep -v "_5_5\|_5_7\|_5_12\|_5_14\|_5_15\|_5_16\|_5_18\|_5_19\|_5_24\|_5_26\|_5_30"
     echo "--> If any error, please check on http://www.linuxfromscratch.org/lfs/build-logs for comparaison."
   else
     echo "---> Congrats you have no errors."
   fi
 }
+# 5.19: https://lists.gnu.org/archive/html/bug-grep/2016-01/msg00033.html
+# 5.24: https://lists.gnu.org/archive/html/bug-grep/2016-01/msg00034.html
+# 5.26: https://lists.gnu.org/archive/html/bug-grep/2016-01/msg00033.html
+
 
 function get_build_errors_6_host
 {

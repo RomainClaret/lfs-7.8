@@ -60,7 +60,7 @@ time {
   make $PROCESSOR_CORES &> $LOG_FILE-make.log
 
   echo ".... Checking make $SOURCE_FILE_NAME"
-  ake check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
+  make check $PROCESSOR_CORES &> $LOG_FILE-make-check.log
 
   echo ".... Installing $SOURCE_FILE_NAME"
   make install $PROCESSOR_CORES &> $LOG_FILE-make-install.log

@@ -75,7 +75,7 @@ echo "######### END OF CHAPTER 8.$CHAPTER_SECTION ########"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "!! Info: At this point it's safe to delete /sources if you wish"
 echo "### Please run the next steps:"
-echo "### ./9.1-chroot_the-end.sh"
+echo "### ./8.4-chroot_grub.sh"
 echo ""
 
 

@@ -3,7 +3,7 @@ echo ""
 echo "### --------------------------"
 echo "###      AUTO-PILOTE       ###"
 echo "###    RUN ALL CHAPTERS    ###"
-echo "### Run all chapter 2"
+echo "### Auto Pilote all chapters"
 echo "### Must be run as \"root\""
 echo "### --------------------------"
 echo ""
@@ -31,8 +31,11 @@ is_user root
 ./4.all-root_final-preparations.sh
 ./5.all-lfs_construct-tools.sh
 ./6.all-part-1-root_installing-basic-system.sh
+./6.all-part-2-root_installing-basic-system.sh
+./6.all-part-3-root_installing-basic-system.sh
+./6.all-part-4-root_installing-basic-system.sh
 ./7.all-chroot_configuration_bootscripts.sh
 ./8.all-chroot_make-bootable.sh
 
 echo ""
-echo "####### END OF CHAPTER 2.ALL #######"
+echo "####### END OF AUTO-PILOTE ALL CHAPTERS #######"

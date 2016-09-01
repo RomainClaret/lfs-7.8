@@ -75,7 +75,7 @@ echo "### Warning Counter: $WARNINGS_COUNTER"
 echo "### Error Counter: $ERRORS_COUNTER"
 echo "///// HUMAN REQUIRED \\\\\\\\\\\\\\\\\\\\"
 echo "### Please run the next step:"
-echo "### exit until you are back to root on ~/lfs-7.8"
+echo "### exit until you are back on the git repo lfs-7.8"
 echo "### ./5.36-root_changing-ownership.sh"
 echo ""
 
