@@ -46,8 +46,8 @@ https://www.virtualbox.org
     - ./8.all-chroot_make-bootable.sh
   - Sequential (recommended if first use) ignore when a file has "all" in it and check next script below. Please: !! READ steps and interact !!
     - ./2.3-root_create-files-system-on-partitions.sh
-      - Instead of ./5.all-lfs_construct-tools.sh
-    - ./5.3-lfs_check-tools.sh
+    - Instead of **./5.all-lfs_construct-tools.sh**
+      - ./5.3-lfs_check-tools.sh
     - Instead of 6.all-part-1-chroot_installing-basic-system.sh
       - ./6.2-root_preparing-virtual-kernel.sh
     - Instead of 6.all-part-2-chroot_installing-basic-system.sh
