@@ -13,10 +13,10 @@ Running all the steps until the reboot of 9.3 will give a running LFS on your ho
 Automated LFS 7.8 by [Romain Claret](http://romainclaret.com) is licensed under a MIT License.
 
 ## Instructions
-The raport can be found in french at the root of this repo: Instructions_FR.pdf.
-There will be an english version Markdown soon... soon... (I don't know when to be honest, but one day!)
+Detailed intructions can be found in french in the miscellaneous folder: Instructions_FR.pdf.
+There will be an english version soon... soon... (I don't know when to be honest, but one day!)
 
-However, note that all the instructions in the scripts themselves are in english. So... If it's alright with you... I don't think you need my report to be translated right away..
+However, note that all the instructions in the scripts themselves are in english. So... If it's alright with you... I don't think you need the details to be translated right away...
 
 ## I used virtualbox:
 https://www.virtualbox.org
@@ -29,7 +29,7 @@ https://www.virtualbox.org
 - LFS HDD: 20BG (recommended 10GB by LFS 7.8) !! it's a second HDD different from the Host HDD !!
 
 ## How to start?
-- Clone the repo on your freshly installed debian
+- Clone the repo
 - Go to the folder (default: lfs-7.8)
 - Give the permission rights to the first file (chmod +x 0.0-root_initial.sh)
 - Run the first file (./0.0-root_initial.sh)
@@ -60,3 +60,4 @@ https://www.virtualbox.org
   - I recommend minimum at end of each chapter
 
 ## I love pull requests :)
+If you find bugs or if you want to create a branch for the 7.9 or 7.10 LFS versions, i would be happy to :)

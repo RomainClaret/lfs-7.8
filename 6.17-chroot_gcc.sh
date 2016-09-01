@@ -99,9 +99,9 @@ readelf -l a.out | grep ': /lib'
 echo ""
 echo "ABOVE should be the same output than below"
 case $(uname -m) in x86_64)
-  echo "32bit: [Requesting program interpreter: /lib/ld-linux.so.2]" ;;
-*)
   echo "64bit: [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]" ;;
+*)
+  echo "32bit: [Requesting program interpreter: /lib/ld-linux.so.2]" ;;
 esac
 echo ""
 echo -e "\a"
@@ -113,14 +113,15 @@ grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log
 echo ""
 echo "ABOVE should be the same output than below"
 case $(uname -m) in x86_64)
+  echo "64bit:"
+  echo "### /usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../lib64/crt1.o succeeded"
+  echo "### /usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../lib64/crti.o succeeded"
+  echo "### /usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../lib64/crti.o succeeded" ;;
+*)
   echo "32bit:"
   echo "### /usr/lib/gcc/i686-pc-linux-gnu/5.2.0/../../../crt1.o succeeded"
   echo "### /usr/lib/gcc/i686-pc-linux-gnu/5.2.0/../../../crti.o succeeded"
   echo "### /usr/lib/gcc/i686-pc-linux-gnu/5.2.0/../../../crtn.o succeeded" ;;
-*)
-  echo "64bit:"
-  echo "### /usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../lib64/crt1.o succeeded"
-  echo "### /usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/../../../lib64/crti.o succeeded" ;;
 esac
 echo ""
 echo -e "\a"
@@ -132,18 +133,18 @@ grep -B4 '^ /usr/include' dummy.log
 echo ""
 echo "ABOVE should be the same output than below"
 case $(uname -m) in x86_64)
-  echo "32bit:"
-  echo "### #include <...> search starts here:"
-  echo "### /usr/lib/gcc/i686-pc-linux-gnu/5.2.0/include"
-  echo "### /usr/local/include"
-  echo "### /usr/lib/gcc/i686-pc-linux-gnu/5.2.0/include-fixed"
-  echo "### /usr/include" ;;
-*)
   echo "64bit:"
   echo "### #include <...> search starts here:"
   echo "### /usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/include"
   echo "### /usr/local/include"
   echo "### /usr/lib/gcc/x86_64-unknown-linux-gnu/5.2.0/include-fixed"
+  echo "### /usr/include" ;;
+*)
+  echo "32bit:"
+  echo "### #include <...> search starts here:"
+  echo "### /usr/lib/gcc/i686-pc-linux-gnu/5.2.0/include"
+  echo "### /usr/local/include"
+  echo "### /usr/lib/gcc/i686-pc-linux-gnu/5.2.0/include-fixed"
   echo "### /usr/include" ;;
 esac
 echo ""
@@ -156,16 +157,6 @@ grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'
 echo ""
 echo "ABOVE should be the same output than below"
 case $(uname -m) in x86_64)
-  echo "32bit:"
-  echo 'SEARCH_DIR("/usr/i686-pc-linux-gnu/lib32")'
-  echo 'SEARCH_DIR("/usr/local/lib32")'
-  echo 'SEARCH_DIR("/lib32")'
-  echo 'SEARCH_DIR("/usr/lib32")'
-  echo 'SEARCH_DIR("/usr/i686-pc-linux-gnu/lib")'
-  echo 'SEARCH_DIR("/usr/local/lib")'
-  echo 'SEARCH_DIR("/lib")'
-  echo 'SEARCH_DIR("/usr/lib");' ;;
-*)
   echo "64bit:"
   echo '### SEARCH_DIR("/usr/x86_64-unknown-linux-gnu/lib64")'
   echo '### SEARCH_DIR("/usr/local/lib64")'
@@ -175,6 +166,16 @@ case $(uname -m) in x86_64)
   echo '### SEARCH_DIR("/usr/local/lib")'
   echo '### SEARCH_DIR("/lib")'
   echo '### SEARCH_DIR("/usr/lib");' ;;
+*)
+  echo "32bit:"
+  echo 'SEARCH_DIR("/usr/i686-pc-linux-gnu/lib32")'
+  echo 'SEARCH_DIR("/usr/local/lib32")'
+  echo 'SEARCH_DIR("/lib32")'
+  echo 'SEARCH_DIR("/usr/lib32")'
+  echo 'SEARCH_DIR("/usr/i686-pc-linux-gnu/lib")'
+  echo 'SEARCH_DIR("/usr/local/lib")'
+  echo 'SEARCH_DIR("/lib")'
+  echo 'SEARCH_DIR("/usr/lib");' ;;
 esac
 echo ""
 echo -e "\a"
@@ -186,9 +187,9 @@ grep "/lib.*/libc.so.6 " dummy.log
 echo ""
 echo "ABOVE should be the same output than below"
 case $(uname -m) in x86_64)
-  echo "32bit: attempt to open /lib/libc.so.6 succeeded" ;;
-*)
   echo "64bit: attempt to open /lib64/libc.so.6 succeeded" ;;
+*)
+  echo "32bit: attempt to open /lib/libc.so.6 succeeded" ;;
 esac
 echo ""
 echo -e "\a"
@@ -200,9 +201,9 @@ grep found dummy.log
 echo ""
 echo "ABOVE should be the same output than below"
 case $(uname -m) in x86_64)
-  echo "32bit: found ld-linux.so.2 at /lib/ld-linux.so.2" ;;
-*)
   echo "64bit: found ld-linux-x86-64.so.2 at /lib64/ld-linux-x86-64.so.2" ;;
+*)
+  echo "32bit: found ld-linux.so.2 at /lib/ld-linux.so.2" ;;
 esac
 echo ""
 echo -e "\a"
