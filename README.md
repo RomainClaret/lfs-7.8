@@ -11,7 +11,7 @@ Running all the steps until the reboot of 9.3 will give a running LFS on your ho
 ## License
 
 Based on Automated LFS 7.8 by [Romain Claret](http://romainclaret.com) is licensed under MIT License.
-Forked and updated by [Pierres-Yves Paranthoën] same licensing conditions.
+Forked and updated by [Pierre-Yves Paranthoën](https://github.com/pyp22) same licensing conditions.
 
 ## Instructions
 Detailed instructions can be found in French in the miscellaneous folder: Instructions_FR.pdf.
