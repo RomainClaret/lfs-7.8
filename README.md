@@ -68,4 +68,4 @@ https://www.virtualbox.org
   - Change the variables in **script-all_commun-variables**
 
 ## I love pull requests :)
-If you find bugs or if you want to create a branch for the 7.9 or 7.10 LFS versions, I would be happy to :)
+If you find bugs or if you want to create a branch for the 8.1 LFS versions, I would be happy to :)
