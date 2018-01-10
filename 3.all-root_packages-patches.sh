@@ -29,7 +29,7 @@ check_partitions
 is_user root
 if [ $( readlink -f /bin/sh ) != "/bin/bash" ]
 then
-  echo "!! Fatal Error 3: /bin/sh is not symlinked to /bin/bash"
+  echo "'\033[0;31m'!! Fatal Error 3: /bin/sh is not symlinked to /bin/bash'\033[0m'"
   exit 3
 fi
 
@@ -61,13 +61,20 @@ then
 else
   echo "... Backup folder is unhealthy or incomplete"
   echo ".... Reset and Download of required packages"
-  wget -nc $LFS_OFFICIAL_78_PACKAGES_LIST -P $LFS_MOUNT/sources
-  wget -nc $LFS_OFFICIAL_78_PACKAGES_MD5 -P $LFS_MOUNT/sources
-  wget -nc -i $LFS_MOUNT/sources/wget-list -P $LFS_MOUNT/sources
+# Uncomment following 2 lines to use official LFS wget-list & md5sums files
+#  wget -nc $LFS_OFFICIAL_78_PACKAGES_LIST -P $LFS_MOUNT/sources
+#  wget -nc $LFS_OFFICIAL_78_PACKAGES_MD5 -P $LFS_MOUNT/sources
+
+# Comment following 2 lines if previous 2 lines have been commented out.
+# Use of local updated wget-list & md5sums files. Official ones got broken links
+  cp -av ./md5sums $LFS_MOUNT/sources
+  cp -av ./wget-list $LFS_MOUNT/sources
+
+  wget -nc -i $LFS_MOUNT/sources/wget-list -P $LFS_MOUNT/sources --rejected-log=$LFS_MOUNT/sources/packagesNOTFOUND
   echo "... Backing up the sources to $LFS_BACKUPS"
   rm -rf $LFS_BACKUPS
   mkdir -p $LFS_BACKUPS
-  cp -r $LFS_MOUNT/sources/* $LFS_BACKUPS
+  cp -rv $LFS_MOUNT/sources/* $LFS_BACKUPS
 fi
 
 echo ""

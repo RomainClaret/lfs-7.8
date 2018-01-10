@@ -67,7 +67,7 @@ c2d6b127f89261513b23b6d458484099  udev-lfs-20140408.tar.bz2
 607e135c559be642f210094ad023dc65  vim-7.4.tar.bz2
 af4813fe3952362451201ced6fbce379  XML-Parser-2.44.tar.gz
 b5e2dd95dc8498cea5354377ed89aa65  xz-5.2.1.tar.xz
-28f1205d8dd2001f26fec1e8c2cebe37  zlib-1.2.11.tar.xz
+85adef240c5f370b308da8c938951a68  zlib-1.2.11.tar.xz
 fd2d7ca532f9ea53d678a6bc79354681  bash-4.3.30-upstream_fixes-2.patch
 877e81fba316fe487ec23501059d54b8  bc-1.06.95-memory_leak-1.patch
 6a5ac7e89b791aae556de0f745916f7f  bzip2-1.0.6-install_docs-1.patch
