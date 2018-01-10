@@ -14,7 +14,7 @@ Based on Automated LFS 7.8 by [Romain Claret](http://romainclaret.com) is licens
 Forked and updated by [Pierre-Yves Paranthoën](https://github.com/pyp22) same licensing conditions.
 
 ## Instructions
-Detailed instructions can be found in French in the miscellaneous folder: Instructions_FR.pdf.
+Detailed instructions can be found in French in the miscellaneous folder: [Instructions_FR.pdf](https://github.com/pyp22/lfs-7.8/blob/master/miscellaneous/Automated%20LFS%2078%20Presentation.pdf).
 There will be an English version soon... soon... (I don't know when, to be honest, but one day!)
 
 However, note that all the instructions in the scripts themselves are in English. So... If it's alright with you... I don't think you need the details to be translated right away...
